@@ -1,8 +1,6 @@
 # Empire_Of_Azeitanaro
 
 ## 🌐 Portfólio
-
-Acesse meu portfólio para outros projetos e informações:  
 [Olive Studios Portfolio](https://sites.google.com/edu.unifil.br/olive-studios?usp=sharing)
 
 ---
