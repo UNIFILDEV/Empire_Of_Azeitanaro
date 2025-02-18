@@ -1,5 +1,6 @@
-[gd_scene load_steps=72 format=3 uid="uid://b5mat2ba4k1hs"]
+[gd_scene load_steps=74 format=3 uid="uid://b5mat2ba4k1hs"]
 
+[ext_resource type="Script" path="res://sceness/player/player.gd" id="1_gfbwn"]
 [ext_resource type="Texture2D" uid="uid://c2l47q202yr1v" path="res://assets/player/Attack 2 Recover.png" id="1_waflx"]
 [ext_resource type="Texture2D" uid="uid://eicn85xc7nvi" path="res://assets/player/Attack 1.png" id="1_xa800"]
 [ext_resource type="Texture2D" uid="uid://cehtogb076quk" path="res://assets/player/Combat Ready Idle.png" id="1_xaeqo"]
@@ -11,8 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://4vleopocakn7" path="res://assets/player/Walk.png" id="9_ki6go"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cthvc"]
-radius = 9.0
-height = 26.0
+radius = 6.0
+height = 18.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1lt0"]
 atlas = ExtResource("1_waflx")
@@ -482,16 +483,28 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox85v"]
+size = Vector2(639.5, 40)
 
-[node name="Collision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-2, 1)
+[node name="World" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_gfbwn")
+
+[node name="Collision" type="CollisionShape2D" parent="Player"]
+position = Vector2(11, 17)
 shape = SubResource("CapsuleShape2D_cthvc")
 
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(12, 13)
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(13, 11)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
 animation = &"idle"
-frame_progress = 0.531181
+autoplay = "idle"
+frame_progress = 0.473218
 speed_scale = 1.4
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(319.25, 298)
+shape = SubResource("RectangleShape2D_ox85v")
