@@ -19,10 +19,10 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=640
 window/size/viewport_height=320
-window/size/mode=2
 window/stretch/mode="viewport"
-window/stretch/scale=1.1
+window/stretch/scale=0.5
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=3
+textures/canvas_textures/default_texture_filter=0
+viewport/canvas_textures/default_texture_filter=0
