@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 230.0
-const JUMP_VELOCITY = -320.0
+const SPEED = 225.0
+const JUMP_VELOCITY = -275.0
 var is_jumping = false
 var is_falling = false
 
@@ -33,14 +33,14 @@ func _physics_process(delta):
 			animation.play("run")
 		elif is_jumping:
 			animation.play("jumping")
-			if is_falling:
-				animation.play("falling")
+		if is_falling:
+			animation.play("falling")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animation.play("idle")
 		if is_jumping:
 			animation.play("jumping")
-			if is_falling:
-				animation.play("falling")
+		if is_falling:
+			animation.play("falling")
 
 	move_and_slide()
