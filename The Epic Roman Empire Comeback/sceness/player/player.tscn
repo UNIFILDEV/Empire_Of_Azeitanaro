@@ -495,3 +495,5 @@ sprite_frames = SubResource("SpriteFrames_7bv1g")
 animation = &"idle"
 frame_progress = 0.531181
 speed_scale = 1.4
+
+[node name="Camera2D" type="Camera2D" parent="."]
