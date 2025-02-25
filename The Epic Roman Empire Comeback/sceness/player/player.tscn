@@ -1,5 +1,6 @@
-[gd_scene load_steps=72 format=3 uid="uid://b5mat2ba4k1hs"]
+[gd_scene load_steps=73 format=3 uid="uid://b5mat2ba4k1hs"]
 
+[ext_resource type="Script" path="res://sceness/player/player.gd" id="1_vhyya"]
 [ext_resource type="Texture2D" uid="uid://c2l47q202yr1v" path="res://assets/player/Attack 2 Recover.png" id="1_waflx"]
 [ext_resource type="Texture2D" uid="uid://eicn85xc7nvi" path="res://assets/player/Attack 1.png" id="1_xa800"]
 [ext_resource type="Texture2D" uid="uid://cehtogb076quk" path="res://assets/player/Combat Ready Idle.png" id="1_xaeqo"]
@@ -483,14 +484,13 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_vhyya")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-2, 1)
 shape = SubResource("CapsuleShape2D_cthvc")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(12, 13)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
 animation = &"idle"
 frame_progress = 0.531181
