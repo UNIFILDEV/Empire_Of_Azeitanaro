@@ -496,6 +496,7 @@ visible = false
 zoom = Vector2(3, 3)
 limit_left = -70
 limit_right = 1100
+limit_bottom = 302
 position_smoothing_speed = 20.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
