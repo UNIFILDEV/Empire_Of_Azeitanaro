@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://4vleopocakn7" path="res://assets/player/Walk.png" id="9_ki6go"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_767f0"]
-size = Vector2(11, 10)
+size = Vector2(11, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1lt0"]
 atlas = ExtResource("1_waflx")
@@ -487,7 +487,7 @@ scale = Vector2(1.5, 1.5)
 script = ExtResource("1_vhyya")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, -3.66667)
 shape = SubResource("RectangleShape2D_767f0")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
@@ -498,5 +498,8 @@ frame_progress = 0.801353
 speed_scale = 1.4
 
 [node name="AttackTimer" type="Timer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.25, 1.25)
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
