@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://dn126o387drmc"]
+
+[ext_resource type="Texture2D" uid="uid://ddrx87s67vv85" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/slime_purple.png" id="1_45qno"]
+[ext_resource type="Script" path="res://slime.gd" id="2_6jarb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7rk7"]
+atlas = ExtResource("1_45qno")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aihx8"]
+atlas = ExtResource("1_45qno")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ja3u"]
+atlas = ExtResource("1_45qno")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts2ac"]
+atlas = ExtResource("1_45qno")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3msb"]
+atlas = ExtResource("1_45qno")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs122"]
+atlas = ExtResource("1_45qno")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lh5d"]
+atlas = ExtResource("1_45qno")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc4of"]
+atlas = ExtResource("1_45qno")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5igu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7rk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aihx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ja3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts2ac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3msb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs122")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lh5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tc4of")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cxuf6"]
+radius = 7.0
+height = 22.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_u5igu")
+autoplay = "default"
+frame_progress = 0.382567
+script = ExtResource("2_6jarb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_cxuf6")

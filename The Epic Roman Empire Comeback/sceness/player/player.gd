@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: float = 250.0
-@export var acceleration: float = 800.0
+@export var acceleration: float = 2000.0
 @export var friction: float = 2400.0
 @export var jump_velocity: float = -300.0
 @export var gravity: float = 800.0
@@ -10,10 +10,18 @@ extends CharacterBody2D
 @onready var attack_timer = $AttackTimer
 
 var attacking = false  # Flag para saber se o jogador está atacando
+#mexendo
+var damage: int = 1;
+#
 
 func _physics_process(delta):
+	var collision = move_and_collide(velocity * delta);
 	if not is_on_floor():
 		velocity.y += gravity * delta
+	
+	#if collision and collision.get_collider().is_in_group("monsters"):
+		#var monster = collision.get_collider()
+		#monster.take_damage(damage)  # Aplica o dano ao monstro
 
 	# Se estiver atacando, não permite movimentação
 	if attacking:
