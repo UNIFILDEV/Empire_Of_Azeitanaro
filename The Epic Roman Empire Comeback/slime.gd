@@ -12,12 +12,10 @@ func _addGroup() -> void:
 func _process(delta: float) -> void:
 	pass
 	#mexendo a partir daqui
-var health: int = 5;
+var health: int = 1;
 
 func take_damage(damage: int) -> void:
 	health -= damage
 	if health <= 0:
-		queue_free()
-
-
+		queue_free();
 	
