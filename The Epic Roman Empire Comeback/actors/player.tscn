@@ -493,7 +493,7 @@ shape = SubResource("CapsuleShape2D_cthvc")
 
 [node name="Camera" type="Camera2D" parent="."]
 visible = false
-zoom = Vector2(3, 3)
+zoom = Vector2(2.9, 2.9)
 limit_left = -70
 limit_right = 1100
 limit_bottom = 302
