@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cpcs5t7wfl3hw"]
+[gd_scene load_steps=17 format=3 uid="uid://cpcs5t7wfl3hw"]
 
 [ext_resource type="PackedScene" uid="uid://b5mat2ba4k1hs" path="res://sceness/player/player.tscn" id="1_0vt4y"]
 [ext_resource type="Texture2D" uid="uid://dtto1hloij0c2" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_uhcpd"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bgcdjaspbw5p1" path="res://assets/trees/Building/Decor_Roof_01.png" id="6_t4gb1"]
 [ext_resource type="PackedScene" uid="uid://dlvxvnmxke8ov" path="res://moving_platform.tscn" id="8_sg5a6"]
 [ext_resource type="PackedScene" uid="uid://cjpx2v63ymbaj" path="res://area_2d.tscn" id="9_w30cn"]
+[ext_resource type="PackedScene" uid="uid://d0nwybi7t3pnl" path="res://item-fruit.tscn" id="10_1axco"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a77v6"]
 texture = ExtResource("2_uhcpd")
@@ -341,11 +342,11 @@ layer_0/tile_data = PackedInt32Array(131070, 589825, 0, 131071, 589825, 0, 65536
 rotation = 6.28319
 tile_set = SubResource("TileSet_jkwq5")
 format = 2
-layer_0/tile_data = PackedInt32Array(-65518, 131075, 0, -3080198, 196614, 2, -3080197, 262150, 2, 327724, 3, 2, 917550, 3, 0, 917551, 65539, 0, 917552, 131075, 0, 917549, 131075, 0)
+layer_0/tile_data = PackedInt32Array(-3080198, 196614, 2, -3080197, 262150, 2)
 
 [node name="GameBackground1" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(672, -48)
+position = Vector2(665, -41)
 texture = ExtResource("5_dge85")
 
 [node name="AnimatedSprite2D" parent="." instance=ExtResource("6_0ybff")]
@@ -354,10 +355,15 @@ position = Vector2(661, 116)
 [node name="moving_platform" parent="." instance=ExtResource("8_sg5a6")]
 position = Vector2(1009, 266)
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="coins" type="Node2D" parent="."]
 
-[node name="items" parent="Node2D" instance=ExtResource("9_w30cn")]
-position = Vector2(168, 2)
+[node name="items" parent="coins" instance=ExtResource("9_w30cn")]
+position = Vector2(187, 4)
 
-[node name="items2" parent="Node2D" instance=ExtResource("9_w30cn")]
-position = Vector2(209, 3)
+[node name="items2" parent="coins" instance=ExtResource("9_w30cn")]
+position = Vector2(752, 238)
+
+[node name="fruits" type="Node2D" parent="."]
+
+[node name="items" parent="fruits" instance=ExtResource("10_1axco")]
+position = Vector2(353, -9)
