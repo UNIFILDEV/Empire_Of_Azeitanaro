@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float = 250.0
 @export var acceleration: float = 800.0
-@export var friction: float = 2400.0
+@export var friction: float = 4000
 @export var jump_velocity: float = -300.0
 @export var gravity: float = 800.0
 
@@ -10,13 +10,18 @@ extends CharacterBody2D
 @onready var attack_timer = $AttackTimer
 
 var attacking = false  # Flag para saber se o jogador está atacando
+var air_control_factor: float = 0.5  # Controla o quanto o jogador pode se mover no ar
 
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Se estiver atacando, não permite movimentação
+	# Se estiver atacando, não permite movimentação horizontal, mas pode mover no ar
 	if attacking:
+		if not is_on_floor():  # Se estiver no ar, permite algum controle lateral
+			velocity.x = move_toward(velocity.x, velocity.x, acceleration * air_control_factor * delta)
+		else:
+			velocity.x = 0  # Impede o movimento lateral durante o ataque no chão
 		move_and_slide()
 		return
 

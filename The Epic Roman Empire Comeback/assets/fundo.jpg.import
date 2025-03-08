@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dia3k4vamncg1"
-path="res://.godot/imported/fundo.jpg-95787acf25ea29c63b3cb9dcf8ef7f9b.ctex"
+path="res://.godot/imported/fundo.jpg-2614e114241fd1c86b822538e5dcc62b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sceness/level/fundo.jpg"
-dest_files=["res://.godot/imported/fundo.jpg-95787acf25ea29c63b3cb9dcf8ef7f9b.ctex"]
+source_file="res://assets/fundo.jpg"
+dest_files=["res://.godot/imported/fundo.jpg-2614e114241fd1c86b822538e5dcc62b.ctex"]
 
 [params]
 
