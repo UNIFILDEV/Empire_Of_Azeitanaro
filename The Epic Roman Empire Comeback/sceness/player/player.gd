@@ -10,7 +10,7 @@ var is_falling = false
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta * 0.8
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():

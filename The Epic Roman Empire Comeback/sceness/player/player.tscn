@@ -172,8 +172,8 @@ sources/4 = SubResource("TileSetAtlasSource_hvkfu")
 sources/5 = SubResource("TileSetAtlasSource_msawb")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h33wc"]
+render_priority = 0
 shader = ExtResource("8_kbwxx")
-shader_parameter/move_speed = 0.03
 
 [node name="World" type="Node2D"]
 
@@ -189,9 +189,11 @@ tile_set = SubResource("TileSet_vr022")
 [node name="Player" parent="." instance=ExtResource("6_vjuic")]
 
 [node name="Background" type="ParallaxBackground" parent="."]
+scale = Vector2(1.2, 1.2)
+transform = Transform2D(1.2, 0, 0, 1.2, 0, 0)
 
 [node name="05" type="ParallaxLayer" parent="Background"]
-position = Vector2(-3, -13)
+position = Vector2(-2.5, -57.5)
 motion_mirroring = Vector2(432, 312)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/05"]
@@ -200,7 +202,7 @@ texture = ExtResource("7_261hs")
 centered = false
 
 [node name="04" type="ParallaxLayer" parent="Background"]
-position = Vector2(-3, -13)
+position = Vector2(-2.5, -57.5)
 motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(432, 0)
 
@@ -210,7 +212,7 @@ texture = ExtResource("8_rwcrq")
 centered = false
 
 [node name="03" type="ParallaxLayer" parent="Background"]
-position = Vector2(-3, -13)
+position = Vector2(-2.5, -57.5)
 motion_scale = Vector2(0.2, 1)
 motion_mirroring = Vector2(432, 312)
 
@@ -222,7 +224,7 @@ texture = ExtResource("9_wapd0")
 centered = false
 
 [node name="02" type="ParallaxLayer" parent="Background"]
-position = Vector2(-3, -13)
+position = Vector2(-2.5, -57.5)
 motion_scale = Vector2(0.4, 1)
 motion_mirroring = Vector2(432, 0)
 
@@ -232,7 +234,7 @@ texture = ExtResource("10_1rhm5")
 centered = false
 
 [node name="01" type="ParallaxLayer" parent="Background"]
-position = Vector2(-3, -13)
+position = Vector2(-2.5, -57.5)
 motion_scale = Vector2(0.8, 1)
 motion_mirroring = Vector2(432, 0)
 
