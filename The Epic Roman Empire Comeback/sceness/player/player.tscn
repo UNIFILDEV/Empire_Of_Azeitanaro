@@ -577,4 +577,13 @@ speed_scale = 1.4
 
 [node name="AttackTimer" type="Timer" parent="."]
 
+[node name="Player_Cam" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.25
+drag_top_margin = 0.33
+drag_right_margin = 0.25
+drag_bottom_margin = 0.35
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
