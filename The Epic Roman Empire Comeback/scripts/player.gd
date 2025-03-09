@@ -77,7 +77,7 @@ func check_attack():
 		if velocity.x == 0:  # Se o player estiver parado
 			start_attack("attack_3")  # Realiza o ataque sem o dash
 		else:  # Se o player estiver em movimento
-			start_attack("attack_3")  # Realiza o ataque com dash
+			start_attack("attack_3_dash")  # Realiza o ataque com dash
 			start_dash()
 
 	elif Input.is_action_just_pressed("attack_1"):

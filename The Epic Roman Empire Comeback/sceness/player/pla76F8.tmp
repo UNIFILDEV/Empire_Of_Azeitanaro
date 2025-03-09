@@ -554,7 +554,8 @@ show_behind_parent = true
 position = Vector2(2.5, -6)
 scale = Vector2(1.4, 1.4)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
-animation = &"arrackRecover"
+animation = &"walk"
+frame_progress = 0.77929
 speed_scale = 1.4
 
 [node name="Player_Cam" type="Camera2D" parent="."]
