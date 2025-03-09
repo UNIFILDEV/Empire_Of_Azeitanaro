@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 @export var speed: float = 250.0
 @export var acceleration: float = 800.0
-@export var friction: float = 4000
-@export var jump_velocity: float = -300.0
+@export var friction: float = 800
+@export var jump_velocity: float = -350.0
 @export var gravity: float = 800.0
 
 @onready var sprite = $AnimatedSprite

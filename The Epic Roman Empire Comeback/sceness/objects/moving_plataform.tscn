@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy8yo13jlxuq8"]
+
+[ext_resource type="Texture2D" uid="uid://xjmfgggu5e7h" path="res://assets/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="1_jddhf"]
+[ext_resource type="Script" path="res://scrips/moving_plataform.gd" id="1_ofjxj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmhoq"]
+size = Vector2(16, 3)
+
+[node name="moving_plataform" type="Node2D"]
+position = Vector2(9, 29)
+script = ExtResource("1_ofjxj")
+
+[node name="plataform" type="AnimatableBody2D" parent="."]
+
+[node name="sprite_plataform" type="Sprite2D" parent="plataform"]
+position = Vector2(10, -2.5)
+texture = ExtResource("1_jddhf")
+region_enabled = true
+region_rect = Rect2(21, 74, 20, 11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataform"]
+position = Vector2(9, 1)
+shape = SubResource("RectangleShape2D_dmhoq")
+one_way_collision = true
