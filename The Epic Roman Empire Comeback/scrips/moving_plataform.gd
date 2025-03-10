@@ -17,7 +17,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	platform.position = platform.position.lerp(follow,0.5)
+	platform.position = platform.position.lerp(follow,0.15)
 
 func move_platform():
 	var move_direction = Vector2.RIGHT * distance if move_horizontal else Vector2.UP * distance
