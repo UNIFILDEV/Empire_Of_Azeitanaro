@@ -40,7 +40,12 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
-#func _on_animated_sprite_2d_animation_finished() -> void:
-	#if anim_name == "hurt":
-		#queue_free()
+var life: int = 2
+func take_damage(amount: int):
+	life -= amount  # Reduz a vida do inimigo
+	sprite.play("hurt")  # Reproduz a animação de "hurt"
+	print('monstro tomou dano')
+	
+	if life == 0:
+		queue_free()  # O inimigo morre
+		print('monstro morreu')
