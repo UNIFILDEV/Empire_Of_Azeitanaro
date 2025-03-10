@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cpcs5t7wfl3hw"]
+[gd_scene load_steps=19 format=3 uid="uid://cpcs5t7wfl3hw"]
 
 [ext_resource type="PackedScene" uid="uid://b5mat2ba4k1hs" path="res://sceness/player/player.tscn" id="1_0vt4y"]
 [ext_resource type="Texture2D" uid="uid://dtto1hloij0c2" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_uhcpd"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cjpx2v63ymbaj" path="res://area_2d.tscn" id="9_w30cn"]
 [ext_resource type="PackedScene" uid="uid://d0nwybi7t3pnl" path="res://item-fruit.tscn" id="10_1axco"]
 [ext_resource type="PackedScene" uid="uid://c3xfnvbb3vf7l" path="res://enemy.tscn" id="11_evmfu"]
+[ext_resource type="PackedScene" uid="uid://b2qhxum2km1ak" path="res://item-coin.tscn" id="12_ubanq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a77v6"]
 texture = ExtResource("2_uhcpd")
@@ -373,3 +374,6 @@ position = Vector2(353, -9)
 
 [node name="enemy" parent="enemy" instance=ExtResource("11_evmfu")]
 position = Vector2(213, 16)
+
+[node name="items" parent="." instance=ExtResource("12_ubanq")]
+position = Vector2(50, 5)

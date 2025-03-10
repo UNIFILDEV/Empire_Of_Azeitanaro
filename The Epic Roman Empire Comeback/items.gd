@@ -13,5 +13,6 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	#totalCoins += 1;
 	#sound_player.play();
-	queue_free();
+	if body.name == "Player":
+		queue_free();
 	#print(totalCoins);

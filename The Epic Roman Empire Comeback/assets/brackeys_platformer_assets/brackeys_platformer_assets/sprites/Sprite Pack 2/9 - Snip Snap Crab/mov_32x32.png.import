@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvyjb14bedgfn"
-path="res://.godot/imported/reaching_pinch.png-fbc88f49b5bc8956e921e5202578016a.ctex"
+uid="uid://cbgbq0ivue3hk"
+path="res://.godot/imported/mov_32x32.png-a3f877596da6d242e75ff1a4e6c3c740.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/Sprite Pack 2/9 - Snip Snap Crab/reaching_pinch.png"
-dest_files=["res://.godot/imported/reaching_pinch.png-fbc88f49b5bc8956e921e5202578016a.ctex"]
+source_file="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/Sprite Pack 2/9 - Snip Snap Crab/mov_32x32.png"
+dest_files=["res://.godot/imported/mov_32x32.png-a3f877596da6d242e75ff1a4e6c3c740.ctex"]
 
 [params]
 

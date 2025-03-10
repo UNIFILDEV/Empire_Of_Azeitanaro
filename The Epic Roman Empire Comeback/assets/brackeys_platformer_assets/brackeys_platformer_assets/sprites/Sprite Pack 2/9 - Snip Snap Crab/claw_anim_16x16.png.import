@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8utypvw3tb61"
-path="res://.godot/imported/Claw_Animations (16 x 16).png-f7d7d89b85617d0464e698fe9c0eef30.ctex"
+path="res://.godot/imported/claw_anim_16x16.png-c69f7c0783d5d37f088a057eaed3ef57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/Sprite Pack 2/9 - Snip Snap Crab/Claw_Animations (16 x 16).png"
-dest_files=["res://.godot/imported/Claw_Animations (16 x 16).png-f7d7d89b85617d0464e698fe9c0eef30.ctex"]
+source_file="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/Sprite Pack 2/9 - Snip Snap Crab/claw_anim_16x16.png"
+dest_files=["res://.godot/imported/claw_anim_16x16.png-c69f7c0783d5d37f088a057eaed3ef57.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bld6jp1t2y66l"
-path="res://.godot/imported/Hurt (32 x 32).png-e8f03a14e39a6e703462b88a8086b7a1.ctex"
+path="res://.godot/imported/hurt_32x32.png-0230e34e12020c122fce74317cd90c7d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/Sprite Pack 2/9 - Snip Snap Crab/Hurt (32 x 32).png"
-dest_files=["res://.godot/imported/Hurt (32 x 32).png-e8f03a14e39a6e703462b88a8086b7a1.ctex"]
+source_file="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/Sprite Pack 2/9 - Snip Snap Crab/hurt_32x32.png"
+dest_files=["res://.godot/imported/hurt_32x32.png-0230e34e12020c122fce74317cd90c7d.ctex"]
 
 [params]
 

@@ -79,3 +79,10 @@ func update_animation():
 			sprite.play("jump")
 		else:
 			sprite.play("fall")
+			
+var life: int = 2
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemies"):
+		life -= 1
+		if life <= 0:
+			owner.queue_free()
