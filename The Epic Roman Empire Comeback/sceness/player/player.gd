@@ -10,22 +10,25 @@ extends CharacterBody2D
 @onready var attack_timer = $AttackTimer
 @onready var camera = $Camera2D
 @onready var collision_shape = $CollisionShape2D
+@onready var attack_hitbox = $AnimatedSprite2D/AttackHitbox
 
-var attacking = false  # Flag para saber se o jogador está atacando
+var attacking: bool = false  # Flag para saber se o jogador está atacando
 var damage: int = 1
-var life: int = 2
+var life: int = 4
+
+#func _ready():
+	#if attack_hitbox and attack_hitbox is Area2D:
+		#attack_hitbox.connect("area_entered", self._on_hitbox_attack_area_entered)
+	#else:
+		#print('attack hitbox nao encontrado')
+	#if attack_timer:
+		#attack_timer.connect("timeout", self._on_AttackTimer_timeout)
+	#else:
+		#print('attack timer nao encontrado')
 
 # Função de física
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
-
-	# Verifica se há colisão e se o jogador está atacando
-	if collision and attacking:
-		var collider = collision.get_collider()  # Acessa o corpo com o qual o jogador colidiu
-		if collider.is_in_group("enemies"):  # Verifica se o corpo colidido é um inimigo
-			print('player deu dano')
-			collider.take_damage(damage)  # Aplica o dano ao inimigo
-	
 	# Colisão do jogador com inimigos (toma dano)
 	if collision and collision.get_collider().is_in_group("enemies"):
 		print('Player recebeu dano')
@@ -61,22 +64,32 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-# Verifica se o jogador está tentando atacar
+# começo fluxo de ataque
 func check_attack():
-	if Input.is_action_just_pressed("attack_1"):
-		start_attack("attack_1")
-	elif Input.is_action_just_pressed("attack_2"):
-		start_attack("attack_2")
+	if not attacking:
+		if Input.is_action_just_pressed("attack_1"):
+			start_attack("attack_1")
+		elif Input.is_action_just_pressed("attack_2"):
+			start_attack("attack_2")
 
 # Função que inicia o ataque
 func start_attack(attack_type):
 	attacking = true
 	sprite.play(attack_type)
 	attack_timer.start()
+	if attack_hitbox and attack_hitbox is Area2D:
+		attack_hitbox.monitoring = true
+	else: 
+		print('hitbox invalido')
+	
 
 # Reseta o estado de ataque após o tempo do ataque
 func _on_AttackTimer_timeout():
 	attacking = false
+	if attack_hitbox and attack_hitbox is Area2D:
+		attack_hitbox.monitoring = false
+	#else:
+		#print('erroo')
 
 # Atualiza a animação do jogador
 func update_animation():
@@ -95,3 +108,24 @@ func update_animation():
 			sprite.play("jump")
 		else:
 			sprite.play("fall")
+
+
+#func _on_hitbox_attack_area_entered(area: Area2D) -> void:
+	#if area.is_in_group("enemies"):
+		#print('hitbox com inimigo proximo')
+	#if area.is_in_group("enemies") and attacking:
+		#print('ataque atingiu inimigo')
+		#area.take_damage(damage)
+	#else: 
+		#print('area invalida ou nao é inimigo')
+		
+#funcao teste
+
+
+		
+
+
+func _on_hitbox_attack_body_entered(body: Node2D) -> void:
+	if attacking and body.is_in_group("enemies"):
+		print(body.name)
+		body.take_damage(1)

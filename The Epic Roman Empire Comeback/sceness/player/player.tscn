@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://b5mat2ba4k1hs"]
+[gd_scene load_steps=74 format=3 uid="uid://b5mat2ba4k1hs"]
 
 [ext_resource type="Script" path="res://sceness/player/player.gd" id="1_vhyya"]
 [ext_resource type="Texture2D" uid="uid://c2l47q202yr1v" path="res://assets/player/Attack 2 Recover.png" id="1_waflx"]
@@ -479,6 +479,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xf87y"]
+size = Vector2(97.6666, 62.6667)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_767f0"]
 size = Vector2(12, 14)
 
@@ -489,9 +492,16 @@ script = ExtResource("1_vhyya")
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2.5, -6)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
-animation = &"idle"
-frame_progress = 0.801353
+animation = &"attack_2"
+frame_progress = 0.625055
 speed_scale = 1.4
+
+[node name="hitbox_attack" type="Area2D" parent="AnimatedSprite"]
+position = Vector2(91.5, -4.6667)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite/hitbox_attack"]
+position = Vector2(-83.5, 0.6667)
+shape = SubResource("RectangleShape2D_xf87y")
 
 [node name="AttackTimer" type="Timer" parent="."]
 
@@ -502,4 +512,5 @@ zoom = Vector2(3, 3)
 position = Vector2(0, -3.66667)
 shape = SubResource("RectangleShape2D_767f0")
 
+[connection signal="body_entered" from="AnimatedSprite/hitbox_attack" to="." method="_on_hitbox_attack_body_entered"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]

@@ -9,14 +9,15 @@ extends Area2D
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 	#pass
-
+	
+#ataque pisando
 var life = 2
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		print('deu dano')
 		life -= 1
 		owner.get_node("AnimatedSprite2D").play("hurt")
-		if life <= 0:
+		if life == 0:
 			owner.queue_free()
 			
 			

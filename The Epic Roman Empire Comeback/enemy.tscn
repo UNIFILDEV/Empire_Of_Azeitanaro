@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://t8rjb51kfepk" path="res://hitbox.tscn" id="5_40oup"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_snxm4"]
-size = Vector2(16, 10)
+size = Vector2(38, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3o34o"]
 atlas = ExtResource("1_d3a2t")
@@ -59,7 +59,7 @@ position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_snxm4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_wadas")
 animation = &"walk"
 

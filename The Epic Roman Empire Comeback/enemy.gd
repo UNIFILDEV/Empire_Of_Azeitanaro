@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		sprite.play("standing")  # Se o monstro não se mover, toca a animação "standing"
 
 	move_and_slide()
-
+#ataque pisando
 var life: int = 2
 func take_damage(amount: int):
 	life -= amount  # Reduz a vida do inimigo
@@ -49,3 +49,13 @@ func take_damage(amount: int):
 	if life == 0:
 		queue_free()  # O inimigo morre
 		print('monstro morreu')
+	# ataque espada	////////////
+var vida = 2
+
+#func _on_body_entered(body: Node2D, attackType) -> void:
+	#if body.name == "Player" and attackType == "sword":
+		#print('deu dano')
+		#vida -= 1
+		#owner.get_node("AnimatedSprite2D").play("hurt")
+		#if vida == 0:
+			#owner.queue_free()
