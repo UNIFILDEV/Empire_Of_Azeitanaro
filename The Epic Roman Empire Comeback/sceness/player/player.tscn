@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://b5mat2ba4k1hs"]
+[gd_scene load_steps=80 format=3 uid="uid://b5mat2ba4k1hs"]
 
 [ext_resource type="Script" path="res://sceness/player/player.gd" id="1_vhyya"]
 [ext_resource type="Texture2D" uid="uid://c2l47q202yr1v" path="res://assets/player/Attack 2 Recover.png" id="1_waflx"]
@@ -11,10 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://ctdnhi43oobup" path="res://assets/player/Attack 3.png" id="6_vf0js"]
 [ext_resource type="Texture2D" uid="uid://bn2g7di7msi3x" path="res://assets/player/Roll.png" id="9_72q20"]
 [ext_resource type="Texture2D" uid="uid://4vleopocakn7" path="res://assets/player/Walk.png" id="9_ki6go"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bvm84"]
-radius = 5.0
-height = 10.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wb81"]
 size = Vector2(15, 15.8333)
@@ -538,11 +534,6 @@ animations = [{
 position = Vector2(1, -23)
 scale = Vector2(1.2, 1.2)
 script = ExtResource("1_vhyya")
-
-[node name="Collision_Head" type="CollisionShape2D" parent="."]
-position = Vector2(-0.833333, -5)
-shape = SubResource("CapsuleShape2D_bvm84")
-one_way_collision_margin = 0.0
 
 [node name="Collision_Body" type="CollisionShape2D" parent="."]
 position = Vector2(-0.833333, 7.08333)
