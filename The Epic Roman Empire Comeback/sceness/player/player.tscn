@@ -1,6 +1,6 @@
 [gd_scene load_steps=73 format=3 uid="uid://b5mat2ba4k1hs"]
 
-[ext_resource type="Script" path="res://sceness/player/player.gd" id="1_vhyya"]
+[ext_resource type="Script" uid="uid://kaek5scklvb8" path="res://sceness/player/player.gd" id="1_vhyya"]
 [ext_resource type="Texture2D" uid="uid://c2l47q202yr1v" path="res://assets/player/Attack 2 Recover.png" id="1_waflx"]
 [ext_resource type="Texture2D" uid="uid://eicn85xc7nvi" path="res://assets/player/Attack 1.png" id="1_xa800"]
 [ext_resource type="Texture2D" uid="uid://cehtogb076quk" path="res://assets/player/Combat Ready Idle.png" id="1_xaeqo"]
