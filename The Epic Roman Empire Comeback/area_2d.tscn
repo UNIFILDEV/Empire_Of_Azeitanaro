@@ -1,6 +1,5 @@
-[gd_scene load_steps=13 format=3 uid="uid://cjpx2v63ymbaj"]
+[gd_scene load_steps=12 format=3 uid="uid://bkida8e1i2q8c"]
 
-[ext_resource type="Script" path="res://items.gd" id="1_456ep"]
 [ext_resource type="Texture2D" uid="uid://dnqy5h4nqmxgf" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/coin.png" id="1_ju4od"]
 [ext_resource type="AudioStream" uid="uid://d3jnjx34en007" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sounds/coin.wav" id="3_l62xg"]
 
@@ -71,7 +70,6 @@ radius = 6.0
 height = 14.0
 
 [node name="items" type="Area2D"]
-script = ExtResource("1_456ep")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_aviny")
@@ -85,4 +83,5 @@ shape = SubResource("CapsuleShape2D_42x2f")
 stream = ExtResource("3_l62xg")
 autoplay = true
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

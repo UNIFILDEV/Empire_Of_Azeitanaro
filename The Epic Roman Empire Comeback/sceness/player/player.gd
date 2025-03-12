@@ -16,15 +16,15 @@ var attacking: bool = false  # Flag para saber se o jogador está atacando
 var damage: int = 1
 var life: int = 4
 
-#func _ready():
-	#if attack_hitbox and attack_hitbox is Area2D:
-		#attack_hitbox.connect("area_entered", self._on_hitbox_attack_area_entered)
-	#else:
-		#print('attack hitbox nao encontrado')
-	#if attack_timer:
-		#attack_timer.connect("timeout", self._on_AttackTimer_timeout)
-	#else:
-		#print('attack timer nao encontrado')
+func _ready():
+	if attack_hitbox and attack_hitbox is Area2D:
+		attack_hitbox.connect("body_entered", self._on_hitbox_attack_body_entered)
+	else:
+		print('attack hitbox nao encontrado')
+	if attack_timer:
+		attack_timer.connect("timeout", self._on_AttackTimer_timeout)
+	else:
+		print('attack timer nao encontrado')
 
 # Função de física
 func _physics_process(delta):
@@ -87,6 +87,7 @@ func start_attack(attack_type):
 func _on_AttackTimer_timeout():
 	attacking = false
 	if attack_hitbox and attack_hitbox is Area2D:
+		print('desativando hitbox')
 		attack_hitbox.monitoring = false
 	#else:
 		#print('erroo')
@@ -120,10 +121,6 @@ func update_animation():
 		#print('area invalida ou nao é inimigo')
 		
 #funcao teste
-
-
-		
-
 
 func _on_hitbox_attack_body_entered(body: Node2D) -> void:
 	if attacking and body.is_in_group("enemies"):
