@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://sceness/inimigos/chumba_lomba.gd" id="1_tuyqx"]
 [ext_resource type="Texture2D" uid="uid://cn87lbncc8hvk" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/Sprite Pack 2/4 - Robo Pumpkin/Hurt (16 x 16).png" id="3_sh6yv"]
 [ext_resource type="Texture2D" uid="uid://cb62mhoxqnht4" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/Sprite Pack 2/4 - Robo Pumpkin/Standing (16 x 16).png" id="4_pcvic"]
-[ext_resource type="Script" path="res://sceness/scripts/hitbox.gd" id="5_qy24a"]
+[ext_resource type="Script" path="res://scripts/hitbox.gd" id="5_qy24a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_snxm4"]
 size = Vector2(38, 12)

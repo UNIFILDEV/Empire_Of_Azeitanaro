@@ -1,6 +1,6 @@
-[gd_scene load_steps=80 format=3 uid="uid://b5mat2ba4k1hs"]
+[gd_scene load_steps=81 format=3 uid="uid://b5mat2ba4k1hs"]
 
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_t85cg"]
+[ext_resource type="Script" path="res://scripts/player/mask_dude.gd" id="1_0o75a"]
 [ext_resource type="Texture2D" uid="uid://c2l47q202yr1v" path="res://assets/player/Attack 2 Recover.png" id="1_waflx"]
 [ext_resource type="Texture2D" uid="uid://eicn85xc7nvi" path="res://assets/player/Attack 1.png" id="1_xa800"]
 [ext_resource type="Texture2D" uid="uid://cehtogb076quk" path="res://assets/player/Combat Ready Idle.png" id="1_xaeqo"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ctdnhi43oobup" path="res://assets/player/Attack 3.png" id="6_vf0js"]
 [ext_resource type="Texture2D" uid="uid://bn2g7di7msi3x" path="res://assets/player/Roll.png" id="9_72q20"]
 [ext_resource type="Texture2D" uid="uid://4vleopocakn7" path="res://assets/player/Walk.png" id="9_ki6go"]
+[ext_resource type="Script" path="res://scripts/player/mask_dude_texture.gd" id="12_vnthc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1lt0"]
 atlas = ExtResource("1_waflx")
@@ -527,26 +528,28 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4on07"]
-size = Vector2(12.933, 21.5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_td6w7"]
+radius = 5.83333
+height = 24.3
 
 [node name="AnimationPlayer" type="CharacterBody2D"]
 position = Vector2(1, -23)
 scale = Vector2(1.2, 1.2)
-script = ExtResource("1_t85cg")
-speed = 200.0
+script = ExtResource("1_0o75a")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 show_behind_parent = true
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
-animation = &"idle"
+animation = &"attack_2"
+frame = 7
+frame_progress = 1.0
 speed_scale = 1.4
+script = ExtResource("12_vnthc")
 
-[node name="CollisionBody" type="CollisionShape2D" parent="."]
-show_behind_parent = true
-position = Vector2(-3.13333, 7.29167)
-shape = SubResource("RectangleShape2D_4on07")
+[node name="Collision_Body" type="CollisionShape2D" parent="."]
+position = Vector2(-4.16667, 5.83333)
+shape = SubResource("CapsuleShape2D_td6w7")
 one_way_collision_margin = 0.0
 
 [node name="Player_Cam" type="Camera2D" parent="."]
