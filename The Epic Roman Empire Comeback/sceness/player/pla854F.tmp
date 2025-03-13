@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://b5mat2ba4k1hs"]
+[gd_scene load_steps=82 format=3 uid="uid://b5mat2ba4k1hs"]
 
 [ext_resource type="Script" path="res://sceness/player/player.gd" id="1_vhyya"]
 [ext_resource type="Texture2D" uid="uid://c2l47q202yr1v" path="res://assets/player/Attack 2 Recover.png" id="1_waflx"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ctdnhi43oobup" path="res://assets/player/Attack 3.png" id="6_vf0js"]
 [ext_resource type="Texture2D" uid="uid://bn2g7di7msi3x" path="res://assets/player/Roll.png" id="9_72q20"]
 [ext_resource type="Texture2D" uid="uid://4vleopocakn7" path="res://assets/player/Walk.png" id="9_ki6go"]
+[ext_resource type="Script" path="res://sceness/player/sword.gd" id="12_ehnly"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_td6w7"]
 radius = 5.83333
@@ -531,6 +532,9 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2p0k"]
+size = Vector2(20, 24.5833)
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(1, -23)
 scale = Vector2(1.2, 1.2)
@@ -559,4 +563,13 @@ drag_top_margin = 0.33
 drag_right_margin = 0.25
 drag_bottom_margin = 0.35
 
+[node name="sword" type="Area2D" parent="."]
+script = ExtResource("12_ehnly")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sword"]
+position = Vector2(11.6667, 5.625)
+shape = SubResource("RectangleShape2D_p2p0k")
+debug_color = Color(0.955736, 0.140888, 0.401901, 0.42)
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_animated_sprite_animation_finished"]
+[connection signal="body_entered" from="sword" to="sword" method="_on_body_entered"]

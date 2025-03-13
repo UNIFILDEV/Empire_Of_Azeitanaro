@@ -72,6 +72,23 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+func update_animation():
+	if attacking:
+		return
+
+	if is_on_floor():
+		if velocity.x == 0:
+			sprite.play("idle")
+		elif abs(velocity.x) > speed * 0.5:
+			sprite.play("run")
+		else:
+			sprite.play("walk")
+	else:
+		if velocity.y < 0:
+			sprite.play("jump")
+		else:
+			sprite.play("fall")
+
 func check_attack():
 	if Input.is_action_just_pressed("attack_3") and dash_timer <= 0:
 		if velocity.x == 0:  # Se o player estiver parado
@@ -112,19 +129,6 @@ func _on_animated_sprite_finished():
 	attack_type = ""
 	gravity = original_gravity
 
-func update_animation():
-	if attacking:
-		return
-
-	if is_on_floor():
-		if velocity.x == 0:
-			sprite.play("idle")
-		elif abs(velocity.x) > speed * 0.5:
-			sprite.play("run")
-		else:
-			sprite.play("walk")
-	else:
-		if velocity.y < 0:
-			sprite.play("jump")
-		else:
-			sprite.play("fall")
+func _input(event : InputEvent):
+	if(event.is_action_pressed("ui_down") and is_on_floor()):
+		position.y += 1	

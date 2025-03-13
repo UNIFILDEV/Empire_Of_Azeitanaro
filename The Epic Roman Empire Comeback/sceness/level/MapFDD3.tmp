@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy7l47fld2j72"]
+[gd_scene load_steps=6 format=3 uid="uid://dy7l47fld2j72"]
 
 [ext_resource type="PackedScene" uid="uid://b5mat2ba4k1hs" path="res://sceness/player/player.tscn" id="1_qgv0j"]
 [ext_resource type="Texture2D" uid="uid://dtto1hloij0c2" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_fptil"]
@@ -142,6 +142,9 @@ texture = ExtResource("2_fptil")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_uvls4")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_656cq"]
+size = Vector2(20, 47)
+
 [node name="Node2D" type="Node2D"]
 show_behind_parent = true
 top_level = true
@@ -153,3 +156,9 @@ layer_0/tile_data = PackedInt32Array(196597, 0, 1, 131061, 0, 1, -524250, 0, 1, 
 
 [node name="Player" parent="." instance=ExtResource("1_qgv0j")]
 position = Vector2(-145, 299)
+
+[node name="animy_teste" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="animy_teste"]
+position = Vector2(-49, 216.5)
+shape = SubResource("RectangleShape2D_656cq")
