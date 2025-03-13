@@ -558,7 +558,11 @@ animation = &"arrackRecover"
 speed_scale = 1.4
 
 [node name="Player_Cam" type="Camera2D" parent="."]
-zoom = Vector2(3.5, 3.5)
+zoom = Vector2(2.5, 2.5)
+limit_left = 15
+limit_top = -650
+limit_right = 5700
+limit_bottom = 700
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.25
