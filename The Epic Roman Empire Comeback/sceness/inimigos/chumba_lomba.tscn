@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://sceness/scripts/hitbox.gd" id="5_qy24a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_snxm4"]
-size = Vector2(38, 12)
+size = Vector2(16, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3o34o"]
 atlas = ExtResource("1_d3a2t")
@@ -71,3 +71,4 @@ position = Vector2(0, -13)
 shape = SubResource("RectangleShape2D_vl87l")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="hitbox-head" to="hitbox-head" method="_on_body_entered"]
