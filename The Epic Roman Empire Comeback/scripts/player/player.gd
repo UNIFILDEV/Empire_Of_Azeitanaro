@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @export var speed: float = 250.0
 @export var jump_speed: float = -370.0
@@ -9,6 +9,9 @@ extends CharacterBody2D
 @export var dash_duration: float = 0.1  # Duração do dash
 @export var dash_cooldown: float = 0.5  # Tempo entre o dash
 
+@export var vidaMax = 10
+@onready var vidaAtual: int = vidaMax
+
 @onready var sprite = $AnimatedSprite
 @onready var collision = $CollisionBody
 
@@ -17,6 +20,9 @@ var original_gravity: float = gravity
 var attack_type = ""
 var is_dashing: bool = false
 var dash_timer: float = 0.0
+
+func _ready():
+	set_deferred("monitoring", true)
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -46,7 +52,7 @@ func _physics_process(delta):
 		move_and_slide()
 		return
 
-	if (Input.is_action_just_pressed("jump")) and is_on_floor():
+	if (Input.is_action_pressed("jump")) and is_on_floor():
 		velocity.y = jump_speed
 
 	var direction = 0
