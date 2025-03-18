@@ -528,11 +528,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_otykc"]
-radius = 6.66667
-height = 20.0
+radius = 7.5
+height = 21.6667
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-position = Vector2(1, -23)
+position = Vector2(3, -22)
 scale = Vector2(1.2, 1.2)
 collision_mask = 3
 script = ExtResource("1_t85cg")
@@ -540,24 +540,16 @@ speed = 175.0
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 show_behind_parent = true
-scale = Vector2(1.2, 1.2)
+position = Vector2(0, 0.166665)
+scale = Vector2(1.2, 1.21111)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
 animation = &"idle"
 speed_scale = 1.4
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
 show_behind_parent = true
-position = Vector2(-3.33333, 6.66667)
+position = Vector2(-3.33333, 7.5)
 shape = SubResource("CapsuleShape2D_otykc")
 one_way_collision_margin = 0.0
-
-[node name="Player_Cam" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.25
-drag_top_margin = 0.33
-drag_right_margin = 0.25
-drag_bottom_margin = 0.35
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_animated_sprite_animation_finished"]
