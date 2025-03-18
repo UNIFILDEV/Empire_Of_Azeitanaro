@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfqrjr6dg8do8"
-path="res://.godot/imported/Test.png-5b1a7d4e521c6512230fd492534ff46d.ctex"
+uid="uid://ianlbr4snoda"
+path="res://.godot/imported/foregound.png-d5afa8a5bc75cfb5c5b3dc679844ff6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assestLombaLomba/Final/Social/Test.png"
-dest_files=["res://.godot/imported/Test.png-5b1a7d4e521c6512230fd492534ff46d.ctex"]
+source_file="res://assets/assestLombaLomba/Fundos/foregound.png"
+dest_files=["res://.godot/imported/foregound.png-d5afa8a5bc75cfb5c5b3dc679844ff6f.ctex"]
 
 [params]
 

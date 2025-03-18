@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjci8e8cmejyx"
-path="res://.godot/imported/Background_2.png-c2bf85a750be19590de7bd273490bf36.ctex"
+uid="uid://dx0gm1224aggk"
+path="res://.godot/imported/Crystal.png-39d3fbc7265fb82ec2e6c1d7210023af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assestLombaLomba/Final/Assets/Background_2.png"
-dest_files=["res://.godot/imported/Background_2.png-c2bf85a750be19590de7bd273490bf36.ctex"]
+source_file="res://assets/assestLombaLomba/Assets/Crystal.png"
+dest_files=["res://.godot/imported/Crystal.png-39d3fbc7265fb82ec2e6c1d7210023af.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhdcqn78k2pwn"
-path="res://.godot/imported/Assets.png-37e4c280c32614af5987ac6bf65b6f1a.ctex"
+uid="uid://3iopmeo6g83e"
+path="res://.godot/imported/EnergyBarProgress.png-67affc5cb9b5cba6b33938feb21ce035.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assestLombaLomba/Final/Assets/Assets.png"
-dest_files=["res://.godot/imported/Assets.png-37e4c280c32614af5987ac6bf65b6f1a.ctex"]
+source_file="res://assets/assestLombaLomba/Assets/EnergyBarProgress.png"
+dest_files=["res://.godot/imported/EnergyBarProgress.png-67affc5cb9b5cba6b33938feb21ce035.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://b5mat2ba4k1hs"]
+[gd_scene load_steps=80 format=3 uid="uid://nyasjifgmflp"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_t85cg"]
 [ext_resource type="Texture2D" uid="uid://c2l47q202yr1v" path="res://assets/player/Attack 2 Recover.png" id="1_waflx"]
@@ -532,32 +532,23 @@ radius = 6.66667
 height = 20.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-position = Vector2(1, -23)
-scale = Vector2(1.2, 1.2)
 collision_mask = 3
 script = ExtResource("1_t85cg")
 speed = 175.0
+vidaMax = 60
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 show_behind_parent = true
-scale = Vector2(1.2, 1.2)
+position = Vector2(2, -6)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
 animation = &"idle"
 speed_scale = 1.4
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
 show_behind_parent = true
-position = Vector2(-3.33333, 6.66667)
 shape = SubResource("CapsuleShape2D_otykc")
 one_way_collision_margin = 0.0
 
-[node name="Player_Cam" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.25
-drag_top_margin = 0.33
-drag_right_margin = 0.25
-drag_bottom_margin = 0.35
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_animated_sprite_animation_finished"]

@@ -1,9 +1,16 @@
-[gd_scene load_steps=7 format=4 uid="uid://bbvbepwpyixv3"]
+[gd_scene load_steps=14 format=4 uid="uid://bbvbepwpyixv3"]
 
-[ext_resource type="Texture2D" uid="uid://m1o8tia1voo4" path="res://assets/assestLombaLomba/Assets/tiles.png" id="1_iwv75"]
-[ext_resource type="PackedScene" uid="uid://b5mat2ba4k1hs" path="res://sceness/player/player.tscn" id="2_3eqxf"]
+[ext_resource type="Texture2D" uid="uid://dclxmh83k10jm" path="res://assets/assestLombaLomba/Assets/tiles.png" id="1_iwv75"]
+[ext_resource type="PackedScene" uid="uid://nyasjifgmflp" path="res://sceness/player/player.tscn" id="2_3eqxf"]
 [ext_resource type="PackedScene" uid="uid://c2y6pkvqay8r8" path="res://sceness/itens/moeda.tscn" id="3_ooty7"]
-[ext_resource type="PackedScene" uid="uid://dtvkgf81opda5" path="res://sceness/itens/moeda_ui.tscn" id="4_qcsla"]
+[ext_resource type="PackedScene" uid="uid://dtvkgf81opda5" path="res://sceness/UI/moeda_ui.tscn" id="4_qcsla"]
+[ext_resource type="PackedScene" uid="uid://dt0voojlsuqac" path="res://sceness/itens/cristal.tscn" id="6_t0vgi"]
+[ext_resource type="Texture2D" uid="uid://b0ea8u26uypd6" path="res://assets/assestLombaLomba/Assets/HealthBar.png" id="6_ymo22"]
+[ext_resource type="Texture2D" uid="uid://dtwfdg0fnlwu8" path="res://assets/assestLombaLomba/Assets/HealthBarProgress.png" id="7_ekuo1"]
+[ext_resource type="Texture2D" uid="uid://b4o6nb61ob0fc" path="res://assets/assestLombaLomba/Assets/EnergyBar.png" id="8_hy425"]
+[ext_resource type="Script" path="res://sceness/level/texture_progress_bar.gd" id="8_m32jg"]
+[ext_resource type="Texture2D" uid="uid://3iopmeo6g83e" path="res://assets/assestLombaLomba/Assets/EnergyBarProgress.png" id="9_6bie7"]
+[ext_resource type="Script" path="res://sceness/level/EnergiaBar.gd" id="10_dqo86"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_23ssv"]
 texture = ExtResource("1_iwv75")
@@ -85,6 +92,7 @@ tile_set = SubResource("TileSet_aor1f")
 
 [node name="Player" parent="." instance=ExtResource("2_3eqxf")]
 position = Vector2(231, 248)
+vidaMax = 100
 
 [node name="Moeda" parent="." instance=ExtResource("3_ooty7")]
 position = Vector2(388, 238)
@@ -98,3 +106,31 @@ position = Vector2(442, 244)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MoedaUI" parent="CanvasLayer" instance=ExtResource("4_qcsla")]
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
+offset_right = 80.0
+offset_bottom = 16.0
+texture_under = ExtResource("6_ymo22")
+texture_progress = ExtResource("7_ekuo1")
+script = ExtResource("8_m32jg")
+player = NodePath("../../Player")
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
+offset_top = 15.0
+offset_right = 64.0
+offset_bottom = 55.0
+texture_under = ExtResource("8_hy425")
+texture_progress = ExtResource("9_6bie7")
+script = ExtResource("10_dqo86")
+player = NodePath("../../Player")
+
+[node name="Cristal" parent="." instance=ExtResource("6_t0vgi")]
+position = Vector2(583, 300)
+
+[node name="Cristal2" parent="." instance=ExtResource("6_t0vgi")]
+position = Vector2(619, 300)
+
+[node name="Cristal3" parent="." instance=ExtResource("6_t0vgi")]
+position = Vector2(660, 304)

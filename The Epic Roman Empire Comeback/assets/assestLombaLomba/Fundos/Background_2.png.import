@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://etx1fyift48a"
-path="res://.godot/imported/Assets.png-92c1d3d3cd99854aa7821e0637a2d830.ctex"
+uid="uid://td6fn32vfql6"
+path="res://.godot/imported/Background_2.png-2848e9911e0d447bf45e9c415733f43f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assestLombaLomba/Final/Social/Assets.png"
-dest_files=["res://.godot/imported/Assets.png-92c1d3d3cd99854aa7821e0637a2d830.ctex"]
+source_file="res://assets/assestLombaLomba/Fundos/Background_2.png"
+dest_files=["res://.godot/imported/Background_2.png-2848e9911e0d447bf45e9c415733f43f.ctex"]
 
 [params]
 

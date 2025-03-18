@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du3ampe37y2c5"
-path="res://.godot/imported/moon.png-7bf0ac6e9a1d886bddd6d97a87d25e20.ctex"
+uid="uid://d8t32otrejx7"
+path="res://.godot/imported/clouds_02.png-cc8d1d3ee893176e9f637415a834892d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assestLombaLomba/Assets/moon.png"
-dest_files=["res://.godot/imported/moon.png-7bf0ac6e9a1d886bddd6d97a87d25e20.ctex"]
+source_file="res://assets/assestLombaLomba/Fundos/clouds_02.png"
+dest_files=["res://.godot/imported/clouds_02.png-cc8d1d3ee893176e9f637415a834892d.ctex"]
 
 [params]
 

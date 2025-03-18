@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oofwme0viera"
-path="res://.godot/imported/clouds_02.png-d4690ee932152e70a0d6ea88b8f77e6c.ctex"
+uid="uid://b4o6nb61ob0fc"
+path="res://.godot/imported/EnergyBar.png-c66142fc774b0b5bcf1e2b95465b99d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assestLombaLomba/Assets/clouds_02.png"
-dest_files=["res://.godot/imported/clouds_02.png-d4690ee932152e70a0d6ea88b8f77e6c.ctex"]
+source_file="res://assets/assestLombaLomba/Assets/EnergyBar.png"
+dest_files=["res://.godot/imported/EnergyBar.png-c66142fc774b0b5bcf1e2b95465b99d2.ctex"]
 
 [params]
 

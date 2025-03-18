@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnfbfb2yvwqhm"
-path="res://.godot/imported/clouds_01.png-3e874e49e6f7d1219516fc4638d33fbd.ctex"
+uid="uid://cws4fwea2vqrw"
+path="res://.godot/imported/Tiles2.png-b66daacf4d17452382a897829d8682f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assestLombaLomba/Assets/clouds_01.png"
-dest_files=["res://.godot/imported/clouds_01.png-3e874e49e6f7d1219516fc4638d33fbd.ctex"]
+source_file="res://assets/assestLombaLomba/Assets/Tiles2.png"
+dest_files=["res://.godot/imported/Tiles2.png-b66daacf4d17452382a897829d8682f9.ctex"]
 
 [params]
 

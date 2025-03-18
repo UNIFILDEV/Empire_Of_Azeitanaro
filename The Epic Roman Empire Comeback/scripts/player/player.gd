@@ -1,5 +1,8 @@
 class_name Player extends CharacterBody2D
 
+signal vidaMudou
+signal energiaMudou
+
 @export var speed: float = 250.0
 @export var jump_speed: float = -370.0
 @export var walk_speed: float = 80.0
@@ -9,8 +12,11 @@ class_name Player extends CharacterBody2D
 @export var dash_duration: float = 0.1  # Duração do dash
 @export var dash_cooldown: float = 0.5  # Tempo entre o dash
 
-@export var vidaMax = 10
-@onready var vidaAtual: int = vidaMax
+@export var vidaMax = 100
+@export var vidaAtual = 60
+
+@export var energiaMax = 100
+@export var energiaAtual = 100
 
 @onready var sprite = $AnimatedSprite
 @onready var collision = $CollisionBody
@@ -23,6 +29,7 @@ var dash_timer: float = 0.0
 
 func _ready():
 	set_deferred("monitoring", true)
+	EventController.connect("healed", onHealed)
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -133,6 +140,16 @@ func _on_animated_sprite_finished():
 	attacking = false
 	attack_type = ""
 	gravity = original_gravity
+
+func hurtByEnemy():
+	vidaAtual -= 10
+	if vidaAtual < 0:
+		vidaAtual = vidaMax
+	
+	vidaMudou.emit()
+
+func onHealed(valor: int):
+	vidaAtual = min(vidaAtual + valor, vidaMax)
 
 func _input(event : InputEvent):
 	if(event.is_action_pressed("ui_down") and is_on_floor()):

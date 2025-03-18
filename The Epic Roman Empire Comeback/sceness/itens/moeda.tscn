@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c2y6pkvqay8r8"]
 
 [ext_resource type="Script" path="res://sceness/itens/moeda.gd" id="1_36152"]
-[ext_resource type="Texture2D" uid="uid://8e43b0en1of1" path="res://assets/assestLombaLomba/Assets/Coin.png" id="2_wn6ho"]
+[ext_resource type="Texture2D" uid="uid://dph8j61sj7wmw" path="res://assets/assestLombaLomba/Assets/Coin.png" id="2_wn6ho"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ia3m6"]
 atlas = ExtResource("2_wn6ho")
@@ -40,17 +40,15 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_marib"]
-radius = 7.0
+radius = 5.0
 
 [node name="Moeda" type="Node2D"]
 script = ExtResource("1_36152")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_o8lch")
 animation = &"girando"
 autoplay = "girando"
-frame_progress = 0.24096
 
 [node name="Area2D" type="Area2D" parent="."]
 
