@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://llei83lsv8ui"]
+[gd_scene load_steps=12 format=3 uid="uid://llei83lsv8ui"]
 
 [ext_resource type="Script" path="res://sceness/pizza/pizza_level.gd" id="1_h2e44"]
 [ext_resource type="Texture2D" uid="uid://bht4hadw3yl8m" path="res://sceness/pizza/background.png" id="2_gvymq"]
 [ext_resource type="Texture2D" uid="uid://3lonvpxwra6n" path="res://sceness/pizza/pimentao-no-background.png" id="3_6d2ou"]
 [ext_resource type="Texture2D" uid="uid://bbcd0x0ratt7l" path="res://sceness/pizza/cogumelo-no-background.png" id="4_02f7d"]
-[ext_resource type="Script" path="res://sceness/pizza/area_all_ingredients.gd" id="4_hcpt5"]
 [ext_resource type="Texture2D" uid="uid://brvivq20ygflx" path="res://sceness/pizza/chocolate-no-background.png" id="5_nrhu0"]
 [ext_resource type="Texture2D" uid="uid://djbpqxuja2n54" path="res://sceness/pizza/ketchup.png" id="6_kgkfi"]
 [ext_resource type="Texture2D" uid="uid://d3awiptb5swaf" path="res://sceness/pizza/alcachofra-no-background.png" id="7_t0twi"]
@@ -12,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://l151r6sx5crs" path="res://sceness/pizza/frango-no-bg.png" id="9_c6l2p"]
 [ext_resource type="Texture2D" uid="uid://ctsooym06se5x" path="res://sceness/pizza/pizza-no-bg.png" id="10_yitbe"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f2iy6"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7s86s"]
+radius = 14.0
+height = 42.0
 
 [node name="Pizza-level" type="Node2D"]
 script = ExtResource("1_h2e44")
@@ -27,38 +28,45 @@ texture = ExtResource("2_gvymq")
 position = Vector2(116, -1)
 texture = ExtResource("10_yitbe")
 
-[node name="area-all-ingredients" type="Area2D" parent="."]
-script = ExtResource("4_hcpt5")
+[node name="area_all_ingredient" type="Area2D" parent="."]
 
-[node name="frango" type="Sprite2D" parent="area-all-ingredients"]
+[node name="frangoo" type="Sprite2D" parent="area_all_ingredient"]
 position = Vector2(-11.9079, -36.25)
 scale = Vector2(0.710526, 0.710526)
 texture = ExtResource("9_c6l2p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="area-all-ingredients/frango"]
-position = Vector2(-0.129629, -2.46296)
-shape = SubResource("CapsuleShape2D_f2iy6")
-
-[node name="azeitona" type="Sprite2D" parent="area-all-ingredients"]
+[node name="azeitona" type="Sprite2D" parent="area_all_ingredient"]
 position = Vector2(61, 40)
 texture = ExtResource("8_gxcqc")
 
-[node name="alcachofra" type="Sprite2D" parent="area-all-ingredients"]
+[node name="alcachofra" type="Sprite2D" parent="area_all_ingredient"]
 position = Vector2(28, 39)
 texture = ExtResource("7_t0twi")
 
-[node name="ketchup" type="Sprite2D" parent="area-all-ingredients"]
+[node name="ketchup" type="Sprite2D" parent="area_all_ingredient"]
 position = Vector2(-9, 38)
 texture = ExtResource("6_kgkfi")
 
-[node name="pimentao" type="Sprite2D" parent="area-all-ingredients"]
+[node name="pimentao" type="Sprite2D" parent="area_all_ingredient"]
 position = Vector2(11, -38)
 texture = ExtResource("3_6d2ou")
 
-[node name="cogumelo" type="Sprite2D" parent="area-all-ingredients"]
+[node name="cogumelo" type="Sprite2D" parent="area_all_ingredient"]
 position = Vector2(33, -39)
 texture = ExtResource("4_02f7d")
 
-[node name="chocolate" type="Sprite2D" parent="area-all-ingredients"]
+[node name="chocolate" type="Sprite2D" parent="area_all_ingredient"]
 position = Vector2(-42, 39)
 texture = ExtResource("5_nrhu0")
+
+[node name="area_all_ingredients" type="Node2D" parent="."]
+
+[node name="frango" type="Area2D" parent="area_all_ingredients"]
+
+[node name="frango" type="Sprite2D" parent="area_all_ingredients/frango"]
+position = Vector2(-23, 18)
+texture = ExtResource("9_c6l2p")
+
+[node name="frango2" type="CollisionShape2D" parent="area_all_ingredients/frango"]
+position = Vector2(-26, 21)
+shape = SubResource("CapsuleShape2D_7s86s")
