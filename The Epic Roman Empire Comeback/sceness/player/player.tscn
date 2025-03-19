@@ -1,6 +1,6 @@
 [gd_scene load_steps=80 format=3 uid="uid://b5mat2ba4k1hs"]
 
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_t85cg"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_t85cg"]
 [ext_resource type="Texture2D" uid="uid://c2l47q202yr1v" path="res://assets/player/Attack 2 Recover.png" id="1_waflx"]
 [ext_resource type="Texture2D" uid="uid://eicn85xc7nvi" path="res://assets/player/Attack 1.png" id="1_xa800"]
 [ext_resource type="Texture2D" uid="uid://cehtogb076quk" path="res://assets/player/Combat Ready Idle.png" id="1_xaeqo"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://ctdnhi43oobup" path="res://assets/player/Attack 3.png" id="6_vf0js"]
 [ext_resource type="Texture2D" uid="uid://bn2g7di7msi3x" path="res://assets/player/Roll.png" id="9_72q20"]
 [ext_resource type="Texture2D" uid="uid://4vleopocakn7" path="res://assets/player/Walk.png" id="9_ki6go"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c7x6"]
+size = Vector2(12.5, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1lt0"]
 atlas = ExtResource("1_waflx")
@@ -527,29 +530,35 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_otykc"]
-radius = 7.5
-height = 21.6667
-
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(3, -22)
 scale = Vector2(1.2, 1.2)
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_t85cg")
 speed = 175.0
+
+[node name="CollisionBody" type="CollisionShape2D" parent="."]
+position = Vector2(-2.91667, 8.33333)
+shape = SubResource("RectangleShape2D_7c7x6")
+one_way_collision_margin = 0.0
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 show_behind_parent = true
 position = Vector2(0, 0.166665)
-scale = Vector2(1.2, 1.21111)
+scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
 animation = &"idle"
 speed_scale = 1.4
 
-[node name="CollisionBody" type="CollisionShape2D" parent="."]
-show_behind_parent = true
-position = Vector2(-3.33333, 7.5)
-shape = SubResource("CapsuleShape2D_otykc")
-one_way_collision_margin = 0.0
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_bottom = 0
+limit_smoothed = true
+position_smoothing_speed = 24.0
+drag_horizontal_enabled = true
+drag_left_margin = 0.5
+drag_right_margin = 0.5
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_animated_sprite_animation_finished"]

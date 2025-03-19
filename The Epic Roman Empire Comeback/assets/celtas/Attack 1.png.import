@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcvdjpf84moa3"
-path="res://.godot/imported/Walk.png-dee181549209710a0043e2b0441da279.ctex"
+uid="uid://becs3hbplp2ax"
+path="res://.godot/imported/Attack 1.png-e77736e69dc2051b906387dd934c331d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/catargines/Walk.png"
-dest_files=["res://.godot/imported/Walk.png-dee181549209710a0043e2b0441da279.ctex"]
+source_file="res://assets/celtas/Attack 1.png"
+dest_files=["res://.godot/imported/Attack 1.png-e77736e69dc2051b906387dd934c331d.ctex"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=23 format=3 uid="uid://bgvk154xskvgj"]
 
-[ext_resource type="Script" path="res://scripts/inimigo1/inimigo_1.gd" id="1_hmsau"]
-[ext_resource type="Texture2D" uid="uid://becs3hbplp2ax" path="res://assets/catargines/Attack 1.png" id="2_x1yih"]
-[ext_resource type="Texture2D" uid="uid://bcvdjpf84moa3" path="res://assets/catargines/Walk.png" id="3_vdbnb"]
+[ext_resource type="Script" path="res://scripts/inimigoCelta.gd" id="1_hmsau"]
+[ext_resource type="Texture2D" uid="uid://becs3hbplp2ax" path="res://assets/celtas/Attack 1.png" id="2_x1yih"]
+[ext_resource type="Texture2D" uid="uid://bcvdjpf84moa3" path="res://assets/celtas/Walk.png" id="3_vdbnb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dlk1c"]
 atlas = ExtResource("2_x1yih")
@@ -136,8 +136,10 @@ height = 21.6667
 [sub_resource type="CircleShape2D" id="CircleShape2D_gitdp"]
 radius = 30.0032
 
-[node name="inimigo1" type="CharacterBody2D"]
-position = Vector2(3, -18)
+[node name="inimigoCelta" type="CharacterBody2D"]
+disable_mode = 1
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_hmsau")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]

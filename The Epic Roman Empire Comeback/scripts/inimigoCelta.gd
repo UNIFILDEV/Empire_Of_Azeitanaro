@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 50.0
-const INCREASED_SPEED = 100.0
+const SPEED = 30.0
+const INCREASED_SPEED = 70.0
 const JUMP_VELOCITY = -400.0
 const JUMP_DELAY = 1
 const PATROL_DELAY = 0.1
