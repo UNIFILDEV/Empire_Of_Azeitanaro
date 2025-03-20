@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cpcs5t7wfl3hw"]
+[gd_scene load_steps=22 format=3 uid="uid://cpcs5t7wfl3hw"]
 
 [ext_resource type="PackedScene" uid="uid://b5mat2ba4k1hs" path="res://sceness/player/player.tscn" id="1_0vt4y"]
 [ext_resource type="Texture2D" uid="uid://dtto1hloij0c2" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_uhcpd"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://c3xfnvbb3vf7l" path="res://sceness/inimigos/chumba_lomba.tscn" id="11_evmfu"]
 [ext_resource type="PackedScene" uid="uid://llei83lsv8ui" path="res://sceness/pizza/pizza_level.tscn" id="12_fwubp"]
 [ext_resource type="PackedScene" uid="uid://b2qhxum2km1ak" path="res://sceness/itens/item-coin.tscn" id="12_ubanq"]
+[ext_resource type="Texture2D" uid="uid://bysloulyqc2j5" path="res://sceness/spike_area/Spike.png" id="13_keimu"]
+[ext_resource type="Script" path="res://sceness/level/area_espinhos.gd" id="13_s0x1f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a77v6"]
 texture = ExtResource("2_uhcpd")
@@ -329,6 +331,9 @@ texture = ExtResource("3_w5ctt")
 physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_rhrd3")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcsdp"]
+size = Vector2(54, 13)
+
 [node name="Level1" type="Node2D"]
 position = Vector2(82, 57)
 
@@ -348,8 +353,9 @@ layer_0/tile_data = PackedInt32Array(-3080198, 196614, 2, -3080197, 262150, 2)
 
 [node name="GameBackground1" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(765, 307)
+position = Vector2(766, 311)
 texture = ExtResource("5_dge85")
+region_enabled = true
 
 [node name="AnimatedSprite2D" parent="." instance=ExtResource("6_0ybff")]
 visible = false
@@ -378,3 +384,21 @@ position = Vector2(754, 237)
 
 [node name="Pizza-level" parent="." instance=ExtResource("12_fwubp")]
 position = Vector2(1208, 47)
+
+[node name="area-espinhos" type="Area2D" parent="."]
+position = Vector2(12, 3)
+script = ExtResource("13_s0x1f")
+
+[node name="sprite" type="Sprite2D" parent="area-espinhos"]
+texture_repeat = 2
+position = Vector2(37, 10)
+scale = Vector2(1, 1.01315)
+texture = ExtResource("13_keimu")
+region_enabled = true
+region_rect = Rect2(0, 8, 50, 8)
+
+[node name="collision" type="CollisionShape2D" parent="area-espinhos"]
+position = Vector2(37, 10.5)
+shape = SubResource("RectangleShape2D_fcsdp")
+
+[connection signal="body_entered" from="area-espinhos" to="area-espinhos" method="_on_body_entered"]
