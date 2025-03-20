@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpcs5t7wfl3hw"]
+[gd_scene load_steps=5 format=3 uid="uid://hjxvj808p1gn"]
 
 [ext_resource type="PackedScene" uid="uid://b5mat2ba4k1hs" path="res://sceness/player/player.tscn" id="1_0vt4y"]
 [ext_resource type="Texture2D" uid="uid://tgwpr6sxtuqq" path="res://assets/platformer/Ground_02.png" id="2_r0hkk"]

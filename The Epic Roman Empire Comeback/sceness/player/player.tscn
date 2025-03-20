@@ -11,9 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://ctdnhi43oobup" path="res://assets/player/Attack 3.png" id="6_vf0js"]
 [ext_resource type="Texture2D" uid="uid://4vleopocakn7" path="res://assets/player/Walk.png" id="9_ki6go"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cthvc"]
-radius = 9.0
-height = 26.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_767f0"]
+size = Vector2(11, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1lt0"]
 atlas = ExtResource("1_waflx")
@@ -38,10 +37,6 @@ region = Rect2(160, 0, 40, 30)
 [sub_resource type="AtlasTexture" id="AtlasTexture_mt66h"]
 atlas = ExtResource("1_xa800")
 region = Rect2(0, 0, 40, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_05xrm"]
-atlas = ExtResource("1_xa800")
-region = Rect2(40, 0, 40, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wgjw"]
 atlas = ExtResource("1_xa800")
@@ -74,6 +69,10 @@ region = Rect2(320, 0, 40, 30)
 [sub_resource type="AtlasTexture" id="AtlasTexture_317wd"]
 atlas = ExtResource("1_xa800")
 region = Rect2(360, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05xrm"]
+atlas = ExtResource("1_xa800")
+region = Rect2(40, 0, 40, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cgyu8"]
 atlas = ExtResource("2_685nt")
@@ -278,11 +277,8 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.01,
-"texture": SubResource("AtlasTexture_mt66h")
-}, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_05xrm")
+"texture": SubResource("AtlasTexture_mt66h")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2wgjw")
@@ -307,10 +303,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_317wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05xrm")
 }],
 "loop": true,
-"name": &"attack1",
-"speed": 5.0
+"name": &"attack_1",
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -350,8 +349,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_wiwcl")
 }],
 "loop": true,
-"name": &"attack2",
-"speed": 5.0
+"name": &"attack_2",
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -379,8 +378,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_u3ua0")
 }],
 "loop": true,
-"name": &"attack3",
-"speed": 5.0
+"name": &"attack_3",
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -396,7 +395,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_h2kvk")
 }],
 "loop": true,
-"name": &"falling",
+"name": &"fall",
 "speed": 5.0
 }, {
 "frames": [{
@@ -433,7 +432,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_jingo")
 }],
 "loop": true,
-"name": &"jumping",
+"name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
@@ -484,16 +483,20 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_vhyya")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 1)
-shape = SubResource("CapsuleShape2D_cthvc")
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_767f0")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.5, -6)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
 animation = &"idle"
-frame_progress = 0.531181
+frame_progress = 0.801353
 speed_scale = 1.4
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="AttackTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
