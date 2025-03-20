@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dy7l47fld2j72"]
+[gd_scene load_steps=11 format=3 uid="uid://dy7l47fld2j72"]
 
 [ext_resource type="PackedScene" uid="uid://b5mat2ba4k1hs" path="res://sceness/player/player.tscn" id="1_qgv0j"]
 [ext_resource type="Texture2D" uid="uid://dtto1hloij0c2" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_fptil"]
 [ext_resource type="PackedScene" uid="uid://bgvk154xskvgj" path="res://sceness/inimigos/inimigoCelta.tscn" id="3_2w66e"]
 [ext_resource type="PackedScene" uid="uid://crdt02t1a60q2" path="res://sceness/itens/plataforma_movel.tscn" id="4_hlv0d"]
+[ext_resource type="Script" path="res://sceness/espinho/area_espinho.gd" id="5_apqno"]
+[ext_resource type="Texture2D" uid="uid://c6mkhx2jc8th6" path="res://sceness/espinho/Spike.png" id="6_n6ycg"]
+[ext_resource type="PackedScene" uid="uid://c3xfnvbb3vf7l" path="res://sceness/inimigos/chumba_lomba.tscn" id="7_hl2wk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvls4"]
 texture = ExtResource("2_fptil")
@@ -145,6 +148,9 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_uvls4")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w583n"]
+size = Vector2(312.5, 12)
+
 [node name="Node2D" type="Node2D"]
 show_behind_parent = true
 top_level = true
@@ -173,3 +179,24 @@ scale = Vector2(1.44, 1.44)
 [node name="inimigo1" parent="." instance=ExtResource("3_2w66e")]
 position = Vector2(715, -133)
 scale = Vector2(1.2, 1.2)
+
+[node name="area_espinho" type="Area2D" parent="."]
+position = Vector2(-74, -114)
+collision_layer = 2
+script = ExtResource("5_apqno")
+
+[node name="collision_espinho" type="CollisionShape2D" parent="area_espinho"]
+position = Vector2(4, 12)
+shape = SubResource("RectangleShape2D_w583n")
+
+[node name="sprite_espinho" type="Sprite2D" parent="area_espinho"]
+texture_repeat = 2
+position = Vector2(3, 11)
+texture = ExtResource("6_n6ycg")
+region_enabled = true
+region_rect = Rect2(0, 8, 310, 8)
+
+[node name="enemy" parent="." instance=ExtResource("7_hl2wk")]
+position = Vector2(102, -97)
+
+[connection signal="body_entered" from="area_espinho" to="area_espinho" method="_on_body_entered"]
