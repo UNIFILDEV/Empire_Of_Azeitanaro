@@ -3,12 +3,12 @@ class_name Player extends CharacterBody2D
 signal vidaMudou
 signal energiaMudou
 
-@export var speed: float = 250.0
+@export var speed: float = 100.0
 @export var jump_speed: float = -370.0
-@export var walk_speed: float = 80.0
+@export var sprint_speed: float = 275.0
 @export var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-@export var dash_speed: float = 600.0  # Velocidade do dash
+@export var dash_speed: float = 300.0  # Velocidade do dash
 @export var dash_duration: float = 0.1  # Duração do dash
 @export var dash_cooldown: float = 0.5  # Tempo entre o dash
 
@@ -17,6 +17,7 @@ signal energiaMudou
 
 @export var energiaMax = 100
 @export var energiaAtual = 100
+@export var energiaGasto = 10
 
 @onready var sprite = $AnimatedSprite
 @onready var collision = $CollisionBody
@@ -26,6 +27,7 @@ var original_gravity: float = gravity
 var attack_type = ""
 var is_dashing: bool = false
 var dash_timer: float = 0.0
+var is_sprinting: bool = false
 
 func _ready():
 	set_deferred("monitoring", true)
@@ -69,8 +71,18 @@ func _physics_process(delta):
 		direction = 1
 
 	var current_speed = speed
-	if Input.is_action_pressed("walking"):
-		current_speed = walk_speed
+	var can_sprint = Input.is_action_pressed("sprint") && energiaAtual > 0
+	
+	if can_sprint:
+		current_speed = sprint_speed
+		energiaAtual -= energiaGasto * delta
+		is_sprinting = true
+		energiaMudou.emit()
+	else:
+		if energiaAtual < energiaMax:
+			energiaAtual += energiaGasto * delta
+			energiaMudou.emit()
+		is_sprinting = false
 
 	if direction != 0:
 		velocity.x = direction * current_speed
@@ -90,16 +102,21 @@ func update_animation():
 
 	if is_on_floor():
 		if velocity.x == 0:
-			sprite.play("idle")
-		elif abs(velocity.x) > speed * 0.5:
-			sprite.play("run")
+			if sprite.animation != "idle":
+				sprite.play("idle")
+		elif is_sprinting && energiaAtual > 0:
+			if sprite.animation != "run":
+				sprite.play("run")
 		else:
 			sprite.play("walk")
+	
 	else:
 		if velocity.y < 0:
-			sprite.play("jump")
-		else:
-			sprite.play("fall")
+			if sprite.animation != "jump":
+				sprite.play("jump")
+		else :
+			if sprite.animation != "fall":
+				sprite.play("fall")
 
 func check_attack():
 	if Input.is_action_just_pressed("attack_3") and dash_timer <= 0:

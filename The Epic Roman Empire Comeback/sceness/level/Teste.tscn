@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://bbvbepwpyixv3"]
 
-[ext_resource type="Texture2D" uid="uid://dclxmh83k10jm" path="res://assets/assestLombaLomba/Assets/tiles.png" id="1_iwv75"]
+[ext_resource type="Texture2D" uid="uid://dclxmh83k10jm" path="res://assets/assestLombaLomba/Assets/Tiles.png" id="1_iwv75"]
 [ext_resource type="PackedScene" uid="uid://nyasjifgmflp" path="res://sceness/player/player.tscn" id="2_3eqxf"]
 [ext_resource type="PackedScene" uid="uid://c2y6pkvqay8r8" path="res://sceness/itens/moeda.tscn" id="3_ooty7"]
 [ext_resource type="PackedScene" uid="uid://dtvkgf81opda5" path="res://sceness/UI/moeda_ui.tscn" id="4_qcsla"]
@@ -109,7 +109,7 @@ position = Vector2(442, 244)
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
 offset_right = 80.0
 offset_bottom = 16.0
 texture_under = ExtResource("6_ymo22")
@@ -117,7 +117,7 @@ texture_progress = ExtResource("7_ekuo1")
 script = ExtResource("8_m32jg")
 player = NodePath("../../Player")
 
-[node name="TextureProgressBar2" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
+[node name="StaminaBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
 offset_top = 15.0
 offset_right = 64.0
 offset_bottom = 55.0

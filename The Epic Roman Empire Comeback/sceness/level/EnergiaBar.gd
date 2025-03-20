@@ -3,7 +3,10 @@ extends TextureProgressBar
 @export var player: Player
 
 func _ready():
-	player.energiaMudou.connect(update)
+	if player:
+		player.energiaMudou.connect(update)
+		update()
 
 func update():
-	value = player.energiaAtual * 100 / player.energiaMax
+	if player:
+		value = (player.energiaAtual / player.energiaMax) * 100

@@ -541,7 +541,7 @@ vidaMax = 60
 show_behind_parent = true
 position = Vector2(2, -6)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
-animation = &"idle"
+animation = &"run"
 speed_scale = 1.4
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
