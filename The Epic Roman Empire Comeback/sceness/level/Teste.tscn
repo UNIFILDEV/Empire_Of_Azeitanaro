@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bbvbepwpyixv3"]
+[gd_scene load_steps=16 format=4 uid="uid://bbvbepwpyixv3"]
 
 [ext_resource type="Texture2D" uid="uid://dclxmh83k10jm" path="res://assets/assestLombaLomba/Assets/tiles.png" id="1_iwv75"]
 [ext_resource type="PackedScene" uid="uid://b5mat2ba4k1hs" path="res://sceness/player/player.tscn" id="2_3eqxf"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://sceness/level/texture_progress_bar.gd" id="8_m32jg"]
 [ext_resource type="Texture2D" uid="uid://3iopmeo6g83e" path="res://assets/assestLombaLomba/Assets/EnergyBarProgress.png" id="9_6bie7"]
 [ext_resource type="Script" path="res://sceness/level/EnergiaBar.gd" id="10_dqo86"]
+[ext_resource type="PackedScene" path="res://sceness/itens/plataforma_movel.tscn" id="12_cgs1k"]
+[ext_resource type="PackedScene" path="res://sceness/itens/plataforma_movel2.tscn" id="13_rih2n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_23ssv"]
 texture = ExtResource("1_iwv75")
@@ -144,3 +146,18 @@ position = Vector2(619, 300)
 
 [node name="Cristal3" parent="." instance=ExtResource("6_t0vgi")]
 position = Vector2(660, 304)
+
+[node name="plataforma_movel" parent="." instance=ExtResource("12_cgs1k")]
+position = Vector2(570, 211)
+
+[node name="plataforma_movel2" parent="." instance=ExtResource("13_rih2n")]
+position = Vector2(128, 282)
+move_speed = 250.0
+distance = 300
+move_horizontal = false
+
+[node name="plataforma_movel3" parent="." instance=ExtResource("13_rih2n")]
+position = Vector2(231, 222)
+move_speed = 250.0
+distance = 100
+move_horizontal = false
