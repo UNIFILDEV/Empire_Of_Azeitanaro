@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dclxmh83k10jm"
-path="res://.godot/imported/tiles.png-384ab9b989b7190ebd2d5d9aa887aa39.ctex"
+uid="uid://cstwxfgpmpkrr"
+path="res://.godot/imported/Moon.png-e1848154aeb3b1f76677d3af4b794fe5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assestLombaLomba/Assets/tiles.png"
-dest_files=["res://.godot/imported/tiles.png-384ab9b989b7190ebd2d5d9aa887aa39.ctex"]
+source_file="res://assets/assestLombaLomba/Fundos/Moon.png"
+dest_files=["res://.godot/imported/Moon.png-e1848154aeb3b1f76677d3af4b794fe5.ctex"]
 
 [params]
 

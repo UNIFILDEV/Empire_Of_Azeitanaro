@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cpcs5t7wfl3hw"]
+[gd_scene load_steps=19 format=3 uid="uid://cpcs5t7wfl3hw"]
 
 [ext_resource type="PackedScene" uid="uid://b5mat2ba4k1hs" path="res://sceness/player/player.tscn" id="1_0vt4y"]
 [ext_resource type="Texture2D" uid="uid://dtto1hloij0c2" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_uhcpd"]
@@ -9,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bgcdjaspbw5p1" path="res://assets/trees/Building/Decor_Roof_01.png" id="6_t4gb1"]
 [ext_resource type="PackedScene" uid="uid://dlvxvnmxke8ov" path="res://sceness/itens/moving_platform.tscn" id="8_sg5a6"]
 [ext_resource type="PackedScene" uid="uid://d0nwybi7t3pnl" path="res://sceness/itens/item-fruit.tscn" id="10_1axco"]
-[ext_resource type="PackedScene" uid="uid://c3xfnvbb3vf7l" path="res://sceness/inimigos/inimigoEspinho.tscn" id="11_evmfu"]
+[ext_resource type="Script" path="res://sceness/itens/item-coin.gd" id="10_1xkma"]
+[ext_resource type="PackedScene" uid="uid://c3xfnvbb3vf7l" path="res://sceness/inimigos/chumba_lomba.tscn" id="11_evmfu"]
 [ext_resource type="PackedScene" uid="uid://b2qhxum2km1ak" path="res://sceness/itens/item-coin.tscn" id="12_ubanq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a77v6"]
@@ -357,6 +358,32 @@ position = Vector2(661, 116)
 position = Vector2(1009, 266)
 
 [node name="coins" type="Node2D" parent="."]
+
+[node name="items" parent="coins"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+position = Vector2(187, 4)
+script = ExtResource("10_1xkma")
+
+[node name="items2" parent="coins"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+position = Vector2(752, 238)
+script = ExtResource("10_1xkma")
 
 [node name="fruits" type="Node2D" parent="."]
 
