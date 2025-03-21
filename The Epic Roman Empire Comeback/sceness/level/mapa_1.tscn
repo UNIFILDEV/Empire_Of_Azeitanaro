@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://5c25wkbaixbt"]
+[gd_scene load_steps=20 format=4 uid="uid://5c25wkbaixbt"]
 
 [ext_resource type="Texture2D" uid="uid://c3s5p7cpfa1u" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_sg5hf"]
 [ext_resource type="PackedScene" uid="uid://b5mat2ba4k1hs" path="res://sceness/player/player.tscn" id="1_yj7gi"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://xjmfgggu5e7h" path="res://assets/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="8_n5th7"]
 [ext_resource type="Texture2D" uid="uid://j62jvc6uqgpi" path="res://assets/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="9_d1jlm"]
 [ext_resource type="Texture2D" uid="uid://douyv1ymeqncd" path="res://assets/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="10_pufso"]
+[ext_resource type="PackedScene" uid="uid://rpo6yvuyjhc1" path="res://sceness/objects/killzone.tscn" id="11_rwscb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xy50"]
 resource_name = "mapa_1_piso"
@@ -253,12 +254,16 @@ texture = ExtResource("5_afnep")
 sources/0 = SubResource("TileSetAtlasSource_rmu88")
 sources/1 = SubResource("TileSetAtlasSource_wwxyg")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0opaj"]
+distance = -700.0
+
 [node name="mapa_1" type="Node2D"]
 position = Vector2(-8, -312)
 scale = Vector2(1.1, 1.1)
 
 [node name="Player" parent="." instance=ExtResource("1_yj7gi")]
 position = Vector2(21.8182, -36.3637)
+collision_mask = 3
 
 [node name="piso" type="TileMapLayer" parent="."]
 scale = Vector2(1.1, 1.1)
@@ -343,3 +348,12 @@ motion_mirroring = Vector2(288, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
 texture = ExtResource("10_pufso")
 centered = false
+
+[node name="Killzone" parent="." instance=ExtResource("11_rwscb")]
+position = Vector2(21.8182, -36.3637)
+scale = Vector2(1.2, 1.2)
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+light_mask = 3
+shape = SubResource("WorldBoundaryShape2D_0opaj")
