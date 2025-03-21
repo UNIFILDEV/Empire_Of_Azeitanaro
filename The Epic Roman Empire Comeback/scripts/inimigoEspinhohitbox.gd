@@ -1,4 +1,5 @@
 extends Area2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $"../AnimatedSprite2D"
 
 
 ## Called when the node enters the scene tree for the first time.
@@ -15,8 +16,8 @@ var life = 2
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		print('deu dano')
-		life -= 1
-		owner.get_node("AnimatedSprite2D").play("hurt")
+		life -= 2
+		animated_sprite_2d.play("hurt")
 		if life == 0:
 			owner.queue_free()
 			

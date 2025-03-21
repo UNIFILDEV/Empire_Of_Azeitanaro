@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bgcdjaspbw5p1" path="res://assets/trees/Building/Decor_Roof_01.png" id="6_t4gb1"]
 [ext_resource type="PackedScene" uid="uid://dlvxvnmxke8ov" path="res://sceness/itens/moving_platform.tscn" id="8_sg5a6"]
 [ext_resource type="PackedScene" uid="uid://d0nwybi7t3pnl" path="res://sceness/itens/item-fruit.tscn" id="10_1axco"]
-[ext_resource type="PackedScene" uid="uid://c3xfnvbb3vf7l" path="res://sceness/inimigos/chumba_lomba.tscn" id="11_evmfu"]
+[ext_resource type="PackedScene" uid="uid://c3xfnvbb3vf7l" path="res://sceness/inimigos/inimigoEspinho.tscn" id="11_evmfu"]
 [ext_resource type="PackedScene" uid="uid://b2qhxum2km1ak" path="res://sceness/itens/item-coin.tscn" id="12_ubanq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a77v6"]

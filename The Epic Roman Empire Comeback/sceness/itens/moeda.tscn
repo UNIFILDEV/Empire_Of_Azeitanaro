@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c2y6pkvqay8r8"]
 
-[ext_resource type="Script" path="res://sceness/itens/moeda.gd" id="1_36152"]
+[ext_resource type="Script" path="res://scripts/moeda.gd" id="1_36152"]
 [ext_resource type="Texture2D" uid="uid://8e43b0en1of1" path="res://assets/assestLombaLomba/Assets/Coin.png" id="2_wn6ho"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ia3m6"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c26upyxwvtqbe"]
+
+[ext_resource type="Script" path="res://scripts/plataforma_movel.gd" id="1_5wmhm"]
+[ext_resource type="Texture2D" uid="uid://m1o8tia1voo4" path="res://assets/assestLombaLomba/Assets/tiles.png" id="2_k1i28"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_angn0"]
+size = Vector2(32, 16)
+
+[node name="plataforma_movel" type="Node2D"]
+script = ExtResource("1_5wmhm")
+
+[node name="plataforma" type="AnimatableBody2D" parent="."]
+collision_layer = 2
+
+[node name="sprite_plataforma" type="Sprite2D" parent="plataforma"]
+texture = ExtResource("2_k1i28")
+region_enabled = true
+region_rect = Rect2(176, 16, 32, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma"]
+shape = SubResource("RectangleShape2D_angn0")
+one_way_collision = true

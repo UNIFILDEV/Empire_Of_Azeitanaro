@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dtvkgf81opda5"]
 
-[ext_resource type="Script" path="res://sceness/itens/moeda_ui.gd" id="1_1gxpd"]
+[ext_resource type="Script" path="res://scripts/moeda_ui.gd" id="1_1gxpd"]
 [ext_resource type="Texture2D" uid="uid://8e43b0en1of1" path="res://assets/assestLombaLomba/Assets/Coin.png" id="2_4d6in"]
 
 [node name="MoedaUI" type="Control"]

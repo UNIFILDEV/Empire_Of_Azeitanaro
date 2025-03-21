@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d0nwybi7t3pnl"]
 
 [ext_resource type="Texture2D" uid="uid://cqnovmpio14ov" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/fruit.png" id="1_3y1c3"]
-[ext_resource type="Script" path="res://sceness/itens/item_fruit.gd" id="1_pqhp7"]
+[ext_resource type="Script" path="res://scripts/item_fruit.gd" id="1_pqhp7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8lmt"]
 radius = 5.0

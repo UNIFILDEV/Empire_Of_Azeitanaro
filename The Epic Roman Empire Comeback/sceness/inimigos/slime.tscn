@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dn126o387drmc"]
 
 [ext_resource type="Texture2D" uid="uid://ddrx87s67vv85" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/slime_purple.png" id="1_45qno"]
-[ext_resource type="Script" path="res://sceness/inimigos/slime.gd" id="2_6jarb"]
+[ext_resource type="Script" path="res://scripts/slime.gd" id="2_6jarb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l7rk7"]
 atlas = ExtResource("1_45qno")
@@ -71,7 +71,7 @@ animations = [{
 radius = 7.0
 height = 22.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+[node name="slime" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_u5igu")
 autoplay = "default"
 frame_progress = 0.382567

@@ -1,12 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://dy7l47fld2j72"]
+[gd_scene load_steps=10 format=3 uid="uid://dy7l47fld2j72"]
 
 [ext_resource type="PackedScene" uid="uid://b5mat2ba4k1hs" path="res://sceness/player/player.tscn" id="1_qgv0j"]
 [ext_resource type="Texture2D" uid="uid://dtto1hloij0c2" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_fptil"]
 [ext_resource type="PackedScene" uid="uid://bgvk154xskvgj" path="res://sceness/inimigos/inimigoCelta.tscn" id="3_2w66e"]
+[ext_resource type="PackedScene" uid="uid://ckhqnkggwm0d2" path="res://sceness/itens/espinho.tscn" id="3_nwwr2"]
+[ext_resource type="PackedScene" uid="uid://c26upyxwvtqbe" path="res://sceness/itens/plataforma_movel2.tscn" id="3_ofrfu"]
 [ext_resource type="PackedScene" uid="uid://crdt02t1a60q2" path="res://sceness/itens/plataforma_movel.tscn" id="4_hlv0d"]
-[ext_resource type="Script" path="res://sceness/espinho/area_espinho.gd" id="5_apqno"]
-[ext_resource type="Texture2D" uid="uid://c6mkhx2jc8th6" path="res://sceness/espinho/Spike.png" id="6_n6ycg"]
-[ext_resource type="PackedScene" uid="uid://c3xfnvbb3vf7l" path="res://sceness/inimigos/chumba_lomba.tscn" id="7_hl2wk"]
+[ext_resource type="PackedScene" uid="uid://c3xfnvbb3vf7l" path="res://sceness/inimigos/inimigoEspinho.tscn" id="7_hl2wk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvls4"]
 texture = ExtResource("2_fptil")
@@ -148,9 +148,6 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_uvls4")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w583n"]
-size = Vector2(312.5, 12)
-
 [node name="Node2D" type="Node2D"]
 show_behind_parent = true
 top_level = true
@@ -161,42 +158,36 @@ tile_set = SubResource("TileSet_xrgi2")
 format = 2
 layer_0/tile_data = PackedInt32Array(196597, 0, 1, 131061, 0, 1, -524250, 0, 1, 1310720, 0, 1, 1310721, 0, 1, 1310722, 0, 1, 1310723, 0, 1, 1310724, 0, 1, 1310725, 0, 1, 1310726, 0, 1, 1310727, 0, 1, 1310728, 0, 1, 1310729, 0, 1, 1310730, 0, 1, 1310753, 0, 1342177281, 1310754, 0, 1, 1310755, 0, 1, 1310756, 0, 1, 1310757, 0, 1, 1310758, 0, 1, 1310759, 0, 1, 1310760, 0, 1, 1310761, 0, 1, 1310762, 0, 1, 1310763, 0, 1, 1310764, 0, 1, 1310765, 0, 1, 1310766, 0, 1, 1310767, 0, 1, 1310768, 0, 1, 1310769, 0, 1, -524239, 0, 1, -524240, 0, 1, -524241, 0, 1, -524242, 0, 1, -524243, 0, 1, -524244, 0, 1, -524245, 0, 1, -524246, 0, 1, -524247, 0, 1, -524248, 0, 1, -524249, 0, 1, -524251, 0, 1, -524252, 0, 1, -524253, 0, 1, -524254, 0, 1, -524255, 0, 1, -524256, 0, 1, -524257, 0, 1, -524258, 0, 1, -524259, 0, 1, -524260, 0, 1, -524261, 0, 1, -524262, 0, 1, -524263, 0, 1, -524264, 0, 1, -524265, 0, 1, -524266, 0, 1, -524267, 0, 1, -524268, 0, 1, -524269, 0, 1, -524270, 0, 1, -524271, 0, 1, -524272, 0, 1, -524273, 0, 1, -524274, 0, 1, -524275, 0, 1, -524276, 0, 1, -524277, 0, 1, -524278, 0, 1, -524279, 0, 1, -524280, 0, 1, -524281, 0, 1, -524282, 0, 1, -524283, 0, 1, -524284, 0, 1, -524285, 0, 1, -524286, 0, 1, -524287, 0, 1, -524288, 0, 1, -458753, 0, 1, -458754, 0, 1, -458755, 0, 1, -458756, 0, 1, -458757, 0, 1, -458758, 0, 1, -458759, 0, 1, -458760, 0, 1, -458761, 0, 1, -458762, 0, 1, -458763, 0, 1, -393227, 0, 1, -327691, 0, 1, -262155, 0, 1, -196619, 0, 1, -131083, 0, 1, -65547, 0, 1, -11, 0, 1, 65525, 0, 1, 262133, 0, 1, 327669, 0, 1, 393205, 0, 1, 458741, 0, 1, 524277, 0, 1, 589813, 0, 1, 655349, 0, 1, 720885, 0, 1, 786421, 0, 1, 851957, 0, 1, 917493, 0, 1, 983029, 0, 1, 1048565, 0, 1, 1114101, 0, 1, 1179637, 0, 1, 1245173, 0, 1, 1310709, 0, 1, 1376245, 0, 1, 1376246, 0, 1, 1376247, 0, 1, 1376248, 0, 1, 1376249, 0, 1, 1376250, 0, 1, 1376251, 0, 1, 1376252, 0, 1, 1376253, 0, 1, 1376254, 0, 1, 1376255, 0, 1, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 393238, 0, 0, 393239, 0, 0, 393240, 0, 0, 393241, 0, 0, 393242, 0, 0, 393243, 0, 0, 1376266, 0, 1, 1441802, 0, 1, 1507338, 0, 1, 1310770, 0, 1, 1310771, 0, 1, 1310772, 0, 1, 1310773, 0, 1, 1310774, 0, 1, 1310775, 0, 1, 1310776, 0, 1, 1310777, 0, 1, 1310778, 0, 1, 1310779, 0, 1, 1310780, 0, 1, 1310781, 0, 1, 1310782, 0, 1, 1310783, 0, 1, 1310784, 0, 1, 1310785, 0, 1, 1310786, 0, 1, 1310787, 0, 1, 1310788, 0, 1, 1310789, 0, 1, 1310790, 0, 1, 1310791, 0, 1, 1310792, 0, 1, 1310793, 0, 1, 1310794, 0, 1, 1310795, 0, 1, 1310796, 0, 1, 1310797, 0, 1, 1310798, 0, 1, 1310799, 0, 1, 1310800, 0, 1, 1310801, 0, 1, 1310802, 0, 1, 1310803, 0, 1, 1310804, 0, 1, 1310805, 0, 1, 1310806, 0, 1, 1310807, 0, 1, 1310808, 0, 1, 1310809, 0, 1, 1310810, 0, 1, 1310811, 0, 1, 1310812, 0, 1, 1310813, 0, 1, 1245277, 0, 1, 1179741, 0, 1, 1114205, 0, 1, 1048669, 0, 1, 983133, 0, 1, 917597, 0, 1, 852061, 0, 1, 786525, 0, 1, 720989, 0, 1, 655453, 0, 1, 589917, 0, 1, 524381, 0, 1, 458845, 0, 1, 393309, 0, 1, 327773, 0, 1, 262237, 0, 1, 196701, 0, 1, 131165, 0, 1, 65629, 0, 1, 93, 0, 1, -65443, 0, 1, -130979, 0, 1, -196515, 0, 1, -262051, 0, 1, -327587, 0, 1, -393123, 0, 1, -458659, 0, 1, -524195, 0, 1, -524238, 0, 1, -524237, 0, 1, -524236, 0, 1, -524235, 0, 1, -524234, 0, 1, -524233, 0, 1, -524232, 0, 1, -524231, 0, 1, -524230, 0, 1, -524229, 0, 1, -524228, 0, 1, -524227, 0, 1, -524226, 0, 1, -524225, 0, 1, -524224, 0, 1, -524223, 0, 1, -524222, 0, 1, -524221, 0, 1, -524220, 0, 1, -524219, 0, 1, -524218, 0, 1, -524217, 0, 1, -524216, 0, 1, -524215, 0, 1, -524214, 0, 1, -524213, 0, 1, -524212, 0, 1, -524211, 0, 1, -524210, 0, 1, -524209, 0, 1, -524208, 0, 1, -524207, 0, 1, -524206, 0, 1, -524205, 0, 1, -524204, 0, 1, -524203, 0, 1, -524202, 0, 1, -524201, 0, 1, -524200, 0, 1, -524199, 0, 1, -524198, 0, 1, -524197, 0, 1, -524196, 0, 1, 1572874, 0, 1, 1572875, 0, 1, 1572877, 0, 1, 1572878, 0, 1, 1572879, 0, 1, 1572880, 0, 1, 1572881, 0, 1, 1572882, 0, 1, 1572883, 0, 1, 1572884, 0, 1, 1572885, 0, 1, 1572886, 0, 1, 1572887, 0, 1, 1572888, 0, 1, 1572889, 0, 1, 1572890, 0, 1, 1572891, 0, 1, 1572892, 0, 1, 1572893, 0, 1, 1572894, 0, 1, 1572895, 0, 1, 1572896, 0, 1, 1572897, 0, 1342177281, 1572876, 0, 1, 1507361, 0, 1342177281, 1441825, 0, 1342177281, 1376289, 0, 1342177281, 1245190, 0, 1, 1179654, 0, 1, 1114118, 0, 1, 1048582, 0, 1, 983046, 0, 1, 983045, 0, 1, 983047, 0, 1, 1310714, 0, 1, 1245178, 0, 1, 1179642, 0, 1, 1114106, 0, 1, 1048570, 0, 1, 1048569, 0, 1, 1048571, 0, 1)
 
-[node name="plataforma_movel" parent="." instance=ExtResource("4_hlv0d")]
+[node name="Espinho" parent="." instance=ExtResource("3_nwwr2")]
+position = Vector2(921, -19)
+
+[node name="plataforma_movel" parent="Espinho" instance=ExtResource("3_ofrfu")]
+position = Vector2(-57, -22)
+move_speed = 100.0
+distance = 300
+
+[node name="Itens" type="Node" parent="."]
+
+[node name="plataforma_movel" parent="Itens" instance=ExtResource("4_hlv0d")]
 position = Vector2(376, -33)
 
-[node name="plataforma_movel2" parent="." instance=ExtResource("4_hlv0d")]
+[node name="plataforma_movel2" parent="Itens" instance=ExtResource("4_hlv0d")]
 position = Vector2(682, -38)
 distance = 190
 move_horizontal = false
 
-[node name="Player" parent="." instance=ExtResource("1_qgv0j")]
-position = Vector2(30, -38)
+[node name="Bodys" type="Node" parent="."]
 
-[node name="inimigo2" parent="." instance=ExtResource("3_2w66e")]
-position = Vector2(232, -42)
+[node name="inimigo2" parent="Bodys" instance=ExtResource("3_2w66e")]
+position = Vector2(168, -64)
 scale = Vector2(1.44, 1.44)
 
-[node name="inimigo1" parent="." instance=ExtResource("3_2w66e")]
+[node name="inimigo1" parent="Bodys" instance=ExtResource("3_2w66e")]
 position = Vector2(715, -133)
 scale = Vector2(1.2, 1.2)
 
-[node name="area_espinho" type="Area2D" parent="."]
-position = Vector2(-74, -114)
-collision_layer = 2
-script = ExtResource("5_apqno")
-
-[node name="collision_espinho" type="CollisionShape2D" parent="area_espinho"]
-position = Vector2(4, 12)
-shape = SubResource("RectangleShape2D_w583n")
-
-[node name="sprite_espinho" type="Sprite2D" parent="area_espinho"]
-texture_repeat = 2
-position = Vector2(3, 11)
-texture = ExtResource("6_n6ycg")
-region_enabled = true
-region_rect = Rect2(0, 8, 310, 8)
-
-[node name="enemy" parent="." instance=ExtResource("7_hl2wk")]
+[node name="enemy" parent="Bodys" instance=ExtResource("7_hl2wk")]
 position = Vector2(102, -97)
 
-[connection signal="body_entered" from="area_espinho" to="area_espinho" method="_on_body_entered"]
+[node name="Player" parent="Bodys" instance=ExtResource("1_qgv0j")]
+position = Vector2(30, -38)
