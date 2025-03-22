@@ -129,9 +129,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_omlha"]
-radius = 6.14
-height = 21.6667
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_th28i"]
+size = Vector2(11, 17.83)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gitdp"]
 radius = 30.0032
@@ -144,7 +143,6 @@ script = ExtResource("1_hmsau")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 show_behind_parent = true
-scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_o8ewd")
 animation = &"walk"
 frame_progress = 0.345677
@@ -152,8 +150,8 @@ speed_scale = 1.4
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
 show_behind_parent = true
-position = Vector2(-3.14, 7.17)
-shape = SubResource("CapsuleShape2D_omlha")
+position = Vector2(-2.5, 6.085)
+shape = SubResource("RectangleShape2D_th28i")
 one_way_collision_margin = 0.0
 
 [node name="Area2D" type="Area2D" parent="."]

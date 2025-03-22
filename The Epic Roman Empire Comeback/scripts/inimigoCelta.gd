@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 30.0
+const SPEED = 50.0
 const INCREASED_SPEED = 70.0
 const JUMP_VELOCITY = -400.0
 const JUMP_DELAY = 1
@@ -13,6 +13,7 @@ var starting_position: Vector2
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite = $AnimatedSprite
 @onready var detection_area = $Area2D
+@onready var collision: CollisionShape2D = $CollisionBody
 @onready var player = get_parent().get_node("Player")
 
 var life: int = 2
@@ -63,6 +64,7 @@ func _physics_process(delta: float) -> void:
 		direction *= -1
 
 	sprite.scale.x = direction
+	collision.position.x = abs(collision.position.x) * direction * -1
 
 	if jump_timer > 0:
 		jump_timer -= delta

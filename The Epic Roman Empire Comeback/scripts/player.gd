@@ -3,7 +3,7 @@ class_name Player extends CharacterBody2D
 signal vidaMudou
 signal energiaMudou
 
-@export var speed: float = 100.0
+@export var speed: float = 150.0
 @export var jump_speed: float = -370.0
 @export var sprint_speed: float = 275.0
 @export var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
