@@ -389,7 +389,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_3",
-"speed": 10.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -504,7 +504,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 10.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -547,7 +547,9 @@ show_behind_parent = true
 position = Vector2(0, 0.166665)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
-animation = &"idle"
+animation = &"attack_3"
+frame = 7
+frame_progress = 1.0
 speed_scale = 1.4
 
 [node name="Camera2D" type="Camera2D" parent="."]

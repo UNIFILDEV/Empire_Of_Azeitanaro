@@ -136,6 +136,7 @@ size = Vector2(11, 17.83)
 radius = 30.0032
 
 [node name="inimigoCelta" type="CharacterBody2D"]
+scale = Vector2(1.44, 1.44)
 disable_mode = 1
 collision_layer = 4
 collision_mask = 2

@@ -180,11 +180,9 @@ move_horizontal = false
 
 [node name="inimigo2" parent="Bodys" instance=ExtResource("3_2w66e")]
 position = Vector2(168, -64)
-scale = Vector2(1.44, 1.44)
 
 [node name="inimigo1" parent="Bodys" instance=ExtResource("3_2w66e")]
 position = Vector2(715, -133)
-scale = Vector2(1.2, 1.2)
 
 [node name="enemy" parent="Bodys" instance=ExtResource("7_hl2wk")]
 position = Vector2(102, -97)
