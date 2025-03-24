@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c26upyxwvtqbe"]
+[gd_scene load_steps=4 format=3 uid="uid://qapscaednipo"]
 
 [ext_resource type="Script" path="res://scripts/plataforma_movel.gd" id="1_5wmhm"]
-[ext_resource type="Texture2D" uid="uid://m1o8tia1voo4" path="res://assets/assestLombaLomba/Assets/tiles.png" id="2_k1i28"]
+[ext_resource type="Texture2D" uid="uid://dclxmh83k10jm" path="res://assets/assestLombaLomba/Assets/tiles.png" id="2_k1i28"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_angn0"]
 size = Vector2(32, 16)

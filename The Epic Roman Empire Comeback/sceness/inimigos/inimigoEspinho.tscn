@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3xfnvbb3vf7l"]
+[gd_scene load_steps=11 format=3 uid="uid://cor22ikkfhhr6"]
 
 [ext_resource type="Script" path="res://scripts/inimigoEspinho.gd" id="1_so4dv"]
 [ext_resource type="Texture2D" uid="uid://cn87lbncc8hvk" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/Sprite Pack 2/4 - Robo Pumpkin/Hurt (16 x 16).png" id="2_o51dt"]

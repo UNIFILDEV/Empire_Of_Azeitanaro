@@ -1,0 +1,53 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://brlyvjklvlspt"]
+
+[ext_resource type="FontFile" uid="uid://chgaebsti3mlk" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="1_pbahv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2lpf"]
+bg_color = Color(0.465252, 0.0616798, 0, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmt1q"]
+bg_color = Color(0.466667, 0.0627451, 0, 0.784314)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_41flc"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 0.784314)
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dusm2"]
+bg_color = Color(0.466667, 0.0627451, 0, 0.784314)
+border_width_bottom = 4
+border_color = Color(0.466667, 0.0627451, 0, 0.784314)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/fonts/font = ExtResource("1_pbahv")
+Button/styles/focus = SubResource("StyleBoxFlat_j2lpf")
+Button/styles/hover = SubResource("StyleBoxFlat_xmt1q")
+Button/styles/normal = SubResource("StyleBoxFlat_41flc")
+Button/styles/pressed = SubResource("StyleBoxFlat_dusm2")

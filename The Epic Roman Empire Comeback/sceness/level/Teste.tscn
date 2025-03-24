@@ -11,10 +11,10 @@
 [ext_resource type="Script" path="res://sceness/level/texture_progress_bar.gd" id="8_m32jg"]
 [ext_resource type="Texture2D" uid="uid://3iopmeo6g83e" path="res://assets/assestLombaLomba/Assets/EnergyBarProgress.png" id="9_6bie7"]
 [ext_resource type="Script" path="res://sceness/level/EnergiaBar.gd" id="10_dqo86"]
-[ext_resource type="PackedScene" path="res://sceness/itens/plataforma_movel.tscn" id="12_cgs1k"]
-[ext_resource type="PackedScene" path="res://sceness/itens/plataforma_movel2.tscn" id="13_rih2n"]
+[ext_resource type="PackedScene" uid="uid://crdt02t1a60q2" path="res://sceness/itens/plataforma_movel.tscn" id="12_cgs1k"]
+[ext_resource type="PackedScene" uid="uid://qapscaednipo" path="res://sceness/itens/plataforma_movel2.tscn" id="13_rih2n"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_23ssv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dtquh"]
 texture = ExtResource("1_iwv75")
 2:1/0 = 0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -84,7 +84,7 @@ texture = ExtResource("1_iwv75")
 
 [sub_resource type="TileSet" id="TileSet_aor1f"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_23ssv")
+sources/0 = SubResource("TileSetAtlasSource_dtquh")
 
 [node name="Teste" type="Node2D"]
 position = Vector2(13, 49)
