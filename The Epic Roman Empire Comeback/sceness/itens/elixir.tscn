@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm3pttyslsd4i"]
+
+[ext_resource type="Script" path="res://scripts/elixir.gd" id="2_citdu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2o8sl"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"ready",
+"speed": 15.0
+}]
+
+[node name="elixir" type="AnimatedSprite2D"]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_2o8sl")
+animation = &"ready"
+frame_progress = 0.149234
+script = ExtResource("2_citdu")

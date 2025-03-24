@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bgqxohno6uion"]
+[gd_scene load_steps=15 format=3 uid="uid://bgqxohno6uion"]
 
 [ext_resource type="Texture2D" uid="uid://c6hwktmxsts4x" path="res://sceness/menu/bg.png" id="1_12l3e"]
 [ext_resource type="Shader" path="res://sceness/menu/cloud.gdshader" id="2_rv77i"]
@@ -9,21 +9,7 @@
 [ext_resource type="Shader" path="res://sceness/menu/cloud_mini.gdshader" id="6_ll81w"]
 [ext_resource type="Texture2D" uid="uid://co0ltrbb68kpu" path="res://assets/SpritePack/Seasonal Tilesets/3 - Tropics/Background parts/3 - Floating_clouds.png" id="7_bxuf1"]
 [ext_resource type="PackedScene" uid="uid://cwm45tqbhthes" path="res://sceness/menu/static_player.tscn" id="9_tw1ax"]
-[ext_resource type="Texture2D" uid="uid://dqkdaol4psvvk" path="res://assets/elixir/Sprites/Round Potion - YELLOW - 0000.png" id="10_54jna"]
-[ext_resource type="Texture2D" uid="uid://bihlj5h26740p" path="res://assets/elixir/Sprites/Round Potion - YELLOW - 0001.png" id="11_5a1l5"]
-[ext_resource type="Texture2D" uid="uid://cnpd6f2t8vs2t" path="res://assets/elixir/Sprites/Round Potion - YELLOW - 0002.png" id="12_to1wk"]
-[ext_resource type="Texture2D" uid="uid://oikuv55emt62" path="res://assets/elixir/Sprites/Round Potion - YELLOW - 0003.png" id="13_fwxju"]
-[ext_resource type="Texture2D" uid="uid://c0d5asbydyy2j" path="res://assets/elixir/Sprites/Round Potion - YELLOW - 0004.png" id="14_ptdvb"]
-[ext_resource type="Texture2D" uid="uid://uk7k3ouj45rb" path="res://assets/elixir/Sprites/Round Potion - YELLOW - 0005.png" id="15_7n01s"]
-[ext_resource type="Texture2D" uid="uid://bgbxi4s1lapmj" path="res://assets/elixir/Sprites/Round Potion - YELLOW - 0006.png" id="16_2gg5d"]
-[ext_resource type="Texture2D" uid="uid://blgtwlti21asq" path="res://assets/elixir/Sprites/Round Potion - YELLOW - 0007.png" id="17_n4hcp"]
-[ext_resource type="Texture2D" uid="uid://b6qx4jxcmhcxc" path="res://assets/elixir/Sprites/Round Potion - YELLOW - 0008.png" id="18_twig2"]
-[ext_resource type="Texture2D" uid="uid://c3b2objsxhmml" path="res://assets/elixir/Sprites/Round Potion - YELLOW - 0009.png" id="19_scds2"]
-[ext_resource type="Texture2D" uid="uid://ddrvgoyjks61g" path="res://assets/elixir/Sprites/Round Potion - YELLOW - 0010.png" id="20_tarvq"]
-[ext_resource type="Texture2D" uid="uid://dcy8gav3tdkb3" path="res://assets/elixir/Sprites/Round Potion - YELLOW - 0011.png" id="21_yjron"]
-[ext_resource type="Texture2D" uid="uid://dr25icwnf78m1" path="res://assets/elixir/Sprites/Round Potion - YELLOW - 0012.png" id="22_exdsu"]
-[ext_resource type="Texture2D" uid="uid://8qjbp8od61gq" path="res://assets/elixir/Sprites/Round Potion - YELLOW - 0014.png" id="23_df16y"]
-[ext_resource type="Texture2D" uid="uid://5wkvp3r36sbt" path="res://assets/elixir/Sprites/Round Potion - YELLOW - 0013.png" id="24_bxddq"]
+[ext_resource type="PackedScene" uid="uid://dm3pttyslsd4i" path="res://sceness/itens/elixir.tscn" id="10_v2l77"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jljrl"]
 shader = ExtResource("6_ll81w")
@@ -36,59 +22,6 @@ shader_parameter/move_speed = 0.12
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bcnoi"]
 shader = ExtResource("2_rv77i")
 shader_parameter/move_speed = 0.07
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bngpv"]
-animations = [{
-"frames": [{
-"duration": 0.5,
-"texture": ExtResource("10_54jna")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_5a1l5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_to1wk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_fwxju")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_ptdvb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_7n01s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_2gg5d")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_n4hcp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_twig2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_scds2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_tarvq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_yjron")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_exdsu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_df16y")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_bxddq")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -224,7 +157,6 @@ position = Vector2(36, 207)
 scale = Vector2(2, 2)
 frame_progress = 0.880159
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(812, 187)
-sprite_frames = SubResource("SpriteFrames_bngpv")
-frame_progress = 0.730385
+[node name="elixir" parent="." instance=ExtResource("10_v2l77")]
+position = Vector2(55, 215)
+scale = Vector2(0.5, 0.5)
