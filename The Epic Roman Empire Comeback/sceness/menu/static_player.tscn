@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwm45tqbhthes"]
+
+[ext_resource type="Texture2D" uid="uid://dda0tgt4pc02a" path="res://assets/player/Sword Channel.png" id="1_181ak"]
+[ext_resource type="Script" path="res://sceness/menu/static_player.gd" id="2_sp7dq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd62c"]
+atlas = ExtResource("1_181ak")
+region = Rect2(0, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wjae"]
+atlas = ExtResource("1_181ak")
+region = Rect2(22, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqu6s"]
+atlas = ExtResource("1_181ak")
+region = Rect2(44, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j548"]
+atlas = ExtResource("1_181ak")
+region = Rect2(66, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irn6h"]
+atlas = ExtResource("1_181ak")
+region = Rect2(88, 0, 22, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0bt7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd62c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wjae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqu6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6j548")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irn6h")
+}],
+"loop": true,
+"name": &"sword_channel",
+"speed": 10.0
+}]
+
+[node name="static_player" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0bt7s")
+animation = &"sword_channel"
+script = ExtResource("2_sp7dq")
