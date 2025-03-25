@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://scripts/MapaTeste.gd" id="1_kqlc5"]
 [ext_resource type="Texture2D" uid="uid://dtto1hloij0c2" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_fptil"]
 [ext_resource type="PackedScene" uid="uid://bgvk154xskvgj" path="res://sceness/inimigos/inimigoCelta.tscn" id="3_2w66e"]
-[ext_resource type="PackedScene" uid="uid://ckhqnkggwm0d2" path="res://sceness/itens/espinho.tscn" id="3_nwwr2"]
-[ext_resource type="PackedScene" uid="uid://qapscaednipo" path="res://sceness/itens/plataforma_movel2.tscn" id="3_ofrfu"]
-[ext_resource type="PackedScene" uid="uid://crdt02t1a60q2" path="res://sceness/itens/plataforma_movel.tscn" id="4_hlv0d"]
+[ext_resource type="PackedScene" uid="uid://ckhqnkggwm0d2" path="res://sceness/itens/mundo/espinho.tscn" id="3_nwwr2"]
+[ext_resource type="PackedScene" uid="uid://qapscaednipo" path="res://sceness/itens/mundo/plataforma_movel2.tscn" id="3_ofrfu"]
+[ext_resource type="PackedScene" uid="uid://crdt02t1a60q2" path="res://sceness/itens/mundo/plataforma_movel.tscn" id="4_hlv0d"]
 [ext_resource type="PackedScene" uid="uid://cor22ikkfhhr6" path="res://sceness/inimigos/inimigoEspinho.tscn" id="7_hl2wk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvls4"]

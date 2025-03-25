@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt0voojlsuqac"]
+
+[ext_resource type="Script" path="res://sceness/itens/azeite.gd" id="1_qhjkm"]
+[ext_resource type="Texture2D" uid="uid://dxtfcncg7eamx" path="res://assets/assestLombaLomba/frascoAzeite.png" id="2_oyof6"]
+[ext_resource type="Texture2D" uid="uid://dclxmh83k10jm" path="res://assets/assestLombaLomba/Assets/Tiles.png" id="3_qhr7e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vajgu"]
+radius = 4.0
+height = 10.0
+
+[node name="Azeite" type="Node2D"]
+script = ExtResource("1_qhjkm")
+
+[node name="FrascoAzeite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_oyof6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_vajgu")
+
+[node name="Tiles" type="Sprite2D" parent="."]
+position = Vector2(15, -121)
+texture = ExtResource("3_qhr7e")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

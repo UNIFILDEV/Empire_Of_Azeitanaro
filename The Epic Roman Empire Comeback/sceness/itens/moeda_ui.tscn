@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtvkgf81opda5"]
+[gd_scene load_steps=4 format=3 uid="uid://dtvkgf81opda5"]
 
 [ext_resource type="Script" path="res://scripts/moeda_ui.gd" id="1_1gxpd"]
-[ext_resource type="Texture2D" uid="uid://8e43b0en1of1" path="res://assets/assestLombaLomba/Assets/Coin.png" id="2_4d6in"]
+[ext_resource type="Texture2D" uid="uid://dph8j61sj7wmw" path="res://assets/assestLombaLomba/Assets/Coin.png" id="2_4d6in"]
+[ext_resource type="FontFile" uid="uid://b684sm4kbors1" path="res://fonts/PixelOperator8-Bold.ttf" id="3_nq0ni"]
 
 [node name="MoedaUI" type="Control"]
 layout_mode = 3
@@ -21,10 +22,11 @@ stretch_mode = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 28.0
-offset_right = 212.0
-offset_bottom = 100.0
+offset_left = 106.0
+offset_top = 41.0
+offset_right = 222.0
+offset_bottom = 113.0
+theme_override_fonts/font = ExtResource("3_nq0ni")
 theme_override_font_sizes/font_size = 52
 text = "0"
 horizontal_alignment = 1

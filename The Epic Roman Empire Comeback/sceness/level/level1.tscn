@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://5wxdhpyvwg6h" path="res://assets/backgrounds/game_background_1/game_background_1.png" id="5_dge85"]
 [ext_resource type="PackedScene" uid="uid://dn126o387drmc" path="res://sceness/inimigos/slime.tscn" id="6_0ybff"]
 [ext_resource type="Texture2D" uid="uid://bgcdjaspbw5p1" path="res://assets/trees/Building/Decor_Roof_01.png" id="6_t4gb1"]
-[ext_resource type="PackedScene" uid="uid://dlvxvnmxke8ov" path="res://sceness/itens/moving_platform.tscn" id="8_sg5a6"]
+[ext_resource type="PackedScene" uid="uid://dlvxvnmxke8ov" path="res://sceness/itens/mundo/moving_platform.tscn" id="8_sg5a6"]
 [ext_resource type="PackedScene" uid="uid://d0nwybi7t3pnl" path="res://sceness/itens/item-fruit.tscn" id="10_1axco"]
 [ext_resource type="PackedScene" uid="uid://qln1fup2c8ap" path="res://sceness/itens/item-coin.tscn" id="12_ubanq"]
 

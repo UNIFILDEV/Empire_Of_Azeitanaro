@@ -8,6 +8,6 @@ func _process(delta: float) -> void:
 	collision.shape.size = spikes.get_rect().size
 
 func _on_body_entered(body: CharacterBody2D) -> void:
-	if(body.name == "Player"):
+	if body is Player:
 		#body.take_damage(Vector2(0, -250))
 		print("player está nos espinhos")
