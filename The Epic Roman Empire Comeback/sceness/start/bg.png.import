@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lu3kyvuhwdjn"
-path="res://.godot/imported/Logo4.png-25db040af068a13bb120fcc0c0878a5a.ctex"
+uid="uid://c6hwktmxsts4x"
+path="res://.godot/imported/bg.png-8c1f555bba2b04ebd130c451f5015283.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sceness/menu/Logo4.png"
-dest_files=["res://.godot/imported/Logo4.png-25db040af068a13bb120fcc0c0878a5a.ctex"]
+source_file="res://sceness/start/bg.png"
+dest_files=["res://.godot/imported/bg.png-8c1f555bba2b04ebd130c451f5015283.ctex"]
 
 [params]
 

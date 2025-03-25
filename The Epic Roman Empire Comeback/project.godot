@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="The Epic Roman Empire Comeback"
-run/main_scene="res://sceness/menu/title_screen.tscn"
+run/main_scene="res://sceness/start/title_screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 EventController="*res://scripts/event_controller.gd"
 GameController="*res://scripts/game_controller.gd"
+Global="*res://scripts/global.gd"
 
 [display]
 

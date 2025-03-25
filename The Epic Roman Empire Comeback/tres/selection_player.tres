@@ -1,0 +1,16 @@
+[gd_resource type="LabelSettings" load_steps=3 format=3 uid="uid://8p4jevf7bvx7"]
+
+[ext_resource type="FontFile" uid="uid://chgaebsti3mlk" path="res://fonts/PixelOperator8.ttf" id="1_yf8sv"]
+
+[sub_resource type="FontVariation" id="FontVariation_agism"]
+base_font = ExtResource("1_yf8sv")
+spacing_top = 10
+spacing_bottom = 20
+
+[resource]
+font = SubResource("FontVariation_agism")
+font_size = 30
+font_color = Color(0.984314, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.529412)

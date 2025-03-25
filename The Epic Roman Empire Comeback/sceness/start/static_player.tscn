@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cwm45tqbhthes"]
 
 [ext_resource type="Texture2D" uid="uid://dda0tgt4pc02a" path="res://assets/player/Sword Channel.png" id="1_181ak"]
-[ext_resource type="Script" path="res://sceness/menu/static_player.gd" id="2_sp7dq"]
+[ext_resource type="Script" path="res://sceness/start/static_player.gd" id="2_sp7dq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rd62c"]
 atlas = ExtResource("1_181ak")

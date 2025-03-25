@@ -14,7 +14,7 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite = $AnimatedSprite
 @onready var detection_area = $Area2D
 @onready var collision: CollisionShape2D = $CollisionBody
-@onready var player = get_parent().get_node("Player")
+@onready var player = get_parent().get_node("Player")  # Certifique-se de que esse caminho é válido
 
 var life: int = 2
 var is_following_player: bool = false
@@ -42,13 +42,14 @@ func _physics_process(delta: float) -> void:
 	if is_on_wall() and jump_timer <= 0:
 		jump()
 
-	if abs(global_position.x - player.global_position.x) < 10:
+	# Verifique se o player é válido antes de acessar a posição dele
+	if is_instance_valid(player) and abs(global_position.x - player.global_position.x) < 10:
 		patrol_timer = PATROL_DELAY
 
 	if patrol_timer > 0:
 		patrol_timer -= delta
 		patrol()
-	elif is_following_player and player:
+	elif is_following_player and is_instance_valid(player):
 		follow_player()
 	else:
 		patrol()
@@ -60,6 +61,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+	# Verifique se a posição de patrulha excedeu o limite
 	if abs(global_position.x - starting_position.x) >= patrol_distance and not is_following_player:
 		direction *= -1
 
@@ -70,11 +72,13 @@ func _physics_process(delta: float) -> void:
 		jump_timer -= delta
 
 func follow_player():
-	var direction_to_player = player.global_position.x - global_position.x
-	velocity.x = sign(direction_to_player) * INCREASED_SPEED
+	# Verifique se o player é válido antes de seguir
+	if is_instance_valid(player):
+		var direction_to_player = player.global_position.x - global_position.x
+		velocity.x = sign(direction_to_player) * INCREASED_SPEED
 
-	if direction_to_player != 0:
-		direction = sign(direction_to_player)
+		if direction_to_player != 0:
+			direction = sign(direction_to_player)
 
 func patrol():
 	velocity.x = direction * SPEED

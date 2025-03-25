@@ -1,0 +1,136 @@
+[gd_scene load_steps=12 format=3 uid="uid://dqqcoqfn76plq"]
+
+[ext_resource type="Script" path="res://scripts/selection_player.gd" id="1_n4go0"]
+[ext_resource type="Shader" path="res://shader/light.gdshader" id="3_2up0l"]
+[ext_resource type="Texture2D" uid="uid://ksooh37vvvx" path="res://assets/assestLombaLomba/Assets/light.png" id="3_15gpo"]
+[ext_resource type="Texture2D" uid="uid://b2nddkflc3t24" path="res://assets/player/Sword Channel-1.png" id="6_0pvv2"]
+[ext_resource type="Shader" path="res://shader/cloud_mini.gdshader" id="6_mvssa"]
+[ext_resource type="Texture2D" uid="uid://y5ubqb4or7ke" path="res://assets/SpritePack/Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="6_tqjuo"]
+[ext_resource type="Texture2D" uid="uid://co0ltrbb68kpu" path="res://assets/SpritePack/Seasonal Tilesets/3 - Tropics/Background parts/3 - Floating_clouds.png" id="7_w7lea"]
+[ext_resource type="LabelSettings" uid="uid://8p4jevf7bvx7" path="res://tres/selection_player.tres" id="10_6pkfi"]
+[ext_resource type="LabelSettings" uid="uid://dch4en58q6ino" path="res://tres/tutorial.tres" id="10_lxwd4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1q4f7"]
+shader = ExtResource("3_2up0l")
+shader_parameter/move_speed = 0.04
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fcbr4"]
+shader = ExtResource("6_mvssa")
+shader_parameter/move_speed = 0.05
+
+[node name="selection_player" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n4go0")
+
+[node name="light" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_1q4f7")
+position = Vector2(-1, 1)
+scale = Vector2(3, 3)
+texture = ExtResource("3_15gpo")
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(2.16588e-07, 0.421096, 0.396161, 0.388235)
+
+[node name="Character_Selection" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="Character_Selection"]
+layout_mode = 2
+text = "SELECIONE SEU JOGADOR!"
+label_settings = ExtResource("10_6pkfi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="player_slots" type="HBoxContainer" parent="Character_Selection"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Character_Selection/player_slots"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 80
+
+[node name="player" type="TextureButton" parent="Character_Selection/player_slots/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_0pvv2")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Character_Selection/player_slots"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 80
+
+[node name="player2" type="TextureButton" parent="Character_Selection/player_slots/MarginContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("6_0pvv2")
+
+[node name="MarginContainer3" type="MarginContainer" parent="Character_Selection/player_slots"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 80
+
+[node name="player3" type="TextureButton" parent="Character_Selection/player_slots/MarginContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("6_0pvv2")
+
+[node name="tutorial" type="Label" parent="Character_Selection"]
+layout_mode = 2
+text = "WASD + SPACE - ANDAR
+SHIFT - CORRER
+
+MOUSE LEFT - ATAQUE LENTO
+MOUSE RIGHT - ATAQUE RAPIDO
+SHIFT + ATTACK - ATAQUE COM DASH"
+label_settings = ExtResource("10_lxwd4")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="BG" type="ParallaxBackground" parent="."]
+offset = Vector2(-500, 50)
+transform = Transform2D(1, 0, 0, 1, -500, 50)
+
+[node name="ceu" type="ParallaxLayer" parent="BG"]
+position = Vector2(495, -53)
+scale = Vector2(0.958829, 0.666784)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ceu"]
+modulate = Color(0.176419, 0.176419, 0.176419, 1)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("6_tqjuo")
+centered = false
+
+[node name="nuvem" type="ParallaxLayer" parent="BG"]
+position = Vector2(458, -10)
+
+[node name="cloud_mini" type="Sprite2D" parent="BG/nuvem"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_fcbr4")
+position = Vector2(29, -70)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("7_w7lea")
+centered = false

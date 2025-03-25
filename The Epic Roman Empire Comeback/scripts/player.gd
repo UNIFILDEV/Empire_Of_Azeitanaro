@@ -1,4 +1,4 @@
-class_name Player extends CharacterBody2D
+extends CharacterBody2D
 
 signal vidaMudou
 signal energiaMudou
@@ -8,9 +8,9 @@ signal energiaMudou
 @export var sprint_speed: float = 275.0
 @export var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-@export var dash_speed: float = 600.0  # Velocidade do dash
-@export var dash_duration: float = 0.1  # Duração do dash
-@export var dash_cooldown: float = 0.5  # Tempo entre o dash
+@export var dash_speed: float = 600.0
+@export var dash_duration: float = 0.1
+@export var dash_cooldown: float = 0.5
 
 @export var vidaMax = 100
 @export var vidaAtual = 60
@@ -55,7 +55,8 @@ func _physics_process(delta):
 			if direction != 0:
 				velocity.x = direction * speed
 				sprite.flip_h = direction < 0
-				collision.position.x = abs(collision.position.x) * (1 if sprite.flip_h else -1)
+				if is_instance_valid(collision):
+					collision.position.x = abs(collision.position.x) * (1 if sprite.flip_h else -1)
 		else:
 			velocity.x = 0
 		move_and_slide()
@@ -87,7 +88,9 @@ func _physics_process(delta):
 	if direction != 0:
 		velocity.x = direction * current_speed
 		sprite.flip_h = direction < 0
-		collision.position.x = abs(collision.position.x) * (1 if sprite.flip_h else -1)
+		# Verifique se o 'collision' é válido antes de acessar sua posição
+		if is_instance_valid(collision):
+			collision.position.x = abs(collision.position.x) * (1 if sprite.flip_h else -1)
 	else:
 		velocity.x = 0
 
@@ -121,9 +124,9 @@ func update_animation():
 func check_attack():
 	if Input.is_action_just_pressed("attack_3") and dash_timer <= 0:
 		if velocity.x == 0:  # Se o player estiver parado
-			start_attack("attack_3")  # Realiza o ataque sem o dash
-		else:  # Se o player estiver em movimento
-			start_attack("attack_3")  # Realiza o ataque com dash
+			start_attack("attack_3")
+		else:
+			start_attack("attack_3")
 			start_dash()
 
 	elif Input.is_action_just_pressed("attack_1"):
@@ -145,12 +148,11 @@ func start_attack(type):
 func start_dash():
 	is_dashing = true
 	dash_timer = dash_duration
-	# Aplica a direção do dash
 	if Input.is_action_pressed("ui_left"):
-		velocity.x = -dash_speed  # Dash para a esquerda
+		velocity.x = -dash_speed
 		sprite.flip_h = true
 	elif Input.is_action_pressed("ui_right"):
-		velocity.x = dash_speed  # Dash para a direita
+		velocity.x = dash_speed
 		sprite.flip_h = false
 
 func _on_animated_sprite_finished():
@@ -170,4 +172,4 @@ func onHealed(valor: int):
 
 func _input(event : InputEvent):
 	if(event.is_action_pressed("ui_down") and is_on_floor()):
-		position.y += 1	
+		position.y += 1

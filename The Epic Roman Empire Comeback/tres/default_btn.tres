@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=6 format=3 uid="uid://brehe2nbmg28h"]
 
-[ext_resource type="FontFile" uid="uid://chgaebsti3mlk" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="1_pbahv"]
+[ext_resource type="FontFile" uid="uid://chgaebsti3mlk" path="res://fonts/PixelOperator8.ttf" id="1_pbahv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2lpf"]
 bg_color = Color(0.465252, 0.0616798, 0, 1)

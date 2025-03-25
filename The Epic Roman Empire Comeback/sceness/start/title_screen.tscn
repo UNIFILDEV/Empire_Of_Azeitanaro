@@ -1,14 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://bgqxohno6uion"]
+[gd_scene load_steps=16 format=3 uid="uid://bgqxohno6uion"]
 
-[ext_resource type="Texture2D" uid="uid://c6hwktmxsts4x" path="res://sceness/menu/bg.png" id="1_12l3e"]
-[ext_resource type="Shader" path="res://sceness/menu/cloud.gdshader" id="2_rv77i"]
+[ext_resource type="Texture2D" uid="uid://c6hwktmxsts4x" path="res://sceness/start/bg.png" id="1_12l3e"]
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_cr4cb"]
 [ext_resource type="Texture2D" uid="uid://35l424a2mnxv" path="res://assets/SpritePack/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="3_74j6x"]
 [ext_resource type="Texture2D" uid="uid://ksooh37vvvx" path="res://assets/assestLombaLomba/Assets/light.png" id="3_vfhta"]
-[ext_resource type="Texture2D" uid="uid://lu3kyvuhwdjn" path="res://sceness/menu/Logo4.png" id="4_3ptar"]
-[ext_resource type="Theme" uid="uid://brehe2nbmg28h" path="res://default_btn.tres" id="6_0ppjl"]
-[ext_resource type="Shader" path="res://sceness/menu/cloud_mini.gdshader" id="6_ll81w"]
+[ext_resource type="Texture2D" uid="uid://lu3kyvuhwdjn" path="res://sceness/start/Logo4.png" id="4_3ptar"]
+[ext_resource type="Theme" uid="uid://brehe2nbmg28h" path="res://tres/default_btn.tres" id="6_0ppjl"]
+[ext_resource type="Shader" path="res://shader/cloud_mini.gdshader" id="6_ll81w"]
 [ext_resource type="Texture2D" uid="uid://co0ltrbb68kpu" path="res://assets/SpritePack/Seasonal Tilesets/3 - Tropics/Background parts/3 - Floating_clouds.png" id="7_bxuf1"]
-[ext_resource type="PackedScene" uid="uid://cwm45tqbhthes" path="res://sceness/menu/static_player.tscn" id="9_tw1ax"]
+[ext_resource type="Shader" path="res://shader/cloud.gdshader" id="7_yku1u"]
+[ext_resource type="PackedScene" uid="uid://cwm45tqbhthes" path="res://sceness/start/static_player.tscn" id="9_tw1ax"]
 [ext_resource type="PackedScene" uid="uid://dm3pttyslsd4i" path="res://sceness/itens/elixir.tscn" id="10_v2l77"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jljrl"]
@@ -20,7 +21,7 @@ shader_parameter/move_speed = 0.12
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a4qxi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bcnoi"]
-shader = ExtResource("2_rv77i")
+shader = ExtResource("7_yku1u")
 shader_parameter/move_speed = 0.07
 
 [node name="TitleScreen" type="Control"]
@@ -31,6 +32,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
+script = ExtResource("1_cr4cb")
 
 [node name="bg" type="TextureRect" parent="."]
 layout_mode = 2
@@ -60,52 +62,51 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="bg/MarginContainer/HBoxContainer"]
+[node name="button_slots" type="VBoxContainer" parent="bg/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="HSeparator5" type="HSeparator" parent="bg/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HSeparator5" type="HSeparator" parent="bg/MarginContainer/HBoxContainer/button_slots"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/separator = SubResource("StyleBoxEmpty_e27ys")
 
-[node name="HSeparator6" type="HSeparator" parent="bg/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HSeparator6" type="HSeparator" parent="bg/MarginContainer/HBoxContainer/button_slots"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/separator = SubResource("StyleBoxEmpty_e27ys")
 
-[node name="game_logo" type="TextureRect" parent="bg/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="game_logo" type="TextureRect" parent="bg/MarginContainer/HBoxContainer/button_slots"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 0
 texture = ExtResource("4_3ptar")
 stretch_mode = 1
 
-[node name="HSeparator3" type="HSeparator" parent="bg/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="bg/MarginContainer/HBoxContainer/button_slots"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/separator = SubResource("StyleBoxEmpty_e27ys")
 
-[node name="start" type="Button" parent="bg/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="start" type="Button" parent="bg/MarginContainer/HBoxContainer/button_slots"]
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("6_0ppjl")
-button_mask = 0
 text = "START"
 
-[node name="HSeparator7" type="HSeparator" parent="bg/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HSeparator7" type="HSeparator" parent="bg/MarginContainer/HBoxContainer/button_slots"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/separator = SubResource("StyleBoxEmpty_e27ys")
 
-[node name="HSeparator4" type="HSeparator" parent="bg/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HSeparator4" type="HSeparator" parent="bg/MarginContainer/HBoxContainer/button_slots"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/separator = SubResource("StyleBoxEmpty_e27ys")
 
-[node name="exit" type="Button" parent="bg/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="exit" type="Button" parent="bg/MarginContainer/HBoxContainer/button_slots"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
