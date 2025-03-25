@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://co0ltrbb68kpu" path="res://assets/SpritePack/Seasonal Tilesets/3 - Tropics/Background parts/3 - Floating_clouds.png" id="7_bxuf1"]
 [ext_resource type="Shader" path="res://shader/cloud.gdshader" id="7_yku1u"]
 [ext_resource type="PackedScene" uid="uid://cwm45tqbhthes" path="res://sceness/start/static_player.tscn" id="9_tw1ax"]
-[ext_resource type="PackedScene" uid="uid://dm3pttyslsd4i" path="res://sceness/itens/elixir.tscn" id="10_v2l77"]
+[ext_resource type="AudioStream" uid="uid://c48iwsx4wjgu2" path="res://assets/trilha sonora/Azeitanaro Menu.mp3" id="11_rrk8y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jljrl"]
 shader = ExtResource("6_ll81w")
@@ -158,6 +158,19 @@ position = Vector2(36, 207)
 scale = Vector2(2, 2)
 frame_progress = 0.880159
 
-[node name="elixir" parent="." instance=ExtResource("10_v2l77")]
+[node name="elixir" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 position = Vector2(55, 215)
 scale = Vector2(0.5, 0.5)
+script = null
+
+[node name="AudioStreamPlayerMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_rrk8y")
