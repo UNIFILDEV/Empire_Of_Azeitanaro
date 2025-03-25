@@ -13,7 +13,7 @@ signal energiaMudou
 @export var dash_cooldown: float = 0.5
 
 @export var vidaMax = 100
-@export var vidaAtual = 60
+@export var vidaAtual = 100
 
 @export var energiaMax = 100
 @export var energiaAtual = 100
@@ -160,7 +160,7 @@ func _on_animated_sprite_finished():
 	attack_type = ""
 	gravity = original_gravity
 
-func hurtByEnemy():
+func hurtBySpike():
 	vidaAtual -= 10
 	if vidaAtual < 0:
 		vidaAtual = vidaMax
