@@ -10,6 +10,8 @@ var direction := -1
 var patrol_distance: float = 100.0
 var starting_position: Vector2
 
+var isMovingRight = true
+
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite = $AnimatedSprite
 @onready var detection_area = $Area2D
@@ -25,6 +27,9 @@ func _ready():
 	starting_position = global_position
 	detection_area.body_entered.connect(_on_body_entered)
 	detection_area.body_exited.connect(_on_body_exited)
+
+func _process(delta: float) -> void:
+	detect_turn_around()
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
@@ -100,3 +105,26 @@ func reset_patrol():
 	direction = -1
 	velocity.x = 0
 	sprite.scale.x = direction
+
+func detect_turn_around():
+	if not $RayCast2D.is_colliding() and is_on_floor():
+		isMovingRight = !isMovingRight
+		scale.x = -scale.x
+		print("Virar para o lado")
+
+func hit():
+	$HurtPlayerZone.monitoring = true
+
+func endHit():
+	$HurtPlayerZone.monitoring = false
+
+func startWalk():
+	$AnimatedSprite.play("walk")
+
+
+func _on_hurt_player_zone_body_entered(body: Node2D) -> void:
+	if body is Player:
+		$AnimatedSprite.play("attack")
+
+func _on_detection_zone_body_entered(body: Node2D) -> void:
+	get_tree().reload_current_scene()

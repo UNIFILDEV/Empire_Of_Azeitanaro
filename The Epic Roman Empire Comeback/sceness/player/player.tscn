@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://b5mat2ba4k1hs"]
+[gd_scene load_steps=87 format=3 uid="uid://b5mat2ba4k1hs"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_t85cg"]
 [ext_resource type="Texture2D" uid="uid://c2l47q202yr1v" path="res://assets/player/Attack 2 Recover.png" id="1_waflx"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c4c5c3d2wt7pp" path="res://assets/player/Fall.png" id="3_qpcy7"]
 [ext_resource type="Texture2D" uid="uid://c2vbpcbylrie0" path="res://assets/player/Jump.png" id="5_xps7v"]
 [ext_resource type="Texture2D" uid="uid://ctdnhi43oobup" path="res://assets/player/Attack 3.png" id="6_vf0js"]
+[ext_resource type="Texture2D" uid="uid://dn2e4xjmqmefu" path="res://assets/player/Hit Front.png" id="7_unjfc"]
 [ext_resource type="Texture2D" uid="uid://bn2g7di7msi3x" path="res://assets/player/Roll.png" id="9_72q20"]
 [ext_resource type="Texture2D" uid="uid://4vleopocakn7" path="res://assets/player/Walk.png" id="9_ki6go"]
 
@@ -150,6 +151,30 @@ region = Rect2(44, 0, 22, 30)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fiui3"]
 atlas = ExtResource("3_qpcy7")
 region = Rect2(66, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylcm6"]
+atlas = ExtResource("7_unjfc")
+region = Rect2(0, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nocwe"]
+atlas = ExtResource("7_unjfc")
+region = Rect2(22, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vatpg"]
+atlas = ExtResource("7_unjfc")
+region = Rect2(44, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgn8i"]
+atlas = ExtResource("7_unjfc")
+region = Rect2(66, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s8qn"]
+atlas = ExtResource("7_unjfc")
+region = Rect2(88, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qm8pw"]
+atlas = ExtResource("7_unjfc")
+region = Rect2(110, 0, 22, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wfpl1"]
 atlas = ExtResource("1_xaeqo")
@@ -410,6 +435,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ylcm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nocwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vatpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgn8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s8qn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qm8pw")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wfpl1")
 }, {
 "duration": 1.0,
@@ -547,7 +595,9 @@ show_behind_parent = true
 position = Vector2(0, 0.166665)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
-animation = &"arrackRecover"
+animation = &"hit"
+frame = 5
+frame_progress = 1.0
 speed_scale = 1.4
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -566,5 +616,7 @@ drag_right_margin = 0.4
 drag_bottom_margin = 0.3
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="HitBox" type="Area2D" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_animated_sprite_animation_finished"]
