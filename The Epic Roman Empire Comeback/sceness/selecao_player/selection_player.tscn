@@ -100,12 +100,12 @@ texture_normal = ExtResource("6_0pvv2")
 
 [node name="tutorial" type="Label" parent="Character_Selection"]
 layout_mode = 2
-text = "WASD + SPACE - ANDAR
-SHIFT - CORRER
+text = "WASD + SPACE: ANDAR
+SHIFT: CORRER
 
-MOUSE LEFT - ATAQUE LENTO
-MOUSE RIGHT - ATAQUE RAPIDO
-SHIFT + ATTACK - ATAQUE COM DASH"
+MOUSE LEFT: ATAQUE LENTO
+MOUSE RIGHT: ATAQUE RAPIDO
+SHIFT + ATTACK: ATAQUE COM DASH"
 label_settings = ExtResource("10_lxwd4")
 horizontal_alignment = 1
 vertical_alignment = 2

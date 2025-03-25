@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dy7l47fld2j72"]
+[gd_scene load_steps=10 format=3 uid="uid://dy7l47fld2j72"]
 
 [ext_resource type="Script" path="res://scripts/MapaTeste.gd" id="1_kqlc5"]
 [ext_resource type="Texture2D" uid="uid://dtto1hloij0c2" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_fptil"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://qapscaednipo" path="res://sceness/itens/plataforma_movel2.tscn" id="3_ofrfu"]
 [ext_resource type="PackedScene" uid="uid://crdt02t1a60q2" path="res://sceness/itens/plataforma_movel.tscn" id="4_hlv0d"]
 [ext_resource type="PackedScene" uid="uid://cor22ikkfhhr6" path="res://sceness/inimigos/inimigoEspinho.tscn" id="7_hl2wk"]
-[ext_resource type="PackedScene" uid="uid://rpo6yvuyjhc1" path="res://sceness/itens/killzone.tscn" id="8_xdwcm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvls4"]
 texture = ExtResource("2_fptil")
@@ -149,9 +148,6 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_uvls4")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ihbu0"]
-distance = -89.0
-
 [node name="MapaTeste" type="Node2D"]
 show_behind_parent = true
 top_level = true
@@ -189,13 +185,6 @@ position = Vector2(715, -133)
 
 [node name="enemy" parent="." instance=ExtResource("7_hl2wk")]
 position = Vector2(102, -97)
-
-[node name="Killzone" parent="." instance=ExtResource("8_xdwcm")]
-visible = false
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-shape = SubResource("WorldBoundaryShape2D_ihbu0")
 
 [node name="player_spawn_point" type="Marker2D" parent="."]
 unique_name_in_owner = true

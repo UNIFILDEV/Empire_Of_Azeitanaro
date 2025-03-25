@@ -18,4 +18,5 @@ func on_pressed_button(button):
 		start_game()
 
 func start_game():
-	get_tree().change_scene_to_file("res://sceness/level/MapaTeste.tscn")
+	#mapa inicial
+	get_tree().change_scene_to_file("res://sceness/start/bg_inicial.tscn")

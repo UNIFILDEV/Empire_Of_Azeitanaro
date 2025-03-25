@@ -551,15 +551,19 @@ animation = &"walk"
 speed_scale = 1.4
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.8, 1.8)
+position = Vector2(-0.833333, 0)
+zoom = Vector2(1.6, 1.6)
 process_callback = 0
-limit_left = 0
+limit_left = -16
+limit_bottom = 50
 limit_smoothed = true
 position_smoothing_speed = 24.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-drag_left_margin = 0.5
-drag_right_margin = 0.5
+drag_left_margin = 0.4
+drag_top_margin = 0.3
+drag_right_margin = 0.4
+drag_bottom_margin = 0.3
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
