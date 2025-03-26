@@ -1,6 +1,11 @@
 extends Control
 
 @onready var player_slots: HBoxContainer = %player_slots
+@onready var voltar: Button = $Character_Selection/voltar
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		voltar.grab_focus()
 
 func _ready() -> void:
 	for button in player_slots.get_children():

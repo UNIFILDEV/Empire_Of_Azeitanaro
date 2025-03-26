@@ -3,6 +3,7 @@ extends Control
 @onready var exit: Button = %exit
 @onready var start: Button = %start
 @onready var music_player_1: AudioStreamPlayer = %AudioStreamPlayerMenu
+@onready var transition: CanvasLayer = $bg/transition
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
