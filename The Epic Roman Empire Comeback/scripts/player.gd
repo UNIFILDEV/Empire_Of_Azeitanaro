@@ -7,6 +7,8 @@ signal energiaMudou
 @export var jump_speed: float = -370.0
 @export var sprint_speed: float = 275.0
 @export var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+@export var soundJump = preload("res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sounds/jump.wav")
+@export var attackSound = preload("res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sounds/tap.wav") # Som de ataque
 
 @export var dash_speed: float = 600.0
 @export var dash_duration: float = 0.1
@@ -28,10 +30,20 @@ var attack_type = ""
 var is_dashing: bool = false
 var dash_timer: float = 0.0
 var is_sprinting: bool = false
+var audio_player_jump: AudioStreamPlayer2D
+var audio_player_attack: AudioStreamPlayer2D
 
 func _ready():
 	set_deferred("monitoring", true)
 	EventController.connect("healed", onHealed)
+	audio_player_jump = AudioStreamPlayer2D.new()
+	audio_player_jump.stream = soundJump  # Atribui o som de pulo
+	add_child(audio_player_jump)  # Adiciona como filho do Player para gerenciar o som
+	
+	#audio ataque
+	audio_player_attack = AudioStreamPlayer2D.new()
+	audio_player_attack.stream = attackSound # Atribui o som de ataque
+	add_child(audio_player_attack)  # Adiciona como filho do Player
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -63,6 +75,7 @@ func _physics_process(delta):
 		return
 
 	if (Input.is_action_pressed("jump")) and is_on_floor():
+		audio_player_jump.play()
 		velocity.y = jump_speed
 
 	var direction = 0
@@ -138,6 +151,8 @@ func start_attack(type):
 	attacking = true
 	attack_type = type
 	sprite.play(type)
+	audio_player_attack.play() #som teste no ataque. tem q mudar, soq ai eh só mudar qual atk qr e qlq coisa faz
+	#um if, ou dx o msm som pra qlq ataque, ai eh so mudar o som que quer la em cima no preload
 
 	if type == "attack_1":
 		gravity = 1200.0
