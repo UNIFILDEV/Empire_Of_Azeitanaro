@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bgqxohno6uion"]
+[gd_scene load_steps=17 format=3 uid="uid://bgqxohno6uion"]
 
 [ext_resource type="Texture2D" uid="uid://c6hwktmxsts4x" path="res://sceness/start/bg.png" id="1_12l3e"]
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_cr4cb"]
@@ -11,6 +11,7 @@
 [ext_resource type="Shader" path="res://shader/cloud.gdshader" id="7_yku1u"]
 [ext_resource type="PackedScene" uid="uid://cwm45tqbhthes" path="res://sceness/start/static_player.tscn" id="9_tw1ax"]
 [ext_resource type="AudioStream" uid="uid://c48iwsx4wjgu2" path="res://assets/trilha sonora/Azeitanaro Menu.mp3" id="11_rrk8y"]
+[ext_resource type="PackedScene" uid="uid://b1fgp0vdc8fg4" path="res://sceness/transitions/transition_load_game.tscn" id="12_uxk7r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jljrl"]
 shader = ExtResource("6_ll81w")
@@ -91,6 +92,7 @@ size_flags_horizontal = 4
 theme_override_styles/separator = SubResource("StyleBoxEmpty_e27ys")
 
 [node name="start" type="Button" parent="bg/MarginContainer/HBoxContainer/button_slots"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("6_0ppjl")
@@ -107,6 +109,7 @@ size_flags_horizontal = 4
 theme_override_styles/separator = SubResource("StyleBoxEmpty_e27ys")
 
 [node name="exit" type="Button" parent="bg/MarginContainer/HBoxContainer/button_slots"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -129,48 +132,38 @@ scale = Vector2(3.35455, 3.01935)
 texture = ExtResource("3_74j6x")
 centered = false
 
-[node name="light" type="Sprite2D" parent="."]
+[node name="light" type="Sprite2D" parent="bg"]
 texture_repeat = 2
 position = Vector2(-1, 0.999992)
 scale = Vector2(3, 3)
 texture = ExtResource("3_vfhta")
 centered = false
 
-[node name="static_player" parent="." instance=ExtResource("9_tw1ax")]
+[node name="AudioStreamPlayerMenu" type="AudioStreamPlayer" parent="bg"]
+unique_name_in_owner = true
+stream = ExtResource("11_rrk8y")
+volume_db = -27.3
+
+[node name="static_player2" parent="bg" instance=ExtResource("9_tw1ax")]
 position = Vector2(809, 270)
 scale = Vector2(2, 2)
 frame_progress = 0.672967
 flip_h = true
 
-[node name="static_player2" parent="." instance=ExtResource("9_tw1ax")]
+[node name="static_player3" parent="bg" instance=ExtResource("9_tw1ax")]
 position = Vector2(594, 302)
 scale = Vector2(2, 2)
 frame_progress = 0.464635
 flip_h = true
 
-[node name="static_player3" parent="." instance=ExtResource("9_tw1ax")]
+[node name="static_player4" parent="bg" instance=ExtResource("9_tw1ax")]
 position = Vector2(347, 301)
 scale = Vector2(2, 2)
 frame_progress = 0.811861
 
-[node name="static_player4" parent="." instance=ExtResource("9_tw1ax")]
+[node name="static_player5" parent="bg" instance=ExtResource("9_tw1ax")]
 position = Vector2(36, 207)
 scale = Vector2(2, 2)
 frame_progress = 0.880159
 
-[node name="elixir" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-position = Vector2(55, 215)
-scale = Vector2(0.5, 0.5)
-script = null
-
-[node name="AudioStreamPlayerMenu" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_rrk8y")
+[node name="transition" parent="bg" instance=ExtResource("12_uxk7r")]

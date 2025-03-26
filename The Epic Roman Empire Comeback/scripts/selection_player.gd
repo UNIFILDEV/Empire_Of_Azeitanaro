@@ -20,3 +20,8 @@ func on_pressed_button(button):
 func start_game():
 	#mapa inicial
 	get_tree().change_scene_to_file("res://sceness/level/word_start.tscn")
+
+
+func _on_voltar_pressed() -> void:
+	#voltar para a tela principal
+	get_tree().change_scene_to_file("res://sceness/start/title_screen.tscn")

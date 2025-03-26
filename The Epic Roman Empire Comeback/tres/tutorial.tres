@@ -9,6 +9,7 @@ spacing_bottom = 5
 
 [resource]
 font = SubResource("FontVariation_agism")
+font_size = 12
 font_color = Color(1, 0.683333, 0, 0.870588)
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 5

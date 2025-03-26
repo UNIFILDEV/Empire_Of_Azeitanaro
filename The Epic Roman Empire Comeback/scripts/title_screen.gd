@@ -1,10 +1,15 @@
 extends Control
 
-@onready var exit: Button = $bg/MarginContainer/HBoxContainer/button_slots/exit
-@onready var start: Button = $bg/MarginContainer/HBoxContainer/button_slots/start
-@onready var music_player_1: AudioStreamPlayer = $AudioStreamPlayerMenu #menu
+@onready var exit: Button = %exit
+@onready var start: Button = %start
+@onready var music_player_1: AudioStreamPlayer = %AudioStreamPlayerMenu
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		exit.grab_focus()
 
 func _ready() -> void:
+	start.grab_focus()
 	start.pressed.connect(_on_start_pressed)
 	exit.pressed.connect(_on_exit_pressed)
 	music_player_1.play()

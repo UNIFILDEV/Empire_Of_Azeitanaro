@@ -583,7 +583,6 @@ position = Vector2(3, -22)
 scale = Vector2(1.2, 1.2)
 collision_mask = 2
 script = ExtResource("1_t85cg")
-speed = 175.0
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
 position = Vector2(-2.91667, 8.33333)
