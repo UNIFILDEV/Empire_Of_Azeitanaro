@@ -1,6 +1,5 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1fgp0vdc8fg4"]
+[gd_scene load_steps=12 format=3 uid="uid://b1fgp0vdc8fg4"]
 
-[ext_resource type="Script" path="res://scripts/pouse_menu.gd" id="1_5x1oj"]
 [ext_resource type="Shader" path="res://shader/blur.gdshader" id="2_hfws1"]
 [ext_resource type="Shader" path="res://shader/blur_transition.gdshader" id="3_8m7ns"]
 [ext_resource type="Texture2D" uid="uid://dgygcu0su1287" path="res://sceness/transitions/unifil_x16.png" id="4_5pv2g"]
@@ -149,7 +148,6 @@ _data = {
 }
 
 [node name="transition" type="CanvasLayer"]
-script = ExtResource("1_5x1oj")
 
 [node name="bg_blur" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_seeru")
