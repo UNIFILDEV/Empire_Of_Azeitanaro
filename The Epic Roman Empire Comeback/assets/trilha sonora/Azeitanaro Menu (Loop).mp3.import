@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://m8wqupd1wl62"
+path="res://.godot/imported/Azeitanaro Menu (Loop).mp3-ebfc269c14438e16abdd0598a60d90ec.mp3str"
+
+[deps]
+
+source_file="res://assets/trilha sonora/Azeitanaro Menu (Loop).mp3"
+dest_files=["res://.godot/imported/Azeitanaro Menu (Loop).mp3-ebfc269c14438e16abdd0598a60d90ec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvvlliwiycku"
+path="res://.godot/imported/sword-cut-type-1-230552.mp3-8ed659e30adb35b857175e73e763eba8.mp3str"
+
+[deps]
+
+source_file="res://assets/efeitos sonoros/sword-cut-type-1-230552.mp3"
+dest_files=["res://.godot/imported/sword-cut-type-1-230552.mp3-8ed659e30adb35b857175e73e763eba8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

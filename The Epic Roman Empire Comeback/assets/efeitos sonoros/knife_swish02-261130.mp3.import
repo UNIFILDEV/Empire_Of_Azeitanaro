@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cpngw2dva4nld"
+path="res://.godot/imported/knife_swish02-261130.mp3-51f517edd43d5e101b2e3831f20fd6a3.mp3str"
+
+[deps]
+
+source_file="res://assets/efeitos sonoros/knife_swish02-261130.mp3"
+dest_files=["res://.godot/imported/knife_swish02-261130.mp3-51f517edd43d5e101b2e3831f20fd6a3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

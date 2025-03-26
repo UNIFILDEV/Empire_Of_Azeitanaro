@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5q2qgrfm460f"
+path="res://.godot/imported/relaxing-guitar-loop-v5-245859.mp3-fef36aa7a70ac80e1678c993ab1e0519.mp3str"
+
+[deps]
+
+source_file="res://assets/efeitos sonoros/relaxing-guitar-loop-v5-245859.mp3"
+dest_files=["res://.godot/imported/relaxing-guitar-loop-v5-245859.mp3-fef36aa7a70ac80e1678c993ab1e0519.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

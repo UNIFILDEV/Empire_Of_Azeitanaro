@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bqfv2ax701li8"
+path="res://.godot/imported/sword-slash-315218.mp3-3ae84bf674b415cbe257cafb0b382e2f.mp3str"
+
+[deps]
+
+source_file="res://assets/efeitos sonoros/sword-slash-315218.mp3"
+dest_files=["res://.godot/imported/sword-slash-315218.mp3-3ae84bf674b415cbe257cafb0b382e2f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

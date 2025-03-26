@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bxaxk1qcpt27y"
+path="res://.godot/imported/astral-creepy-dark-logo-254198.mp3-62c188680f3724776559db2e3c6322d5.mp3str"
+
+[deps]
+
+source_file="res://assets/efeitos sonoros/astral-creepy-dark-logo-254198.mp3"
+dest_files=["res://.godot/imported/astral-creepy-dark-logo-254198.mp3-62c188680f3724776559db2e3c6322d5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

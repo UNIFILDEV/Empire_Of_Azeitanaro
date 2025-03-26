@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://qnoip6mspa5w"
+path="res://.godot/imported/toy-glockenspiel-69436.mp3-7b2c2b0b7335f5074c013b6b905a9d6e.mp3str"
+
+[deps]
+
+source_file="res://assets/efeitos sonoros/toy-glockenspiel-69436.mp3"
+dest_files=["res://.godot/imported/toy-glockenspiel-69436.mp3-7b2c2b0b7335f5074c013b6b905a9d6e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
