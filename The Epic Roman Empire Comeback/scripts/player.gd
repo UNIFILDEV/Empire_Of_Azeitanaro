@@ -8,7 +8,12 @@ signal energiaMudou
 @export var sprint_speed: float = 275.0
 @export var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var soundJump = preload("res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sounds/jump.wav")
-@export var attackSound = preload("res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sounds/tap.wav") # Som de ataque
+@export var walkSound = preload("res://assets/efeitos sonoros/running-in-grass-6237.mp3")
+#ataques (3)
+@export var attackType1Sound = preload("res://assets/efeitos sonoros/sword-cut-type-1-230552.mp3")
+@export var attackType2Sound = preload("res://assets/efeitos sonoros/sword-slash-02-266315.mp3")
+@export var attackType3Sound = preload("res://assets/efeitos sonoros/sword-slash-315218.mp3")
+
 
 @export var dash_speed: float = 600.0
 @export var dash_duration: float = 0.1
@@ -31,7 +36,10 @@ var is_dashing: bool = false
 var dash_timer: float = 0.0
 var is_sprinting: bool = false
 var audio_player_jump: AudioStreamPlayer2D
-var audio_player_attack: AudioStreamPlayer2D
+var audio_player_attack1: AudioStreamPlayer2D
+var audio_player_attack2: AudioStreamPlayer2D
+var audio_player_attack3: AudioStreamPlayer2D
+var audio_player_walk: AudioStreamPlayer2D
 
 func _ready():
 	set_deferred("monitoring", true)
@@ -40,10 +48,25 @@ func _ready():
 	audio_player_jump.stream = soundJump  # Atribui o som de pulo
 	add_child(audio_player_jump)  # Adiciona como filho do Player para gerenciar o som
 	
-	#audio ataque
-	audio_player_attack = AudioStreamPlayer2D.new()
-	audio_player_attack.stream = attackSound # Atribui o som de ataque
-	add_child(audio_player_attack)  # Adiciona como filho do Player
+	#audio ataque 1
+	audio_player_attack1 = AudioStreamPlayer2D.new()
+	audio_player_attack1.stream = attackType1Sound # Atribui o som de ataque
+	add_child(audio_player_attack1)  # Adiciona como filho do Player
+	
+	#audio ataque 2
+	audio_player_attack2 = AudioStreamPlayer2D.new()
+	audio_player_attack2.stream = attackType1Sound # Atribui o som de ataque
+	add_child(audio_player_attack2)  # Adiciona como filho do Player
+	
+	#audio ataque 3
+	audio_player_attack3 = AudioStreamPlayer2D.new()
+	audio_player_attack3.stream = attackType1Sound # Atribui o som de ataque
+	add_child(audio_player_attack3)  # Adiciona como filho do Player
+	
+	#audio andar
+	audio_player_walk = AudioStreamPlayer2D.new()
+	audio_player_walk.stream = walkSound
+	add_child(audio_player_walk)
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -104,8 +127,15 @@ func _physics_process(delta):
 		# Verifique se o 'collision' é válido antes de acessar sua posição
 		if is_instance_valid(collision):
 			collision.position.x = abs(collision.position.x) * (1 if sprite.flip_h else -1)
+		if not audio_player_walk.playing and is_on_floor():
+			audio_player_walk.play()
 	else:
 		velocity.x = 0
+		if not is_on_floor() and audio_player_walk.playing:
+			audio_player_walk.stop()
+	# Sempre pare o som de andar se o jogador não estiver no chão
+	if not is_on_floor() and audio_player_walk.playing:
+		audio_player_walk.stop()
 
 	check_attack()
 	update_animation()
@@ -141,18 +171,26 @@ func check_attack():
 		else:
 			start_attack("attack_3")
 			start_dash()
+		print('ataque 3 apertado')
 
 	elif Input.is_action_just_pressed("attack_1"):
 		start_attack("attack_1")
+		print('ataque 1 apertado')
 	elif Input.is_action_just_pressed("attack_2"):
 		start_attack("attack_2")
+		print('ataque 2 apertado')
 
 func start_attack(type):
 	attacking = true
 	attack_type = type
 	sprite.play(type)
-	audio_player_attack.play() #som teste no ataque. tem q mudar, soq ai eh só mudar qual atk qr e qlq coisa faz
-	#um if, ou dx o msm som pra qlq ataque, ai eh so mudar o som que quer la em cima no preload
+	print('ataque start atack' + type)
+	if(type == "attack_1"):
+		audio_player_attack1.play()
+	if(type == "attack_2"):
+		audio_player_attack2.play()
+	if(type == "attack_3"):
+		audio_player_attack3.play()
 
 	if type == "attack_1":
 		gravity = 1200.0
