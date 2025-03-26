@@ -174,7 +174,6 @@ debug_color = Color(0.885979, 0.216141, 0.628592, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtPlayerZone"]
 position = Vector2(13.0903, 1.45833)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_v1yek")
 debug_color = Color(1, 0.00817797, 0.0443347, 0.42)
 
@@ -186,7 +185,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
 position = Vector2(13.6979, 4.86111)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hcja0")
 debug_color = Color(0.673234, 0.306286, 1, 0.42)
 
