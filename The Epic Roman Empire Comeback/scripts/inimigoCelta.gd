@@ -17,6 +17,7 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var detection_area: Area2D = $DetectionPatrolZone
 @onready var collision: CollisionShape2D = $CollisionBody
 @onready var player: Node2D = null
+@onready var timer = $Timer
 
 var life: int = 2
 var is_following_player: bool = false
@@ -126,7 +127,13 @@ func _on_hurt_player_zone_body_entered(body: Node2D) -> void:
 	if body is Player:
 		$AnimatedSprite.play("attack")
 
-func _on_detection_zone_body_entered(body: Node2D) -> void:
+func _on_detection_zone_body_entered(body):
+	timer.start()
+	body.get_node("CollisionBody").queue_free()
+	Engine.time_scale = 0.8
+
+func _on_timer_timeout():
+	Engine.time_scale = 1
 	get_tree().reload_current_scene()
 
 func load_player():
