@@ -1,0 +1,162 @@
+[gd_scene load_steps=16 format=3 uid="uid://bgqxohno6uion"]
+
+[ext_resource type="Texture2D" uid="uid://c6hwktmxsts4x" path="res://sceness/start/bg.png" id="1_12l3e"]
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_cr4cb"]
+[ext_resource type="Texture2D" uid="uid://35l424a2mnxv" path="res://assets/SpritePack/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="3_74j6x"]
+[ext_resource type="Texture2D" uid="uid://ksooh37vvvx" path="res://assets/assestLombaLomba/Assets/light.png" id="3_vfhta"]
+[ext_resource type="Texture2D" uid="uid://lu3kyvuhwdjn" path="res://sceness/start/Logo4.png" id="4_3ptar"]
+[ext_resource type="Theme" uid="uid://brehe2nbmg28h" path="res://tres/default_btn.tres" id="6_0ppjl"]
+[ext_resource type="Shader" path="res://shader/cloud_mini.gdshader" id="6_ll81w"]
+[ext_resource type="Texture2D" uid="uid://co0ltrbb68kpu" path="res://assets/SpritePack/Seasonal Tilesets/3 - Tropics/Background parts/3 - Floating_clouds.png" id="7_bxuf1"]
+[ext_resource type="Shader" path="res://shader/cloud.gdshader" id="7_yku1u"]
+[ext_resource type="PackedScene" uid="uid://cwm45tqbhthes" path="res://sceness/start/static_player.tscn" id="9_tw1ax"]
+[ext_resource type="AudioStream" uid="uid://c48iwsx4wjgu2" path="res://assets/trilha sonora/Azeitanaro Menu.mp3" id="11_rrk8y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jljrl"]
+shader = ExtResource("6_ll81w")
+shader_parameter/move_speed = 0.12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e27ys"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a4qxi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bcnoi"]
+shader = ExtResource("7_yku1u")
+shader_parameter/move_speed = 0.07
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+script = ExtResource("1_cr4cb")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 960.0
+offset_bottom = 480.0
+texture = ExtResource("1_12l3e")
+expand_mode = 2
+
+[node name="cloud_mini" type="Sprite2D" parent="bg"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jljrl")
+position = Vector2(-7, -318)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("7_bxuf1")
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="bg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="bg/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="button_slots" type="VBoxContainer" parent="bg/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HSeparator5" type="HSeparator" parent="bg/MarginContainer/HBoxContainer/button_slots"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e27ys")
+
+[node name="HSeparator6" type="HSeparator" parent="bg/MarginContainer/HBoxContainer/button_slots"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e27ys")
+
+[node name="game_logo" type="TextureRect" parent="bg/MarginContainer/HBoxContainer/button_slots"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("4_3ptar")
+stretch_mode = 1
+
+[node name="HSeparator3" type="HSeparator" parent="bg/MarginContainer/HBoxContainer/button_slots"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e27ys")
+
+[node name="start" type="Button" parent="bg/MarginContainer/HBoxContainer/button_slots"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("6_0ppjl")
+text = "START"
+
+[node name="HSeparator7" type="HSeparator" parent="bg/MarginContainer/HBoxContainer/button_slots"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e27ys")
+
+[node name="HSeparator4" type="HSeparator" parent="bg/MarginContainer/HBoxContainer/button_slots"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e27ys")
+
+[node name="exit" type="Button" parent="bg/MarginContainer/HBoxContainer/button_slots"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("6_0ppjl")
+text = "    EXIT GAME    "
+
+[node name="VSeparator" type="VSeparator" parent="bg/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_a4qxi")
+
+[node name="VSeparator2" type="VSeparator" parent="bg/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_a4qxi")
+
+[node name="cloud" type="Sprite2D" parent="bg"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_bcnoi")
+position = Vector2(-1, -108)
+scale = Vector2(3.35455, 3.01935)
+texture = ExtResource("3_74j6x")
+centered = false
+
+[node name="light" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(-1, 0.999992)
+scale = Vector2(3, 3)
+texture = ExtResource("3_vfhta")
+centered = false
+
+[node name="static_player" parent="." instance=ExtResource("9_tw1ax")]
+position = Vector2(809, 270)
+scale = Vector2(2, 2)
+frame_progress = 0.672967
+flip_h = true
+
+[node name="static_player2" parent="." instance=ExtResource("9_tw1ax")]
+position = Vector2(594, 302)
+scale = Vector2(2, 2)
+frame_progress = 0.464635
+flip_h = true
+
+[node name="static_player3" parent="." instance=ExtResource("9_tw1ax")]
+position = Vector2(347, 301)
+scale = Vector2(2, 2)
+frame_progress = 0.811861
+
+[node name="static_player4" parent="." instance=ExtResource("9_tw1ax")]
+position = Vector2(36, 207)
+scale = Vector2(2, 2)
+frame_progress = 0.880159
+
+[node name="AudioStreamPlayerMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_rrk8y")

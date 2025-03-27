@@ -169,7 +169,30 @@ shape = SubResource("RectangleShape2D_5hyag")
 
 [node name="Area" type="Area2D" parent="."]
 
+<<<<<<< Updated upstream:The Epic Roman Empire Comeback/sceness/inimigos/inimigo1.tscn
 [node name="CollisionShape" type="CollisionShape2D" parent="Area"]
 position = Vector2(0, -14)
 shape = SubResource("CircleShape2D_nr6xp")
 debug_color = Color(0.891079, 0.321319, 0.109306, 0.42)
+=======
+[node name="HurtPlayerZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtPlayerZone"]
+position = Vector2(13.0903, 1.45833)
+shape = SubResource("RectangleShape2D_v1yek")
+debug_color = Color(1, 0.00817797, 0.0443347, 0.42)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(11.8056, -20.8333)
+collision_mask = 2
+
+[node name="DetectionZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
+position = Vector2(13.6979, 4.86111)
+shape = SubResource("RectangleShape2D_hcja0")
+debug_color = Color(0.673234, 0.306286, 1, 0.42)
+
+[connection signal="body_entered" from="HurtPlayerZone" to="." method="_on_hurt_player_zone_body_entered"]
+[connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
+>>>>>>> Stashed changes:The Epic Roman Empire Comeback/sceness/inimigos/inimigoCelta.tscn
