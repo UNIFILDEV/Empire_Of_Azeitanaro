@@ -76,6 +76,10 @@ func _physics_process(delta):
 		jump_sound.play()
 		velocity.y = jump_speed
 
+	if (Input.is_action_just_released("jump")):
+		if velocity.y < 0:
+			velocity.y = -50
+
 	var direction = 0
 	if Input.is_action_pressed("ui_left"):
 		direction = -1
