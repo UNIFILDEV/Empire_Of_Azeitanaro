@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b5mat2ba4k1hs" path="res://sceness/player/player.tscn" id="2_3eqxf"]
 [ext_resource type="PackedScene" uid="uid://c2y6pkvqay8r8" path="res://sceness/itens/moeda.tscn" id="3_ooty7"]
 [ext_resource type="PackedScene" uid="uid://dtvkgf81opda5" path="res://sceness/UI/moeda_ui.tscn" id="4_qcsla"]
-[ext_resource type="PackedScene" path="res://sceness/itens/azeite.tscn" id="6_t0vgi"]
+[ext_resource type="PackedScene" uid="uid://dt0voojlsuqac" path="res://sceness/itens/azeite.tscn" id="6_t0vgi"]
 [ext_resource type="Texture2D" uid="uid://b0ea8u26uypd6" path="res://assets/assestLombaLomba/Assets/HealthBar.png" id="6_ymo22"]
 [ext_resource type="Texture2D" uid="uid://dtwfdg0fnlwu8" path="res://assets/assestLombaLomba/Assets/HealthBarProgress.png" id="7_ekuo1"]
 [ext_resource type="Texture2D" uid="uid://b4o6nb61ob0fc" path="res://assets/assestLombaLomba/Assets/EnergyBar.png" id="8_hy425"]
@@ -97,7 +97,6 @@ tile_set = SubResource("TileSet_aor1f")
 [node name="Player" parent="." instance=ExtResource("2_3eqxf")]
 position = Vector2(234, 104)
 collision_mask = 3
-speed = 150.0
 
 [node name="Moeda" parent="." instance=ExtResource("3_ooty7")]
 position = Vector2(388, 238)

@@ -6,7 +6,7 @@ func _on_body_entered(body):
 	print("Morreste!")
 	timer.start()
 	body.get_node("CollisionBody").queue_free()
-	Engine.time_scale = 0.4
+	Engine.time_scale = 0.8
 
 func _on_timer_timeout():
 	Engine.time_scale = 1

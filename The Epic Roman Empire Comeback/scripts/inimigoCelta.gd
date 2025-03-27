@@ -14,9 +14,10 @@ var isMovingRight = true
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite = $AnimatedSprite
-@onready var detection_area = $Area2D
+@onready var detection_area: Area2D = $DetectionPatrolZone
 @onready var collision: CollisionShape2D = $CollisionBody
-@onready var player = get_parent().get_node("Player")  # Certifique-se de que esse caminho é válido
+@onready var player: Node2D = null
+@onready var timer = $Timer
 
 var life: int = 2
 var is_following_player: bool = false
@@ -24,6 +25,7 @@ var jump_timer: float = 0.0
 var patrol_timer: float = 0.0
 
 func _ready():
+	load_player()
 	starting_position = global_position
 	detection_area.body_entered.connect(_on_body_entered)
 	detection_area.body_exited.connect(_on_body_exited)
@@ -72,7 +74,8 @@ func _physics_process(delta: float) -> void:
 
 	sprite.scale.x = direction
 	collision.position.x = abs(collision.position.x) * direction * -1
-
+	$HurtPlayerZone.position.x = 13 * direction
+	$DetectionZone.position.x = 17 * direction
 	if jump_timer > 0:
 		jump_timer -= delta
 
@@ -110,7 +113,6 @@ func detect_turn_around():
 	if not $RayCast2D.is_colliding() and is_on_floor():
 		isMovingRight = !isMovingRight
 		scale.x = -scale.x
-		print("Virar para o lado")
 
 func hit():
 	$HurtPlayerZone.monitoring = true
@@ -126,5 +128,17 @@ func _on_hurt_player_zone_body_entered(body: Node2D) -> void:
 	if body is Player:
 		$AnimatedSprite.play("attack")
 
-func _on_detection_zone_body_entered(body: Node2D) -> void:
+func _on_detection_zone_body_entered(body):
+	timer.start()
+	body.get_node("CollisionBody").queue_free()
+	Engine.time_scale = 0.8
+
+func _on_timer_timeout():
+	Engine.time_scale = 1
 	get_tree().reload_current_scene()
+
+func load_player():
+	# Espera 1 frame para garantir que o player foi criado
+	await get_tree().process_frame
+	var players = get_tree().get_nodes_in_group("player")
+	player = players[0]  # Armazena o player na variável
