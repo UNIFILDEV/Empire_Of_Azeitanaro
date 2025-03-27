@@ -25,6 +25,8 @@ signal energiaMudou
 const soundJump = preload("res://sceness/player/sounds/jump.wav")
 const soundWalk = preload("res://sceness/player/sounds/walk.mp3")
 const soundAttack1 = preload("res://sceness/player/sounds/attack1.mp3")
+const soundAttack2 = preload("res://sceness/player/sounds/attack2.mp3")
+const soundAttack3 = preload("res://sceness/player/sounds/attack3.mp3")
 
 var attacking = false
 var original_gravity: float = gravity
@@ -35,6 +37,8 @@ var is_sprinting: bool = false
 var jump_sound: AudioStreamPlayer2D
 var walk_sound: AudioStreamPlayer2D
 var attack1_sound: AudioStreamPlayer2D
+var attack2_sound: AudioStreamPlayer2D
+var attack3_sound: AudioStreamPlayer2D
 
 func _ready():
 	set_deferred("monitoring", true)
@@ -42,6 +46,8 @@ func _ready():
 	_add_child_soundJump()
 	_add_child_soundWalk()
 	_add_child_soundAttack1()
+	_add_child_soundAttack2()
+	_add_child_soundAttack3()
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -108,8 +114,6 @@ func _physics_process(delta):
 			collision.position.x = abs(collision.position.x) * (1 if sprite.flip_h else -1)
 		if not walk_sound.playing and is_on_floor():
 			walk_sound.play()
-		#if attacking:
-			#walk_sound.stop()
 	else: #parado
 		velocity.x = 0
 		if walk_sound.playing or attacking == true:
@@ -171,6 +175,12 @@ func start_attack(type):
 		gravity = 1200.0
 		if attack1_sound != null:
 			attack1_sound.play()
+	if type == "attack_2":
+		if attack2_sound != null:
+			attack2_sound.play()
+	if type == "attack_3":
+		if attack3_sound != null:
+			attack3_sound.play()
 			
 
 	if not sprite.animation_finished.is_connected(_on_animated_sprite_finished):
@@ -222,3 +232,15 @@ func _add_child_soundAttack1():
 	attack1_sound.stream = soundAttack1
 	#jump_sound.set_volume_db(-25.0)
 	add_child(attack1_sound)
+	
+func _add_child_soundAttack2():
+	attack2_sound = AudioStreamPlayer2D.new()
+	attack2_sound.stream = soundAttack2
+	#jump_sound.set_volume_db(-25.0)
+	add_child(attack2_sound)
+	
+func _add_child_soundAttack3():
+	attack3_sound = AudioStreamPlayer2D.new()
+	attack3_sound.stream = soundAttack3
+	#jump_sound.set_volume_db(-25.0)
+	add_child(attack3_sound)
