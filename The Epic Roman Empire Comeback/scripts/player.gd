@@ -7,13 +7,6 @@ signal energiaMudou
 @export var jump_speed: float = -370.0
 @export var sprint_speed: float = 275.0
 @export var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
-@export var soundJump = preload("res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sounds/jump.wav")
-@export var walkSound = preload("res://assets/efeitos sonoros/running-in-grass-6237.mp3")
-#ataques (3)
-@export var attackType1Sound = preload("res://assets/efeitos sonoros/sword-cut-type-1-230552.mp3")
-@export var attackType2Sound = preload("res://assets/efeitos sonoros/sword-slash-02-266315.mp3")
-@export var attackType3Sound = preload("res://assets/efeitos sonoros/sword-slash-315218.mp3")
-
 
 @export var dash_speed: float = 600.0
 @export var dash_duration: float = 0.1
@@ -29,44 +22,20 @@ signal energiaMudou
 @onready var sprite = $AnimatedSprite
 @onready var collision = $CollisionBody
 
+const soundJump = preload("res://sceness/player/sounds/jump.wav")
+
 var attacking = false
 var original_gravity: float = gravity
 var attack_type = ""
 var is_dashing: bool = false
 var dash_timer: float = 0.0
 var is_sprinting: bool = false
-var audio_player_jump: AudioStreamPlayer2D
-var audio_player_attack1: AudioStreamPlayer2D
-var audio_player_attack2: AudioStreamPlayer2D
-var audio_player_attack3: AudioStreamPlayer2D
-var audio_player_walk: AudioStreamPlayer2D
+var jump_sound: AudioStreamPlayer2D
 
 func _ready():
 	set_deferred("monitoring", true)
 	EventController.connect("healed", onHealed)
-	audio_player_jump = AudioStreamPlayer2D.new()
-	audio_player_jump.stream = soundJump  # Atribui o som de pulo
-	add_child(audio_player_jump)  # Adiciona como filho do Player para gerenciar o som
-	
-	#audio ataque 1
-	audio_player_attack1 = AudioStreamPlayer2D.new()
-	audio_player_attack1.stream = attackType1Sound # Atribui o som de ataque
-	add_child(audio_player_attack1)  # Adiciona como filho do Player
-	
-	#audio ataque 2
-	audio_player_attack2 = AudioStreamPlayer2D.new()
-	audio_player_attack2.stream = attackType1Sound # Atribui o som de ataque
-	add_child(audio_player_attack2)  # Adiciona como filho do Player
-	
-	#audio ataque 3
-	audio_player_attack3 = AudioStreamPlayer2D.new()
-	audio_player_attack3.stream = attackType1Sound # Atribui o som de ataque
-	add_child(audio_player_attack3)  # Adiciona como filho do Player
-	
-	#audio andar
-	audio_player_walk = AudioStreamPlayer2D.new()
-	audio_player_walk.stream = walkSound
-	add_child(audio_player_walk)
+	_add_child_sound()
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -98,7 +67,7 @@ func _physics_process(delta):
 		return
 
 	if (Input.is_action_pressed("jump")) and is_on_floor():
-		audio_player_jump.play()
+		jump_sound.play()
 		velocity.y = jump_speed
 
 	var direction = 0
@@ -127,15 +96,8 @@ func _physics_process(delta):
 		# Verifique se o 'collision' é válido antes de acessar sua posição
 		if is_instance_valid(collision):
 			collision.position.x = abs(collision.position.x) * (1 if sprite.flip_h else -1)
-		if not audio_player_walk.playing and is_on_floor():
-			audio_player_walk.play()
 	else:
 		velocity.x = 0
-		if not is_on_floor() and audio_player_walk.playing:
-			audio_player_walk.stop()
-	# Sempre pare o som de andar se o jogador não estiver no chão
-	if not is_on_floor() and audio_player_walk.playing:
-		audio_player_walk.stop()
 
 	check_attack()
 	update_animation()
@@ -184,13 +146,6 @@ func start_attack(type):
 	attacking = true
 	attack_type = type
 	sprite.play(type)
-	print('ataque start atack' + type)
-	if(type == "attack_1"):
-		audio_player_attack1.play()
-	if(type == "attack_2"):
-		audio_player_attack2.play()
-	if(type == "attack_3"):
-		audio_player_attack3.play()
 
 	if type == "attack_1":
 		gravity = 1200.0
@@ -226,3 +181,9 @@ func onHealed(valor: int):
 func _input(event : InputEvent):
 	if(event.is_action_pressed("ui_down") and is_on_floor()):
 		position.y += 1
+
+func _add_child_sound():
+	jump_sound = AudioStreamPlayer2D.new()
+	jump_sound.stream = soundJump
+	jump_sound.set_volume_db(-25.0)
+	add_child(jump_sound)

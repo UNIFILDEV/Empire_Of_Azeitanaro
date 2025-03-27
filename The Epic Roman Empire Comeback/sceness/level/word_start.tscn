@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dtrj8hpb2alm3"]
+[gd_scene load_steps=16 format=4 uid="uid://dtrj8hpb2alm3"]
 
 [ext_resource type="Script" path="res://scripts/word_start.gd" id="1_pxgqs"]
 [ext_resource type="Texture2D" uid="uid://dclxmh83k10jm" path="res://assets/assestLombaLomba/Assets/tiles.png" id="2_rgrso"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bq2dcjpntw2e" path="res://assets/SpritePack/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="8_khh3p"]
 [ext_resource type="AudioStream" uid="uid://b7wtotu0ljsd2" path="res://assets/trilha sonora/Azeitanaro Intro.mp3" id="9_evi56"]
 [ext_resource type="PackedScene" uid="uid://bi7d0qrjcx2y1" path="res://sceness/pouse_menu/pouse_menu.tscn" id="10_u3tcn"]
+[ext_resource type="PackedScene" uid="uid://bgvk154xskvgj" path="res://sceness/inimigos/inimigoCelta.tscn" id="11_je21t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vc80w"]
 texture = ExtResource("2_rgrso")
@@ -161,3 +162,6 @@ volume_db = -33.17
 
 [node name="pouse_menu" parent="." instance=ExtResource("10_u3tcn")]
 process_mode = 3
+
+[node name="inimigoCelta" parent="." instance=ExtResource("11_je21t")]
+position = Vector2(1160, 394)

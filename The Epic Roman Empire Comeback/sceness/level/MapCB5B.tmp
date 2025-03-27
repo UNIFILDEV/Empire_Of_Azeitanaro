@@ -182,6 +182,6 @@ position = Vector2(715, -133)
 [node name="enemy" parent="." instance=ExtResource("7_hl2wk")]
 position = Vector2(102, -97)
 
-[node name="player_spawn_point" type="Marker2D" parent="."]
+[node name="Player" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(81, -276)
