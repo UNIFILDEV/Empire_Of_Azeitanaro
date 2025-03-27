@@ -1,15 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cpcs5t7wfl3hw"]
+[gd_scene load_steps=12 format=3 uid="uid://curo4v4kobx5s"]
 
 [ext_resource type="PackedScene" uid="uid://b5mat2ba4k1hs" path="res://sceness/player/player.tscn" id="1_0vt4y"]
 [ext_resource type="Texture2D" uid="uid://dtto1hloij0c2" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_uhcpd"]
 [ext_resource type="Texture2D" uid="uid://cqnovmpio14ov" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/fruit.png" id="3_w5ctt"]
-[ext_resource type="Texture2D" uid="uid://bdrcqi657pa6k" path="res://assets/trees/Building/Ladder_01.png" id="4_3t1fa"]
-[ext_resource type="Texture2D" uid="uid://5wxdhpyvwg6h" path="res://assets/backgrounds/game_background_1/game_background_1.png" id="5_dge85"]
-[ext_resource type="PackedScene" uid="uid://dn126o387drmc" path="res://sceness/inimigos/slime.tscn" id="6_0ybff"]
-[ext_resource type="Texture2D" uid="uid://bgcdjaspbw5p1" path="res://assets/trees/Building/Decor_Roof_01.png" id="6_t4gb1"]
+[ext_resource type="PackedScene" path="res://sceness/inimigos/slime.tscn" id="6_0ybff"]
 [ext_resource type="PackedScene" uid="uid://dlvxvnmxke8ov" path="res://sceness/itens/mundo/moving_platform.tscn" id="8_sg5a6"]
-[ext_resource type="PackedScene" uid="uid://d0nwybi7t3pnl" path="res://sceness/itens/item-fruit.tscn" id="10_1axco"]
-[ext_resource type="PackedScene" uid="uid://qln1fup2c8ap" path="res://sceness/itens/item-coin.tscn" id="12_ubanq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a77v6"]
 texture = ExtResource("2_uhcpd")
@@ -151,7 +146,6 @@ texture = ExtResource("2_uhcpd")
 3:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gmkvs"]
-texture = ExtResource("6_t4gb1")
 4:0/0 = 0
 5:0/0 = 0
 2:1/0 = 0
@@ -212,7 +206,6 @@ texture = ExtResource("6_t4gb1")
 0:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6wtrj"]
-texture = ExtResource("4_3t1fa")
 0:2/0 = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:2/0 = 0
@@ -348,7 +341,6 @@ layer_0/tile_data = PackedInt32Array(-3080198, 196614, 2, -3080197, 262150, 2)
 [node name="GameBackground1" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(665, -41)
-texture = ExtResource("5_dge85")
 
 [node name="AnimatedSprite2D" parent="." instance=ExtResource("6_0ybff")]
 position = Vector2(661, 116)
@@ -360,10 +352,30 @@ position = Vector2(1009, 266)
 
 [node name="fruits" type="Node2D" parent="."]
 
-[node name="items" parent="fruits" instance=ExtResource("10_1axco")]
+[node name="items" parent="fruits"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 position = Vector2(353, -9)
+script = null
 
 [node name="enemy" type="Node2D" parent="."]
 
-[node name="items" parent="." instance=ExtResource("12_ubanq")]
+[node name="items" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 position = Vector2(50, 5)
+script = null

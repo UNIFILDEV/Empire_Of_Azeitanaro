@@ -133,4 +133,4 @@ func load_player():
 	# Espera 1 frame para garantir que o player foi criado
 	await get_tree().process_frame
 	var players = get_tree().get_nodes_in_group("player")
-	player = players[0]  # Armazena o player na variáve
+	player = players[0]  # Armazena o player na variável

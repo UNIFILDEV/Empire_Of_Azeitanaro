@@ -8,7 +8,7 @@
 [ext_resource type="Shader" path="res://shader/cloud_mini.gdshader" id="6_pknpy"]
 [ext_resource type="Texture2D" uid="uid://co0ltrbb68kpu" path="res://assets/SpritePack/Seasonal Tilesets/3 - Tropics/Background parts/3 - Floating_clouds.png" id="7_xw7x1"]
 [ext_resource type="Texture2D" uid="uid://bq2dcjpntw2e" path="res://assets/SpritePack/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="8_khh3p"]
-[ext_resource type="AudioStream" uid="uid://b7wtotu0ljsd2" path="res://assets/trilha sonora/Azeitanaro Intro.mp3" id="9_evi56"]
+[ext_resource type="AudioStream" uid="uid://dr2abv26r5con" path="res://assets/trilha sonora/Azeitanaro Intro.mp3" id="9_evi56"]
 [ext_resource type="PackedScene" uid="uid://bi7d0qrjcx2y1" path="res://sceness/pouse_menu/pouse_menu.tscn" id="10_u3tcn"]
 [ext_resource type="PackedScene" uid="uid://bgvk154xskvgj" path="res://sceness/inimigos/inimigoCelta.tscn" id="11_je21t"]
 
