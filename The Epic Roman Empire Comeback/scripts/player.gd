@@ -114,6 +114,12 @@ func _physics_process(delta):
 			collision.position.x = abs(collision.position.x) * (1 if sprite.flip_h else -1)
 		if not walk_sound.playing and is_on_floor():
 			walk_sound.play()
+			
+		if is_sprinting == true:
+			walk_sound.pitch_scale = 1.5
+		else:
+			walk_sound.pitch_scale = 1.0
+
 	else: #parado
 		velocity.x = 0
 		if walk_sound.playing or attacking == true:
