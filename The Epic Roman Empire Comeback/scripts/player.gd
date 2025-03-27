@@ -23,6 +23,7 @@ signal energiaMudou
 @onready var collision = $CollisionBody
 
 const soundJump = preload("res://sceness/player/sounds/jump.wav")
+const soundWalk = preload("res://sceness/player/sounds/walk.mp3")
 
 var attacking = false
 var original_gravity: float = gravity
@@ -31,11 +32,13 @@ var is_dashing: bool = false
 var dash_timer: float = 0.0
 var is_sprinting: bool = false
 var jump_sound: AudioStreamPlayer2D
+var walk_sound: AudioStreamPlayer2D
 
 func _ready():
 	set_deferred("monitoring", true)
 	EventController.connect("healed", onHealed)
-	_add_child_sound()
+	_add_child_soundJump()
+	_add_child_soundWalk()
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -96,8 +99,15 @@ func _physics_process(delta):
 		# Verifique se o 'collision' é válido antes de acessar sua posição
 		if is_instance_valid(collision):
 			collision.position.x = abs(collision.position.x) * (1 if sprite.flip_h else -1)
+		if not walk_sound.playing and is_on_floor():
+			walk_sound.play()
 	else:
 		velocity.x = 0
+		if walk_sound.playing:
+			walk_sound.stop()
+	if not is_on_floor() and walk_sound.playing:
+		walk_sound.stop()
+		
 
 	check_attack()
 	update_animation()
@@ -182,8 +192,14 @@ func _input(event : InputEvent):
 	if(event.is_action_pressed("ui_down") and is_on_floor()):
 		position.y += 1
 
-func _add_child_sound():
+func _add_child_soundJump():
 	jump_sound = AudioStreamPlayer2D.new()
 	jump_sound.stream = soundJump
 	jump_sound.set_volume_db(-25.0)
 	add_child(jump_sound)
+	
+func _add_child_soundWalk():
+	walk_sound = AudioStreamPlayer2D.new()
+	walk_sound.stream = soundWalk
+	#jump_sound.set_volume_db(-25.0)
+	add_child(walk_sound)
