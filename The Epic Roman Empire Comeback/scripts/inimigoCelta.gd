@@ -74,7 +74,8 @@ func _physics_process(delta: float) -> void:
 
 	sprite.scale.x = direction
 	collision.position.x = abs(collision.position.x) * direction * -1
-
+	$HurtPlayerZone.position.x = 13 * direction
+	$DetectionZone.position.x = 17 * direction
 	if jump_timer > 0:
 		jump_timer -= delta
 
