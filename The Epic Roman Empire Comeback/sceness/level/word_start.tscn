@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dtrj8hpb2alm3"]
+[gd_scene load_steps=18 format=4 uid="uid://dtrj8hpb2alm3"]
 
 [ext_resource type="Script" path="res://scripts/word_start.gd" id="1_pxgqs"]
 [ext_resource type="Texture2D" uid="uid://dclxmh83k10jm" path="res://assets/assestLombaLomba/Assets/tiles.png" id="2_rgrso"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://dr2abv26r5con" path="res://assets/trilha sonora/Azeitanaro Intro.mp3" id="9_evi56"]
 [ext_resource type="PackedScene" uid="uid://bi7d0qrjcx2y1" path="res://sceness/pouse_menu/pouse_menu.tscn" id="10_u3tcn"]
 [ext_resource type="PackedScene" uid="uid://bgvk154xskvgj" path="res://sceness/inimigos/inimigoCelta.tscn" id="11_je21t"]
+[ext_resource type="PackedScene" uid="uid://rpo6yvuyjhc1" path="res://sceness/itens/mundo/killzone.tscn" id="12_bk2js"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vc80w"]
 texture = ExtResource("2_rgrso")
@@ -96,6 +97,8 @@ shader_parameter/move_speed = 0.1
 shader = ExtResource("6_pknpy")
 shader_parameter/move_speed = 0.05
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vhj2g"]
+
 [node name="word_start" type="Node2D"]
 position = Vector2(42, -433)
 script = ExtResource("1_pxgqs")
@@ -165,3 +168,10 @@ process_mode = 3
 
 [node name="inimigoCelta" parent="." instance=ExtResource("11_je21t")]
 position = Vector2(1160, 394)
+
+[node name="Killzone" parent="." instance=ExtResource("12_bk2js")]
+position = Vector2(-1211, -97)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(1164, 557)
+shape = SubResource("WorldBoundaryShape2D_vhj2g")
