@@ -1,11 +1,11 @@
-[gd_scene load_steps=81 format=3 uid="uid://cck24c2ndjhmq"]
+[gd_scene load_steps=84 format=3 uid="uid://cck24c2ndjhmq"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_bofmc"]
 [ext_resource type="Texture2D" uid="uid://c8m2pc1bui6sx" path="res://assets/player/Sombra/Attack 2 Recover.png" id="2_v5xlb"]
 [ext_resource type="Texture2D" uid="uid://nsokijdr7o30" path="res://assets/player/Sombra/Attack 1.png" id="3_h3qpn"]
 [ext_resource type="Texture2D" uid="uid://nofb0jqw6cff" path="res://assets/player/Sombra/Attack 2.png" id="4_ah7ku"]
 [ext_resource type="Texture2D" uid="uid://dpecuc0s7sstq" path="res://assets/player/Sombra/Attack 3.png" id="5_w8p4p"]
-[ext_resource type="Texture2D" uid="uid://c4c5c3d2wt7pp" path="res://assets/player/Fall.png" id="6_6ov13"]
+[ext_resource type="Texture2D" uid="uid://bdm1w75yc85cu" path="res://assets/player/Sombra/Fall.png" id="6_7wcj2"]
 [ext_resource type="Texture2D" uid="uid://vdjqawh7bf74" path="res://assets/player/Sombra/Combat Ready Idle.png" id="7_t7qu0"]
 [ext_resource type="Texture2D" uid="uid://cjercnt31axhj" path="res://assets/player/Sombra/Jump.png" id="8_kqere"]
 [ext_resource type="Texture2D" uid="uid://cg81um645m1pt" path="res://assets/player/Sombra/Roll.png" id="9_rtyud"]
@@ -151,8 +151,20 @@ region = Rect2(240, 0, 40, 30)
 atlas = ExtResource("5_w8p4p")
 region = Rect2(280, 0, 40, 30)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fiui3"]
-atlas = ExtResource("6_6ov13")
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7elr"]
+atlas = ExtResource("6_7wcj2")
+region = Rect2(0, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fotch"]
+atlas = ExtResource("6_7wcj2")
+region = Rect2(22, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfdfl"]
+atlas = ExtResource("6_7wcj2")
+region = Rect2(44, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob3su"]
+atlas = ExtResource("6_7wcj2")
 region = Rect2(66, 0, 22, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_77jv8"]
@@ -409,7 +421,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fiui3")
+"texture": SubResource("AtlasTexture_j7elr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fotch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfdfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ob3su")
 }],
 "loop": true,
 "name": &"fall",
@@ -555,7 +576,7 @@ show_behind_parent = true
 position = Vector2(0, 0.166665)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
-animation = &"arrackRecover"
+animation = &"idle"
 speed_scale = 1.4
 
 [node name="Camera2D" type="Camera2D" parent="."]
