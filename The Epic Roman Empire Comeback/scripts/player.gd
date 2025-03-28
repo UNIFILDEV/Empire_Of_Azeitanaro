@@ -31,6 +31,7 @@ var is_dashing: bool = false
 var dash_timer: float = 0.0
 var is_sprinting: bool = false
 var jump_sound: AudioStreamPlayer2D
+var life = 0;
 
 func _ready():
 	set_deferred("monitoring", true)
@@ -192,3 +193,11 @@ func _add_child_soundJump():
 	jump_sound.stream = soundJump
 	jump_sound.set_volume_db(-25.0)
 	add_child(jump_sound)
+
+func take_damage(amount: int):
+	sprite.play("hit")
+	life -= amount
+	print('tomou dano do monstro')
+	if life <= 0:
+		queue_free()
+		print('player morreu')

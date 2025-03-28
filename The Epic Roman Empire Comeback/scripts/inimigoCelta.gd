@@ -12,6 +12,9 @@ var starting_position: Vector2
 
 var isMovingRight = true
 
+#var playerTeste : Player
+
+
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite = $AnimatedSprite
 @onready var detection_area: Area2D = $DetectionPatrolZone
@@ -21,6 +24,7 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var timer = $Timer
 @onready var timerAttack = $DetectionZone/AttackTimer
 var player_in_detection_zone = false
+var player_in_damage_zone = false
 
 var life: int = 2
 var is_following_player: bool = false
@@ -28,6 +32,9 @@ var jump_timer: float = 0.0
 var patrol_timer: float = 0.0
 
 func _ready():
+	#var players_in_group = get_tree().get_nodes_in_group("player")
+	##if players_in_group.size > 0:
+	#playerTeste = players_in_group[0]
 	load_player()
 	starting_position = global_position
 	detection_area.body_entered.connect(_on_body_entered)
@@ -69,11 +76,16 @@ func _physics_process(delta: float) -> void:
 	if velocity.x != 0:
 		if player_in_detection_zone:
 			sprite.play("attack")
+			velocity.x = 0
+			#if player_in_damage_zone:
+				#playerTeste.take_damage(1)
+				
 		else:
+			velocity.x = SPEED * direction
 			sprite.play("walk")
 		#sprite.play("attack")
-	else:
-		sprite.stop()
+	#else:
+		#sprite.stop()
 
 	move_and_slide()
 
@@ -135,9 +147,9 @@ func startWalk():
 
 func _on_hurt_player_zone_body_entered(body: Node2D) -> void:
 	if body is Player:
-		#body.get_node("CollisionBody").queue_free()
-		print('hurt')
-		#$AnimatedSprite.play("attack")
+		player_in_damage_zone = true
+	#if body.is_in_group("player"):
+		#body.take_damage(1)
 
 func _on_detection_zone_body_entered(body):
 	if body is Player:
@@ -163,3 +175,8 @@ func _on_detection_zone_body_exited(body: Node2D) -> void:
 	if body is Player:
 		player_in_detection_zone = false
 		print('saiu')
+
+
+func _on_hurt_player_zone_body_exited(body: Node2D) -> void:
+	if body is Player:
+		player_in_damage_zone = false
