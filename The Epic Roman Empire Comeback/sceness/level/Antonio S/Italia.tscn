@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bedlt2o5vn2u5"]
+[gd_scene load_steps=13 format=3 uid="uid://bedlt2o5vn2u5"]
 
 [ext_resource type="Texture2D" uid="uid://b38igni8pti6g" path="res://sceness/level/Antonio S/Tile/Background/background1.png" id="1_0iiec"]
 [ext_resource type="Texture2D" uid="uid://cyuk6r3bfsdhe" path="res://sceness/level/Antonio S/Tile/Background/background2.png" id="2_ts7l3"]
@@ -6,10 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://o4cowyy8f6db" path="res://sceness/level/Antonio S/Tile/Background/background4.png" id="4_yrrjs"]
 [ext_resource type="Texture2D" uid="uid://dfx5wulsfc1cp" path="res://sceness/level/Antonio S/Tile/Background/background5.png" id="5_k5jwq"]
 [ext_resource type="Texture2D" uid="uid://chn63ogl8m0t2" path="res://sceness/level/Antonio S/Tile/Background/background6.png" id="6_74ov2"]
-[ext_resource type="Texture2D" uid="uid://dtim3srda3c5o" path="res://assets/backgrounds/game_background_1/layers/Picsart_25-03-24_09-16-57-734.png" id="7_xohhn"]
-[ext_resource type="Texture2D" uid="uid://brfadd4duuidu" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/Picsart_25-03-24_09-16-14-675.png" id="8_3108x"]
-[ext_resource type="Texture2D" uid="uid://dvulwtep4i0io" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/Picsart_25-03-24_09-17-14-823.png" id="9_u30ib"]
-[ext_resource type="Texture2D" uid="uid://ena7sr74exvk" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/Picsart_25-03-24_09-17-36-519.png" id="10_7a374"]
 [ext_resource type="PackedScene" uid="uid://b5mat2ba4k1hs" path="res://sceness/player/player.tscn" id="11_xoxds"]
 [ext_resource type="Texture2D" uid="uid://cws4fwea2vqrw" path="res://assets/assestLombaLomba/Assets/Tiles2.png" id="12_exrdv"]
 [ext_resource type="Texture2D" uid="uid://dtto1hloij0c2" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="13_0n8ct"]
@@ -410,21 +406,17 @@ texture = ExtResource("6_74ov2")
 [node name="Fontana Di Trevi" type="Sprite2D" parent="."]
 position = Vector2(1791, -254)
 scale = Vector2(0.695678, 0.65534)
-texture = ExtResource("7_xohhn")
 
 [node name="Basílica de São Pedro" type="Sprite2D" parent="."]
 position = Vector2(311, -242)
 scale = Vector2(0.664384, 0.637817)
-texture = ExtResource("8_3108x")
 
 [node name="Coliseu" type="Sprite2D" parent="."]
 position = Vector2(4703, -340)
-texture = ExtResource("9_u30ib")
 
 [node name="Torre de Pisa" type="Sprite2D" parent="."]
 position = Vector2(3070, -409)
 rotation = 0.122173
-texture = ExtResource("10_7a374")
 
 [node name="Player2" parent="." instance=ExtResource("11_xoxds")]
 position = Vector2(26, -23)
