@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlca8e25oke35"]
+
+[ext_resource type="Script" path="res://scripts/loading_game.gd" id="1_4h3at"]
+[ext_resource type="PackedScene" uid="uid://bgqxohno6uion" path="res://sceness/start/title_screen.tscn" id="2_wja33"]
+[ext_resource type="PackedScene" uid="uid://b1fgp0vdc8fg4" path="res://sceness/transitions/transition_load_game.tscn" id="3_01b2a"]
+[ext_resource type="AudioStream" uid="uid://coknpj20kighp" path="res://trilha sonora/Azeitanaro Intro Loop.mp3" id="4_fuj3c"]
+
+[node name="loading_game" type="Node"]
+script = ExtResource("1_4h3at")
+
+[node name="TitleScreen" parent="." instance=ExtResource("2_wja33")]
+
+[node name="transition_load_game" parent="." instance=ExtResource("3_01b2a")]
+
+[node name="sound_menu_loop" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_fuj3c")
+volume_db = -31.2
+parameters/looping = true
+
+[connection signal="pressed" from="TitleScreen/bg/MarginContainer/HBoxContainer/button_slots/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="TitleScreen/bg/MarginContainer/HBoxContainer/button_slots/exit" to="." method="_on_exit_pressed"]
+[connection signal="animation_finished" from="transition_load_game/animator" to="." method="_on_animator_animation_finished"]
+
+[editable path="TitleScreen"]
+[editable path="transition_load_game"]

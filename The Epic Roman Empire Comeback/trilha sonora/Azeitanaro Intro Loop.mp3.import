@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://coknpj20kighp"
+path="res://.godot/imported/Azeitanaro Intro Loop.mp3-38ca8b683e7c5765791c0db963638f2b.mp3str"
+
+[deps]
+
+source_file="res://trilha sonora/Azeitanaro Intro Loop.mp3"
+dest_files=["res://.godot/imported/Azeitanaro Intro Loop.mp3-38ca8b683e7c5765791c0db963638f2b.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

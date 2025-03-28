@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bgqxohno6uion"]
+[gd_scene load_steps=15 format=3 uid="uid://bgqxohno6uion"]
 
 [ext_resource type="Texture2D" uid="uid://c6hwktmxsts4x" path="res://sceness/start/bg.png" id="1_12l3e"]
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_cr4cb"]
@@ -10,8 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://co0ltrbb68kpu" path="res://assets/SpritePack/Seasonal Tilesets/3 - Tropics/Background parts/3 - Floating_clouds.png" id="7_bxuf1"]
 [ext_resource type="Shader" path="res://shader/cloud.gdshader" id="7_yku1u"]
 [ext_resource type="PackedScene" uid="uid://cwm45tqbhthes" path="res://sceness/start/static_player.tscn" id="9_tw1ax"]
-[ext_resource type="AudioStream" uid="uid://dr2abv26r5con" path="res://assets/trilha sonora/Azeitanaro Intro.mp3" id="11_rrk8y"]
-[ext_resource type="PackedScene" uid="uid://b1fgp0vdc8fg4" path="res://sceness/transitions/transition_load_game.tscn" id="12_uxk7r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jljrl"]
 shader = ExtResource("6_ll81w")
@@ -139,11 +137,6 @@ scale = Vector2(3, 3)
 texture = ExtResource("3_vfhta")
 centered = false
 
-[node name="AudioStreamPlayerMenu" type="AudioStreamPlayer" parent="bg"]
-unique_name_in_owner = true
-stream = ExtResource("11_rrk8y")
-volume_db = -27.3
-
 [node name="static_player2" parent="bg" instance=ExtResource("9_tw1ax")]
 position = Vector2(809, 270)
 scale = Vector2(2, 2)
@@ -165,5 +158,3 @@ frame_progress = 0.811861
 position = Vector2(36, 207)
 scale = Vector2(2, 2)
 frame_progress = 0.880159
-
-[node name="transition" parent="bg" instance=ExtResource("12_uxk7r")]

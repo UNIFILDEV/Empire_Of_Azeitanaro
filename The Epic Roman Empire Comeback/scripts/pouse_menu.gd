@@ -25,6 +25,7 @@ func _on_exit_btn_pressed() -> void:
 	await animator.animation_finished
 	get_tree().paused = false
 	visible = false
+	BgSoundMenu.play()
 	get_tree().change_scene_to_file("res://sceness/start/title_screen.tscn")
 	
 	

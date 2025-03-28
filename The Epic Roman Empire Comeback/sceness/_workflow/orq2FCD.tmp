@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlca8e25oke35"]
+
+[ext_resource type="Script" path="res://scripts/orquestrador.gd" id="1_4bo4k"]
+[ext_resource type="PackedScene" uid="uid://bgqxohno6uion" path="res://sceness/start/title_screen.tscn" id="1_jk2rf"]
+[ext_resource type="PackedScene" uid="uid://b1fgp0vdc8fg4" path="res://sceness/transitions/transition_load_game.tscn" id="2_3n4jq"]
+
+[node name="Orquestrador" type="Node"]
+script = ExtResource("1_4bo4k")
+
+[node name="TitleScreen" parent="." instance=ExtResource("1_jk2rf")]
+
+[node name="transition" parent="." instance=ExtResource("2_3n4jq")]
+
+[connection signal="animation_finished" from="transition/animator" to="." method="_on_animator_animation_finished"]
+
+[editable path="TitleScreen"]
+[editable path="transition"]

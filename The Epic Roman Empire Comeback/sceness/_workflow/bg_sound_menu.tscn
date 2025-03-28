@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ulsv8c8tvsry"]
+
+[ext_resource type="AudioStream" uid="uid://coknpj20kighp" path="res://trilha sonora/Azeitanaro Intro Loop.mp3" id="1_nrtvb"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_nrtvb")
+volume_db = -25.0
+autoplay = true

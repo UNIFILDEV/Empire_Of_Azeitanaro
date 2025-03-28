@@ -23,10 +23,6 @@ signal energiaMudou
 @onready var collision = $CollisionBody
 
 const soundJump = preload("res://sceness/player/sounds/jump.wav")
-const soundWalk = preload("res://sceness/player/sounds/walk.mp3")
-const soundAttack1 = preload("res://sceness/player/sounds/attack1.mp3")
-const soundAttack2 = preload("res://sceness/player/sounds/attack2.mp3")
-const soundAttack3 = preload("res://sceness/player/sounds/attack3.mp3")
 
 var attacking = false
 var original_gravity: float = gravity
@@ -35,19 +31,11 @@ var is_dashing: bool = false
 var dash_timer: float = 0.0
 var is_sprinting: bool = false
 var jump_sound: AudioStreamPlayer2D
-var walk_sound: AudioStreamPlayer2D
-var attack1_sound: AudioStreamPlayer2D
-var attack2_sound: AudioStreamPlayer2D
-var attack3_sound: AudioStreamPlayer2D
 
 func _ready():
 	set_deferred("monitoring", true)
 	EventController.connect("healed", onHealed)
 	_add_child_soundJump()
-	_add_child_soundWalk()
-	_add_child_soundAttack1()
-	_add_child_soundAttack2()
-	_add_child_soundAttack3()
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -112,21 +100,9 @@ func _physics_process(delta):
 		# Verifique se o 'collision' é válido antes de acessar sua posição
 		if is_instance_valid(collision):
 			collision.position.x = abs(collision.position.x) * (1 if sprite.flip_h else -1)
-		if not walk_sound.playing and is_on_floor():
-			walk_sound.play()
-			
-		if is_sprinting == true:
-			walk_sound.pitch_scale = 1.5
-		else:
-			walk_sound.pitch_scale = 1.0
 
 	else: #parado
 		velocity.x = 0
-		if walk_sound.playing or attacking == true:
-			walk_sound.stop()
-	if not is_on_floor() and walk_sound.playing: #andando e pulando
-		walk_sound.stop()
-		
 
 	check_attack()
 	update_animation()
@@ -172,22 +148,12 @@ func check_attack():
 		print('ataque 2 apertado')
 
 func start_attack(type):
-	walk_sound.stop()
 	attacking = true
 	attack_type = type
 	sprite.play(type)
 
 	if type == "attack_1":
 		gravity = 1200.0
-		if attack1_sound != null:
-			attack1_sound.play()
-	if type == "attack_2":
-		if attack2_sound != null:
-			attack2_sound.play()
-	if type == "attack_3":
-		if attack3_sound != null:
-			attack3_sound.play()
-			
 
 	if not sprite.animation_finished.is_connected(_on_animated_sprite_finished):
 		sprite.animation_finished.connect(_on_animated_sprite_finished)
@@ -226,27 +192,3 @@ func _add_child_soundJump():
 	jump_sound.stream = soundJump
 	jump_sound.set_volume_db(-25.0)
 	add_child(jump_sound)
-	
-func _add_child_soundWalk():
-	walk_sound = AudioStreamPlayer2D.new()
-	walk_sound.stream = soundWalk
-	#jump_sound.set_volume_db(-25.0)
-	add_child(walk_sound)
-	
-func _add_child_soundAttack1():
-	attack1_sound = AudioStreamPlayer2D.new()
-	attack1_sound.stream = soundAttack1
-	#jump_sound.set_volume_db(-25.0)
-	add_child(attack1_sound)
-	
-func _add_child_soundAttack2():
-	attack2_sound = AudioStreamPlayer2D.new()
-	attack2_sound.stream = soundAttack2
-	#jump_sound.set_volume_db(-25.0)
-	add_child(attack2_sound)
-	
-func _add_child_soundAttack3():
-	attack3_sound = AudioStreamPlayer2D.new()
-	attack3_sound.stream = soundAttack3
-	#jump_sound.set_volume_db(-25.0)
-	add_child(attack3_sound)

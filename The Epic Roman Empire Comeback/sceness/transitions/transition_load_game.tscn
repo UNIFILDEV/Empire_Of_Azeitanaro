@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1fgp0vdc8fg4"]
+[gd_scene load_steps=13 format=3 uid="uid://b1fgp0vdc8fg4"]
 
 [ext_resource type="Shader" path="res://shader/blur.gdshader" id="2_hfws1"]
 [ext_resource type="Shader" path="res://shader/blur_transition.gdshader" id="3_8m7ns"]
 [ext_resource type="Texture2D" uid="uid://dgygcu0su1287" path="res://sceness/transitions/unifil_x16.png" id="4_5pv2g"]
+[ext_resource type="AudioStream" uid="uid://biq265n3mvft6" path="res://trilha sonora/Azeitanaro Intro Start.mp3" id="4_fb1yk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_seeru"]
 shader = ExtResource("2_hfws1")
@@ -186,3 +187,8 @@ libraries = {
 }
 autoplay = "open"
 speed_scale = 0.1
+
+[node name="IntroSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fb1yk")
+volume_db = -16.25
+autoplay = true
