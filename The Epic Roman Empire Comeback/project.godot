@@ -109,6 +109,7 @@ sprint={
 2d_physics/layer_2="Word"
 2d_physics/layer_3="enemies"
 2d_physics/layer_4="items"
+2d_physics/layer_5="shielder"
 
 [physics]
 

@@ -174,7 +174,7 @@ func _on_animated_sprite_finished():
 	gravity = original_gravity
 
 func hurtBySpike():
-	vidaAtual -= 10
+	vidaAtual -= 100
 	if vidaAtual < 0:
 		vidaAtual = vidaMax
 	
