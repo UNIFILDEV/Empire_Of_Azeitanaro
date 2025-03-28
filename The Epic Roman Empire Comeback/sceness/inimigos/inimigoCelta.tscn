@@ -222,7 +222,6 @@ debug_color = Color(0.885979, 0.216141, 0.628592, 0.42)
 [node name="HurtPlayerZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtPlayerZone"]
-visible = false
 position = Vector2(0, 1.38889)
 shape = SubResource("RectangleShape2D_v1yek")
 debug_color = Color(1, 0.00817797, 0.0443347, 0.42)
@@ -231,9 +230,10 @@ debug_color = Color(1, 0.00817797, 0.0443347, 0.42)
 collision_mask = 2
 
 [node name="DetectionZone" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
-visible = false
 shape = SubResource("RectangleShape2D_hcja0")
 debug_color = Color(0.673234, 0.306286, 1, 0.42)
 
@@ -247,5 +247,6 @@ one_shot = true
 [connection signal="area_entered" from="HurtPlayerZone" to="." method="_on_hurt_player_zone_area_entered"]
 [connection signal="body_entered" from="HurtPlayerZone" to="." method="_on_hurt_player_zone_body_entered"]
 [connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
+[connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]
 [connection signal="timeout" from="DetectionZone/AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

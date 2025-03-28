@@ -15,9 +15,12 @@ var isMovingRight = true
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite = $AnimatedSprite
 @onready var detection_area: Area2D = $DetectionPatrolZone
+@onready var detection_zone_hitbox: Area2D = $DetectionZone
 @onready var collision: CollisionShape2D = $CollisionBody
 @onready var player: Node2D = null
 @onready var timer = $Timer
+@onready var timerAttack = $DetectionZone/AttackTimer
+var player_in_detection_zone = false
 
 var life: int = 2
 var is_following_player: bool = false
@@ -29,6 +32,8 @@ func _ready():
 	starting_position = global_position
 	detection_area.body_entered.connect(_on_body_entered)
 	detection_area.body_exited.connect(_on_body_exited)
+	detection_zone_hitbox.body_entered.connect(_on_detection_zone_body_entered)
+	timer.connect("timeout", self._on_timer_timeout)
 
 func _process(delta: float) -> void:
 	detect_turn_around()
@@ -62,7 +67,11 @@ func _physics_process(delta: float) -> void:
 		patrol()
 	
 	if velocity.x != 0:
-		sprite.play("walk")
+		if player_in_detection_zone:
+			sprite.play("attack")
+		else:
+			sprite.play("walk")
+		#sprite.play("attack")
 	else:
 		sprite.stop()
 
@@ -126,12 +135,18 @@ func startWalk():
 
 func _on_hurt_player_zone_body_entered(body: Node2D) -> void:
 	if body is Player:
-		$AnimatedSprite.play("attack")
+		#body.get_node("CollisionBody").queue_free()
+		print('hurt')
+		#$AnimatedSprite.play("attack")
 
 func _on_detection_zone_body_entered(body):
-	timer.start()
-	body.get_node("CollisionBody").queue_free()
-	Engine.time_scale = 0.8
+	if body is Player:
+		player_in_detection_zone = true
+		print("Jogador detectado na DetectionZone")
+		#sprite.play("attack")
+		#timerAttack.start()
+		#body.get_node("CollisionBody").queue_free()
+	#Engine.time_scale = 0.8
 
 func _on_timer_timeout():
 	Engine.time_scale = 1
@@ -141,4 +156,10 @@ func load_player():
 	# Espera 1 frame para garantir que o player foi criado
 	await get_tree().process_frame
 	var players = get_tree().get_nodes_in_group("player")
-	player = players[0]  # Armazena o player na variável
+	player = players[0] # Armazena o player na variável
+
+
+func _on_detection_zone_body_exited(body: Node2D) -> void:
+	if body is Player:
+		player_in_detection_zone = false
+		print('saiu')
