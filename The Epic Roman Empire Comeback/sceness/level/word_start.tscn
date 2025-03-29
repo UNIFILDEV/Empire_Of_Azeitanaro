@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dtrj8hpb2alm3"]
+[gd_scene load_steps=20 format=4 uid="uid://dtrj8hpb2alm3"]
 
 [ext_resource type="Script" path="res://scripts/word_start.gd" id="1_pxgqs"]
 [ext_resource type="Texture2D" uid="uid://dclxmh83k10jm" path="res://assets/assestLombaLomba/Assets/tiles.png" id="2_rgrso"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bi7d0qrjcx2y1" path="res://sceness/pouse_menu/pouse_menu.tscn" id="10_u3tcn"]
 [ext_resource type="PackedScene" uid="uid://bgvk154xskvgj" path="res://sceness/inimigos/inimigoCelta.tscn" id="11_je21t"]
 [ext_resource type="PackedScene" uid="uid://rpo6yvuyjhc1" path="res://sceness/itens/mundo/killzone.tscn" id="12_bk2js"]
+[ext_resource type="PackedScene" uid="uid://bc40w4rqiapjk" path="res://sceness/UI/hud.tscn" id="13_il1b2"]
+[ext_resource type="PackedScene" uid="uid://c2y6pkvqay8r8" path="res://sceness/itens/moeda.tscn" id="14_ml1mw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q0vau"]
 texture = ExtResource("2_rgrso")
@@ -176,3 +178,20 @@ position = Vector2(-1211, -97)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(1164, 557)
 shape = SubResource("WorldBoundaryShape2D_vhj2g")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("13_il1b2")]
+
+[node name="Moeda" parent="." instance=ExtResource("14_ml1mw")]
+position = Vector2(385, 242)
+
+[node name="Moeda2" parent="." instance=ExtResource("14_ml1mw")]
+position = Vector2(581, 285)
+
+[node name="Moeda3" parent="." instance=ExtResource("14_ml1mw")]
+position = Vector2(158, 257)
+
+[node name="Moeda4" parent="." instance=ExtResource("14_ml1mw")]
+position = Vector2(82, 242)
+
+[node name="Moeda5" parent="." instance=ExtResource("14_ml1mw")]
+position = Vector2(19, 207)

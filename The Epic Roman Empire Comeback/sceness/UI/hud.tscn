@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://bc40w4rqiapjk"]
+
+[ext_resource type="Texture2D" uid="uid://b0ea8u26uypd6" path="res://assets/assestLombaLomba/Assets/HealthBar.png" id="1_rqt5v"]
+[ext_resource type="Texture2D" uid="uid://dtwfdg0fnlwu8" path="res://assets/assestLombaLomba/Assets/HealthBarProgress.png" id="2_dvq5p"]
+[ext_resource type="Script" path="res://sceness/UI/texture_progress_bar.gd" id="3_7hqk2"]
+[ext_resource type="Texture2D" uid="uid://b4o6nb61ob0fc" path="res://assets/assestLombaLomba/Assets/EnergyBar.png" id="4_wqpbn"]
+[ext_resource type="Texture2D" uid="uid://3iopmeo6g83e" path="res://assets/assestLombaLomba/Assets/EnergyBarProgress.png" id="5_gw5cp"]
+[ext_resource type="Script" path="res://sceness/UI/barraEnergia.gd" id="6_a6w5b"]
+[ext_resource type="PackedScene" uid="uid://dtvkgf81opda5" path="res://sceness/UI/moeda_ui.tscn" id="7_knhcn"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 83.0
+offset_bottom = 18.0
+scale = Vector2(2, 2)
+texture_under = ExtResource("1_rqt5v")
+texture_progress = ExtResource("2_dvq5p")
+script = ExtResource("3_7hqk2")
+metadata/_edit_use_anchors_ = true
+
+[node name="StaminaBar" type="TextureProgressBar" parent="."]
+offset_left = 3.0
+offset_top = 32.0
+offset_right = 67.0
+offset_bottom = 72.0
+scale = Vector2(2, 2)
+texture_under = ExtResource("4_wqpbn")
+texture_progress = ExtResource("5_gw5cp")
+script = ExtResource("6_a6w5b")
+metadata/_edit_use_anchors_ = true
+
+[node name="MoedaUI" parent="." instance=ExtResource("7_knhcn")]
+offset_top = 65.0
+offset_bottom = 105.0
+metadata/_edit_use_anchors_ = true

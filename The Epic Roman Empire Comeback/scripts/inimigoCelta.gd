@@ -35,7 +35,7 @@ func _ready():
 	#var players_in_group = get_tree().get_nodes_in_group("player")
 	##if players_in_group.size > 0:
 	#playerTeste = players_in_group[0]
-	load_player()
+	global_player()
 	starting_position = global_position
 	detection_area.body_entered.connect(_on_body_entered)
 	detection_area.body_exited.connect(_on_body_exited)
@@ -164,12 +164,9 @@ func _on_timer_timeout():
 	Engine.time_scale = 1
 	get_tree().reload_current_scene()
 
-func load_player():
-	# Espera 1 frame para garantir que o player foi criado
-	await get_tree().process_frame
-	var players = get_tree().get_nodes_in_group("player")
-	player = players[0] # Armazena o player na variável
-
+func global_player():
+	if Global.player_instance:
+		player = Global.player_instance
 
 func _on_detection_zone_body_exited(body: Node2D) -> void:
 	if body is Player:
