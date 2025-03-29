@@ -187,7 +187,7 @@ radius = 30.0032
 size = Vector2(13.6806, 26.5278)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcja0"]
-size = Vector2(8.33333, 14.9479)
+size = Vector2(18.4375, 13.2292)
 
 [node name="inimigoCelta" type="CharacterBody2D"]
 scale = Vector2(1.44, 1.44)
@@ -199,8 +199,8 @@ script = ExtResource("1_hmsau")
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 show_behind_parent = true
 sprite_frames = SubResource("SpriteFrames_o8ewd")
-animation = &"attack"
-frame_progress = 0.814139
+animation = &"shield"
+frame_progress = 0.611491
 speed_scale = 1.4
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
@@ -236,13 +236,15 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
-position = Vector2(4.13921e-08, 0.859366)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hcja0")
 debug_color = Color(0.673234, 0.306286, 1, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="area_entered" from="HurtPlayerZone" to="." method="_on_hurt_player_zone_area_entered"]
 [connection signal="body_entered" from="HurtPlayerZone" to="." method="_on_hurt_player_zone_body_entered"]
 [connection signal="body_exited" from="HurtPlayerZone" to="." method="_on_hurt_player_zone_body_exited"]
 [connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
 [connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

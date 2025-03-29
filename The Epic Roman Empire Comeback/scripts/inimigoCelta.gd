@@ -12,16 +12,12 @@ var starting_position: Vector2
 
 var isMovingRight = true
 
-#var playerTeste : Player
-
-
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite = $AnimatedSprite
 @onready var detection_area: Area2D = $DetectionPatrolZone
 @onready var detection_zone_hitbox: Area2D = $DetectionZone
 @onready var collision: CollisionShape2D = $CollisionBody
 @onready var player: Node2D = null
-@onready var timer = $Timer
 
 var player_in_detection_zone = false
 var player_in_damage_zone = false
@@ -39,8 +35,8 @@ func _ready():
 	starting_position = global_position
 	detection_area.body_entered.connect(_on_body_entered)
 	detection_area.body_exited.connect(_on_body_exited)
-	detection_zone_hitbox.body_entered.connect(_on_detection_zone_body_entered)
-	timer.connect("timeout", self._on_timer_timeout)
+	#detection_zone_hitbox.body_entered.connect(_on_detection_zone_body_entered)
+	#timer.connect("timeout", self._on_timer_timeout)
 
 func _process(delta: float) -> void:
 	detect_turn_around()
@@ -77,15 +73,10 @@ func _physics_process(delta: float) -> void:
 		if player_in_detection_zone:
 			sprite.play("attack")
 			velocity.x = 0
-			#if player_in_damage_zone:
-				#playerTeste.take_damage(1)
-				
+			await get_tree().create_timer(0.75).timeout #delay de 0,75 segundo
 		else:
 			velocity.x = SPEED * direction
 			sprite.play("walk")
-		#sprite.play("attack")
-	#else:
-		#sprite.stop()
 
 	move_and_slide()
 
@@ -96,7 +87,7 @@ func _physics_process(delta: float) -> void:
 	sprite.scale.x = direction
 	collision.position.x = abs(collision.position.x) * direction * -1
 	$HurtPlayerZone.position.x = 13 * direction
-	$DetectionZone.position.x = 17 * direction
+	$DetectionZone.position.x = 13 * direction
 	if jump_timer > 0:
 		jump_timer -= delta
 
@@ -147,9 +138,13 @@ func startWalk():
 func _on_hurt_player_zone_body_entered(body: Node2D) -> void:
 	if body is Player:
 		player_in_damage_zone = true
-		await get_tree().create_timer(0.9).timeout #delay de 0,9 segundo
+		apply_damage_loop(body)
+
+func apply_damage_loop(body: Player) -> void:
+	while player_in_damage_zone:
 		print("Preparando para causar dano...")
-		if player_in_damage_zone:
+		await get_tree().create_timer(0.75).timeout #delay de 0,75 segundo
+		if player_in_damage_zone and is_instance_valid(body):
 			body.take_damage(10)
 			print("Player tomou dano")
 
@@ -157,14 +152,6 @@ func _on_detection_zone_body_entered(body):
 	if body is Player:
 		player_in_detection_zone = true
 		print("Jogador detectado na DetectionZone")
-		#sprite.play("attack")
-		#timerAttack.start()
-		#body.get_node("CollisionBody").queue_free()
-	#Engine.time_scale = 0.8
-
-func _on_timer_timeout():
-	Engine.time_scale = 1
-	get_tree().reload_current_scene()
 
 func global_player():
 	if Global.player_instance:
@@ -174,7 +161,6 @@ func _on_detection_zone_body_exited(body: Node2D) -> void:
 	if body is Player:
 		player_in_detection_zone = false
 		print('saiu')
-
 
 func _on_hurt_player_zone_body_exited(body: Node2D) -> void:
 	if body is Player:

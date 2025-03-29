@@ -454,7 +454,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hit",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -594,8 +594,6 @@ position = Vector2(0, 0.166665)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
 animation = &"hit"
-frame = 5
-frame_progress = 1.0
 speed_scale = 1.4
 
 [node name="Camera2D" type="Camera2D" parent="."]

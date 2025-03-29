@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://domjyddwcaqt3"]
+[gd_scene load_steps=92 format=3 uid="uid://domjyddwcaqt3"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jkr64"]
 [ext_resource type="Texture2D" uid="uid://byy1yf0urmbgp" path="res://assets/player/Gold/Attack 2 Recover - Gold.png" id="2_0my5e"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bv2ami72h1rwg" path="res://assets/player/Gold/Attack 3 - Gold.png" id="5_nhklh"]
 [ext_resource type="Texture2D" uid="uid://8fjm1qpv6eln" path="res://assets/player/Gold/Fall - Gold.png" id="6_qsmak"]
 [ext_resource type="Texture2D" uid="uid://ce0ed1vbjbh10" path="res://assets/player/Gold/Combat Ready Idle - Gold.png" id="7_1nc5y"]
+[ext_resource type="Texture2D" uid="uid://c8eydbam4vnnf" path="res://assets/player/Gold/Hit Front - Gold.png" id="7_pnu4i"]
 [ext_resource type="Texture2D" uid="uid://bgoilvid1ecud" path="res://assets/player/Gold/Jump - Gold.png" id="8_2q1dl"]
 [ext_resource type="Texture2D" uid="uid://bg5otox5yakl5" path="res://assets/player/Gold/Roll - Gold.png" id="9_mcxlv"]
 [ext_resource type="Texture2D" uid="uid://wgiql1chxg3w" path="res://assets/player/Gold/Run - Gold.png" id="10_h8d2h"]
@@ -170,6 +171,30 @@ region = Rect2(44, 0, 22, 30)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gyfge"]
 atlas = ExtResource("6_qsmak")
 region = Rect2(66, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cp7s"]
+atlas = ExtResource("7_pnu4i")
+region = Rect2(0, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5lnw"]
+atlas = ExtResource("7_pnu4i")
+region = Rect2(22, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mooc8"]
+atlas = ExtResource("7_pnu4i")
+region = Rect2(44, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gloa1"]
+atlas = ExtResource("7_pnu4i")
+region = Rect2(66, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubkqb"]
+atlas = ExtResource("7_pnu4i")
+region = Rect2(88, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u7mx"]
+atlas = ExtResource("7_pnu4i")
+region = Rect2(110, 0, 22, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2cgg6"]
 atlas = ExtResource("7_1nc5y")
@@ -445,6 +470,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_0cp7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5lnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mooc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gloa1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubkqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6u7mx")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2cgg6")
 }, {
 "duration": 1.0,
@@ -583,7 +631,9 @@ show_behind_parent = true
 position = Vector2(0, 0.166665)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
-animation = &"walk"
+animation = &"hit"
+frame = 5
+frame_progress = 1.0
 speed_scale = 1.4
 
 [node name="Camera2D" type="Camera2D" parent="."]
