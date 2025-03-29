@@ -63,11 +63,11 @@ texture = ExtResource("1_cby1c")
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 6, -8, 6, 8, -8, 8)
 6:1/0 = 0
-6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -8, 8, -8, 8, 8, -6, 8)
 7:1/0 = 0
 7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:1/0 = 0
-8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 6, -8, 6, 8, -8, 8)
 11:1/0 = 0
 11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 12:1/0 = 0
@@ -437,19 +437,19 @@ position = Vector2(907, -576)
 position = Vector2(1099, -592)
 
 [node name="Moeda5" parent="." instance=ExtResource("19_i08f4")]
-position = Vector2(1499, -544)
+position = Vector2(1499, -552)
 
 [node name="Moeda6" parent="." instance=ExtResource("19_i08f4")]
-position = Vector2(1515, -560)
+position = Vector2(1515, -568)
 
 [node name="Moeda7" parent="." instance=ExtResource("19_i08f4")]
-position = Vector2(1547, -560)
+position = Vector2(1547, -568)
 
 [node name="Moeda8" parent="." instance=ExtResource("19_i08f4")]
-position = Vector2(1531, -560)
+position = Vector2(1531, -568)
 
 [node name="Moeda9" parent="." instance=ExtResource("19_i08f4")]
-position = Vector2(1563, -544)
+position = Vector2(1563, -552)
 
 [node name="inimigoCelta2" parent="." instance=ExtResource("21_rdtnb")]
 position = Vector2(1851, -544)

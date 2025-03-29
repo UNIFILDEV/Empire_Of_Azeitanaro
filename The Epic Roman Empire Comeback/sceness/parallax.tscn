@@ -11,50 +11,45 @@ position = Vector2(480, 240)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.1, 0)
-repeat_size = Vector2(320, 0)
-repeat_times = 2
-limit_begin = Vector2(-16, -1e+07)
-limit_end = Vector2(1e+07, 80)
+scroll_offset = Vector2(0, 30)
+repeat_size = Vector2(480, 240)
+repeat_times = 3
 
 [node name="Ceu" type="Sprite2D" parent="Parallax2D"]
 texture = ExtResource("1_vlhbt")
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.1, 0)
-repeat_size = Vector2(320, 0)
-repeat_times = 2
-limit_begin = Vector2(-16, -1e+07)
-limit_end = Vector2(1e+07, 80)
+scroll_offset = Vector2(0, 30)
+repeat_size = Vector2(480, 0)
+repeat_times = 3
 
 [node name="Nuvem1" type="Sprite2D" parent="Parallax2D2"]
 texture = ExtResource("1_dsqbm")
 
 [node name="Parallax2D3" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.3, 0)
-repeat_size = Vector2(320, 0)
-repeat_times = 2
-limit_begin = Vector2(-16, -1e+07)
-limit_end = Vector2(1e+07, 80)
+scroll_offset = Vector2(0, 30)
+repeat_size = Vector2(480, 0)
+repeat_times = 3
 
 [node name="Nuvem2" type="Sprite2D" parent="Parallax2D3"]
 texture = ExtResource("2_vdwgh")
 
 [node name="Parallax2D4" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.8, 0)
-repeat_size = Vector2(320, 0)
-repeat_times = 2
-limit_begin = Vector2(-16, -1e+07)
-limit_end = Vector2(1e+07, 80)
+scroll_offset = Vector2(0, 30)
+repeat_size = Vector2(480, 0)
+repeat_times = 3
 
 [node name="Meio" type="Sprite2D" parent="Parallax2D4"]
 texture = ExtResource("3_ikldh")
 
 [node name="Parallax2D5" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.9, 0)
-repeat_size = Vector2(320, 0)
-repeat_times = 2
-limit_begin = Vector2(-16, -1e+07)
-limit_end = Vector2(1e+07, 80)
+scroll_offset = Vector2(0, 30)
+repeat_size = Vector2(480, 0)
+repeat_times = 3
 
 [node name="Frente" type="Sprite2D" parent="Parallax2D5"]
 texture = ExtResource("4_keei7")
