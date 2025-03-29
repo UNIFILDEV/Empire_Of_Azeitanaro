@@ -22,7 +22,7 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var collision: CollisionShape2D = $CollisionBody
 @onready var player: Node2D = null
 @onready var timer = $Timer
-@onready var timerAttack = $DetectionZone/AttackTimer
+
 var player_in_detection_zone = false
 var player_in_damage_zone = false
 
@@ -144,12 +144,14 @@ func endHit():
 func startWalk():
 	$AnimatedSprite.play("walk")
 
-
 func _on_hurt_player_zone_body_entered(body: Node2D) -> void:
 	if body is Player:
 		player_in_damage_zone = true
-	#if body.is_in_group("player"):
-		#body.take_damage(1)
+		await get_tree().create_timer(0.9).timeout #delay de 0,9 segundo
+		print("Preparando para causar dano...")
+		if player_in_damage_zone:
+			body.take_damage(10)
+			print("Player tomou dano")
 
 func _on_detection_zone_body_entered(body):
 	if body is Player:
@@ -177,3 +179,4 @@ func _on_detection_zone_body_exited(body: Node2D) -> void:
 func _on_hurt_player_zone_body_exited(body: Node2D) -> void:
 	if body is Player:
 		player_in_damage_zone = false
+		print("Saiu da hurtbox")

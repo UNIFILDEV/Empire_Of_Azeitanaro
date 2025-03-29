@@ -239,10 +239,6 @@ collision_mask = 3
 shape = SubResource("RectangleShape2D_hcja0")
 debug_color = Color(0.673234, 0.306286, 1, 0.42)
 
-[node name="AttackTimer" type="Timer" parent="DetectionZone"]
-wait_time = 3.0
-one_shot = true
-
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
@@ -251,5 +247,4 @@ one_shot = true
 [connection signal="body_exited" from="HurtPlayerZone" to="." method="_on_hurt_player_zone_body_exited"]
 [connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
 [connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]
-[connection signal="timeout" from="DetectionZone/AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

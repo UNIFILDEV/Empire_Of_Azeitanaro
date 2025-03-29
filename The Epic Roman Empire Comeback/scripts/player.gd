@@ -196,8 +196,10 @@ func _add_child_soundJump():
 
 func take_damage(amount: int):
 	sprite.play("hit")
-	life -= amount
+	vidaAtual -= amount
 	print('tomou dano do monstro')
-	if life <= 0:
-		queue_free()
+	vidaMudou.emit()
+	print(vidaAtual)
+	if vidaAtual <= 0:
+		#queue_free()
 		print('player morreu')
