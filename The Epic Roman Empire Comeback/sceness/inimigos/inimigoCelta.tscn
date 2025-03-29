@@ -128,7 +128,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -151,7 +151,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"shield",
-"speed": 5.0
+"speed": 13.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -174,7 +174,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 13.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_th28i"]
@@ -200,8 +200,7 @@ script = ExtResource("1_hmsau")
 show_behind_parent = true
 sprite_frames = SubResource("SpriteFrames_o8ewd")
 animation = &"attack"
-frame_progress = 0.814139
-speed_scale = 1.4
+frame_progress = 0.571645
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
 visible = false
@@ -237,7 +236,6 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
 position = Vector2(4.13921e-08, 0.859366)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hcja0")
 debug_color = Color(0.673234, 0.306286, 1, 0.42)
 

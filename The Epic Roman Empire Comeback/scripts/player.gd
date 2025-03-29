@@ -25,7 +25,6 @@ signal energiaMudou
 const soundJump = preload("res://sceness/player/sounds/jump.wav")
 
 var attacking = false
-var is_in_hit_animation = false  # Variável para rastrear o estado de "hit"
 var original_gravity: float = gravity
 var attack_type = ""
 var is_dashing: bool = false
@@ -112,18 +111,14 @@ func _physics_process(delta):
 	move_and_slide()
 
 func update_animation():
+	if sprite.animation == "hit" and not sprite.animation_finished:
+		return  # Garantia que a animação "hit" seja priorizada
 	if attacking:
 		return
-	if is_in_hit_animation:
-		return
-
 	if is_on_floor():
 		if velocity.x == 0:
 			if sprite.animation != "idle":
-				if is_in_hit_animation:
-					return
-				else:
-					sprite.play("idle")
+				sprite.play("idle")
 		elif is_sprinting && energiaAtual > 0:
 			if sprite.animation != "run":
 				sprite.play("run")
@@ -200,20 +195,12 @@ func _add_child_soundJump():
 	add_child(jump_sound)
 
 func take_damage(amount: int):
-	if not is_in_hit_animation: # Apenas inicia "hit" se não estiver em execução
-		sprite.play("hit")
-		vidaAtual -= amount
-		print('tomou dano do monstro')
-		vidaMudou.emit()
-		print(vidaAtual)
-		if not sprite.animation_finished.is_connected(_on_hit_animation_finished):
-			sprite.animation_finished.connect(_on_hit_animation_finished)
+	sprite.play("hit")
+	vidaAtual -= amount
+	print('tomou dano do monstro')
+	vidaMudou.emit()
+	print(vidaAtual)
 	if vidaAtual <= 0:
 		queue_free()
 		print('player morreu')
 		get_tree().change_scene_to_file("res://sceness/start/title_screen.tscn")
-
-func _on_hit_animation_finished():
-	if sprite.animation == "hit":  # Certifique-se de que "hit" terminou
-		is_in_hit_animation = false  # Libera o estado de "hit"
-		sprite.animation_finished.disconnect(_on_hit_animation_finished)  # Desconecta o sinal

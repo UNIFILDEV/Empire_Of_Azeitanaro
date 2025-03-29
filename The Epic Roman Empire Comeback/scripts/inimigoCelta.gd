@@ -143,8 +143,8 @@ func _on_hurt_player_zone_body_entered(body: Node2D) -> void:
 func apply_damage_loop(body: Player) -> void:
 	while player_in_damage_zone:
 		print("Preparando para causar dano...")
-		await get_tree().create_timer(0.75).timeout #delay de 0,75 segundo
-		if player_in_damage_zone and is_instance_valid(body):
+		await get_tree().create_timer(0.1).timeout #delay de 0,1 segundo, deve estar de acordo com os fps da animação
+		if player_in_damage_zone and is_instance_valid(body) and sprite.frame == 6:
 			body.take_damage(10)
 			print("Player tomou dano")
 
