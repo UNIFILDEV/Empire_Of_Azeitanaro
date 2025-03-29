@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckx82hhkojtt0"]
+
+[ext_resource type="PackedScene" uid="uid://c2y6pkvqay8r8" path="res://sceness/itens/moeda.tscn" id="1_joo01"]
+
+[node name="PacoteMoedas" type="Node2D"]
+position = Vector2(5, 0)
+
+[node name="Moeda" parent="." instance=ExtResource("1_joo01")]
+
+[node name="Moeda2" parent="." instance=ExtResource("1_joo01")]
+position = Vector2(16, 0)
+
+[node name="Moeda3" parent="." instance=ExtResource("1_joo01")]
+position = Vector2(-16, -16)
+
+[node name="Moeda4" parent="." instance=ExtResource("1_joo01")]
+position = Vector2(-16, 0)
+
+[node name="Moeda5" parent="." instance=ExtResource("1_joo01")]
+position = Vector2(0, -16)
+
+[node name="Moeda6" parent="." instance=ExtResource("1_joo01")]
+position = Vector2(16, -16)
+
+[node name="Moeda7" parent="." instance=ExtResource("1_joo01")]
+position = Vector2(16, -32)
+
+[node name="Moeda8" parent="." instance=ExtResource("1_joo01")]
+position = Vector2(0, -32)
+
+[node name="Moeda9" parent="." instance=ExtResource("1_joo01")]
+position = Vector2(-16, -32)
+
+[node name="Moeda10" parent="." instance=ExtResource("1_joo01")]
+position = Vector2(0, -48)
+
+[node name="Moeda11" parent="." instance=ExtResource("1_joo01")]
+position = Vector2(-16, -48)
+
+[node name="Moeda12" parent="." instance=ExtResource("1_joo01")]
+position = Vector2(16, -48)

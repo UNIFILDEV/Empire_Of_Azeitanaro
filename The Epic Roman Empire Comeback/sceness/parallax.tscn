@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://q2yjm6syk50i"]
+
+[ext_resource type="Texture2D" uid="uid://oofwme0viera" path="res://assets/assestLombaLomba/Assets/clouds_02.png" id="1_dsqbm"]
+[ext_resource type="Texture2D" uid="uid://bpj0u8u2jp7g8" path="res://assets/assestLombaLomba/Assets/sky.png" id="1_vlhbt"]
+[ext_resource type="Texture2D" uid="uid://bnfbfb2yvwqhm" path="res://assets/assestLombaLomba/Assets/clouds_01.png" id="2_vdwgh"]
+[ext_resource type="Texture2D" uid="uid://blmkuwd2x000k" path="res://assets/assestLombaLomba/Assets/middleground.png" id="3_ikldh"]
+[ext_resource type="Texture2D" uid="uid://cn68k7jtfx47j" path="res://assets/assestLombaLomba/Assets/foregound.png" id="4_keei7"]
+
+[node name="Parallax" type="Node2D"]
+position = Vector2(480, 240)
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0)
+repeat_size = Vector2(320, 0)
+repeat_times = 2
+limit_begin = Vector2(-16, -1e+07)
+limit_end = Vector2(1e+07, 80)
+
+[node name="Ceu" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("1_vlhbt")
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0)
+repeat_size = Vector2(320, 0)
+repeat_times = 2
+limit_begin = Vector2(-16, -1e+07)
+limit_end = Vector2(1e+07, 80)
+
+[node name="Nuvem1" type="Sprite2D" parent="Parallax2D2"]
+texture = ExtResource("1_dsqbm")
+
+[node name="Parallax2D3" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.3, 0)
+repeat_size = Vector2(320, 0)
+repeat_times = 2
+limit_begin = Vector2(-16, -1e+07)
+limit_end = Vector2(1e+07, 80)
+
+[node name="Nuvem2" type="Sprite2D" parent="Parallax2D3"]
+texture = ExtResource("2_vdwgh")
+
+[node name="Parallax2D4" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0)
+repeat_size = Vector2(320, 0)
+repeat_times = 2
+limit_begin = Vector2(-16, -1e+07)
+limit_end = Vector2(1e+07, 80)
+
+[node name="Meio" type="Sprite2D" parent="Parallax2D4"]
+texture = ExtResource("3_ikldh")
+
+[node name="Parallax2D5" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.9, 0)
+repeat_size = Vector2(320, 0)
+repeat_times = 2
+limit_begin = Vector2(-16, -1e+07)
+limit_end = Vector2(1e+07, 80)
+
+[node name="Frente" type="Sprite2D" parent="Parallax2D5"]
+texture = ExtResource("4_keei7")

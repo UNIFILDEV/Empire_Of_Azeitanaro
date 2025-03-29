@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dklms2uqpm1h2"]
+
+[ext_resource type="FontFile" uid="uid://b684sm4kbors1" path="res://fonts/PixelOperator8-Bold.ttf" id="1_gm18o"]
+[ext_resource type="Script" path="res://timer_label.gd" id="1_n1kos"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hwcp1"]
+font = ExtResource("1_gm18o")
+
+[node name="Timer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimerLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "00 : 00 : 000"
+label_settings = SubResource("LabelSettings_hwcp1")
+script = ExtResource("1_n1kos")
