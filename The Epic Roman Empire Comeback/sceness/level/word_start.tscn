@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://dr2abv26r5con" path="res://trilha sonora/Azeitanaro Intro.mp3" id="9_evi56"]
 [ext_resource type="PackedScene" uid="uid://bi7d0qrjcx2y1" path="res://sceness/pouse_menu/pouse_menu.tscn" id="10_u3tcn"]
 [ext_resource type="PackedScene" uid="uid://bgvk154xskvgj" path="res://sceness/inimigos/inimigoCelta.tscn" id="11_je21t"]
-[ext_resource type="PackedScene" uid="uid://rpo6yvuyjhc1" path="res://sceness/itens/mundo/killzone.tscn" id="12_bk2js"]
+[ext_resource type="PackedScene" uid="uid://rpo6yvuyjhc1" path="res://sceness/killzone.tscn" id="12_bk2js"]
 [ext_resource type="PackedScene" uid="uid://bc40w4rqiapjk" path="res://sceness/UI/hud.tscn" id="13_il1b2"]
 [ext_resource type="PackedScene" uid="uid://c2y6pkvqay8r8" path="res://sceness/itens/moeda.tscn" id="14_ml1mw"]
 

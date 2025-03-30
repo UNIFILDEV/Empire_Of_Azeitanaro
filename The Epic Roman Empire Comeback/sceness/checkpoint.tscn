@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://xpjavjnt2rlh"]
+
+[ext_resource type="Script" path="res://sceness/checkpointManager.gd" id="1_ax7je"]
+[ext_resource type="Texture2D" uid="uid://bwl03hv8sh41q" path="res://assets/assestLombaLomba/Assets/checkpoint.png" id="2_3afns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oj2ny"]
+size = Vector2(24, 81)
+
+[node name="Checkpoint" type="Area2D"]
+script = ExtResource("1_ax7je")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24.5)
+shape = SubResource("RectangleShape2D_oj2ny")
+
+[node name="RespawnPoint" type="Marker2D" parent="."]
+position = Vector2(16, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3afns")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
