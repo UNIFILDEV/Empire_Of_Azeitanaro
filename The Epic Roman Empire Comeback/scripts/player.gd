@@ -3,6 +3,8 @@ class_name Player extends CharacterBody2D
 signal vidaMudou
 signal energiaMudou
 
+var dano = 0
+
 @export var damage: int = 20
 @export var speed: float = 150.0
 @export var jump_speed: float = -370.0
@@ -223,27 +225,32 @@ func take_damage(amount: int):
 
 func check_attack_1(body):
 	if attack_type == "attack_1" and sprite.frame == 4:
-		body.take_damage(damage*1.4)
+		body.take_damage(damage*1.5)
 		print("Dano no ataque 1, frame ", sprite.frame)
 
 func check_attack_2(body):
 	if attack_type == "attack_2":
 		if sprite.frame == 1 or sprite.frame == 4:
-			body.take_damage(damage*0.4)
+			body.take_damage(damage*0.5)
 			print("Dano no ataque 2, frame ", sprite.frame)
 
 func check_attack_3(body):
-	if attack_type == "attack_3" and sprite.frame == 2:
-		body.take_damage(damage)
-		print("Dano no ataque 3, frame", sprite.frame)
+	if is_instance_valid(body):
+		if attack_type == "attack_3" and sprite.frame == 2:
+			if is_dashing:
+				body.take_damege(damage*2)
+				print("Dano no ataque 3 com dash, frame", sprite.frame)
+			elif not is_dashing:
+				body.take_damage(damage)
+				print("Dano no ataque 3, frame", sprite.frame)
 
-func apply_damage_loop(body: EnemyBase) -> void:
+func apply_damage_loop(body: EnemyBase) -> void:	
 	while enemie_in_zone1 or enemie_in_zone2 or enemie_in_zone3:
-		#print("Preparando para causar dano...")
-		await get_tree().create_timer(0.1).timeout #parâmetro do delay deve estar de acordo com os fps da animação
-		check_attack_1(body)
-		check_attack_2(body)
-		check_attack_3(body)
+			#print("Preparando para causar dano...")
+			check_attack_1(body)
+			check_attack_2(body)
+			check_attack_3(body)
+			await get_tree().create_timer(0.25).timeout #parâmetro do delay deve estar de acordo com os fps da animação
 
 func _on_attack_1_box_area_entered(body):
 	print("Algo entrou na área de ataque1: ", body.name)
@@ -266,7 +273,6 @@ func _on_attack_2_box_area_entered(body):
 			enemie_in_zone2 = true
 			apply_damage_loop(enemy)
 
-
 func _on_attack_2_box_area_exited(body: Node2D) -> void:
 		enemie_in_zone2 = false
 
@@ -277,6 +283,8 @@ func _on_attack_3_box_area_entered(body):
 		if enemy is EnemyBase and is_instance_valid(body) and attack_type == "attack_3":  # Confirma que o pai é EnemyBase
 			enemie_in_zone3 = true
 			apply_damage_loop(enemy)
+			dano =+ 1
+			print(dano)
 
 func _on_attack_3_box_area_exited(body: Node2D) -> void:
 		enemie_in_zone3 = false

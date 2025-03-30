@@ -623,8 +623,8 @@ show_behind_parent = true
 position = Vector2(0, 0.166665)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
-animation = &"run"
-frame_progress = 0.225868
+animation = &"fall"
+frame_progress = 0.313719
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-0.833333, 0)
