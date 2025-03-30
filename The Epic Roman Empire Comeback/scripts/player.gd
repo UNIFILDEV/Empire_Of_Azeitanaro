@@ -3,8 +3,6 @@ class_name Player extends CharacterBody2D
 signal vidaMudou
 signal energiaMudou
 
-var dano = 0
-
 @export var damage: int = 20
 @export var speed: float = 150.0
 @export var jump_speed: float = -370.0
@@ -283,8 +281,6 @@ func _on_attack_3_box_area_entered(body):
 		if enemy is EnemyBase and is_instance_valid(body) and attack_type == "attack_3":  # Confirma que o pai é EnemyBase
 			enemie_in_zone3 = true
 			apply_damage_loop(enemy)
-			dano =+ 1
-			print(dano)
 
 func _on_attack_3_box_area_exited(body: Node2D) -> void:
 		enemie_in_zone3 = false
