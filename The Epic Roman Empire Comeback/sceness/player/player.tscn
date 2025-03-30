@@ -589,6 +589,7 @@ size = Vector2(33.3333, 5.83333)
 scale = Vector2(1.2, 1.2)
 collision_mask = 18
 script = ExtResource("1_t85cg")
+damage = 1000
 vidaMax = 120
 vidaAtual = 120
 
