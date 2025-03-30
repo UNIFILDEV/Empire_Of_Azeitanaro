@@ -46,8 +46,6 @@ func _ready():
 	set_deferred("monitoring", true)
 	EventController.connect("healed", onHealed)
 	_add_child_soundJump()
-	$Attack3Box.position.x = 6 * boxdir
-	$Attack3Box.position.y = 10
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -147,7 +145,8 @@ func update_animation():
 
 func check_attack():
 	if Input.is_action_just_pressed("attack_3") and dash_timer <= 0:
-
+		$Attack3Box.position.x = 6 * boxdir
+		$Attack3Box.position.y = 10
 		if velocity.x == 0:  # Se o player estiver parado
 			start_attack("attack_3")
 		else:
@@ -221,44 +220,30 @@ func take_damage(amount: int):
 		print('player morreu')
 		get_tree().change_scene_to_file("res://sceness/start/title_screen.tscn")
 		
-#func apply_damage(body: EnemyBase) -> void:
-	#print("Causando dano a: ", body.name)
-	#body.take_damage(damage) # Aplica o dano ao inimigo
 
-#func _on_sprite_frame_changed():
-	## Checa se é o ataque 1 e o frame correto
-	#if sprite.frame == 4 and attack_type == "attack_1":
-		#for body in $Attack1Box.get_overlapping_bodies():
-			#print(body.name)
-			#if body.name == "Hitbox":
-				#var enemy = body.get_parent()
-				#print("Ataque 1 no frame 4 atingiu: ", enemy.name)
-				#enemy.take_damage(damage)
-#
-	## Checa se é o ataque 2 e o frame correto
-	#elif sprite.frame == 1 and attack_type == "attack_2":
-		#for body in $Attack2Box.get_overlapping_bodies():
-			#if body.name == "Hitbox":
-				#var enemy = body.get_parent()
-				#if enemy is EnemyBase:
-					#print("Ataque 2 no frame 1 atingiu: ", enemy.name)
-					#enemy.take_damage(damage/2)
-	#elif sprite.frame == 4 and attack_type == "attack_2":
-		#for body in $Attack2Box.get_overlapping_bodies():
-			#if body.name == "Hitbox":
-				#var enemy = body.get_parent()
-				#if enemy is EnemyBase:
-					#print("Ataque 2 no frame 4 atingiu: ", enemy.name)
-					#enemy.take_damage(damage/2)
-#
-	## Checa se é o ataque 3 e o frame correto
-	#elif sprite.frame == 2 and attack_type == "attack_3":
-		#for body in $Attack3Box.get_overlapping_bodies():
-			#if body.name == "Hitbox":
-				#var enemy = body.get_parent()
-				#if enemy is EnemyBase:
-					#print("Ataque 3 no frame 2 atingiu: ", enemy.name)
-					#enemy.take_damage(damage)
+func check_attack_1(body):
+	if attack_type == "attack_1" and sprite.frame == 4:
+		body.take_damage(damage*1.4)
+		print("Dano no ataque 1, frame ", sprite.frame)
+
+func check_attack_2(body):
+	if attack_type == "attack_2":
+		if sprite.frame == 1 or sprite.frame == 4:
+			body.take_damage(damage*0.4)
+			print("Dano no ataque 2, frame ", sprite.frame)
+
+func check_attack_3(body):
+	if attack_type == "attack_3" and sprite.frame == 2:
+		body.take_damage(damage)
+		print("Dano no ataque 3, frame", sprite.frame)
+
+func apply_damage_loop(body: EnemyBase) -> void:
+	while enemie_in_zone1 or enemie_in_zone2 or enemie_in_zone3:
+		#print("Preparando para causar dano...")
+		await get_tree().create_timer(0.1).timeout #parâmetro do delay deve estar de acordo com os fps da animação
+		check_attack_1(body)
+		check_attack_2(body)
+		check_attack_3(body)
 
 func _on_attack_1_box_area_entered(body):
 	print("Algo entrou na área de ataque1: ", body.name)
@@ -267,7 +252,7 @@ func _on_attack_1_box_area_entered(body):
 		if enemy is EnemyBase:  # Confirma que o pai é EnemyBase
 			enemie_in_zone1 = true
 			enemie = body
-			#apply_damage(enemy)
+			apply_damage_loop(enemy)
 
 func _on_attack_1_box_area_exited(body: Node2D) -> void:
 	print("Algo saiu da área de ataque1: ", body.name)
@@ -279,7 +264,8 @@ func _on_attack_2_box_area_entered(body):
 		var enemy = body.get_parent()  # Obtém o nó pai (o inimigo)
 		if enemy is EnemyBase and is_instance_valid(body) and attack_type == "attack_2":  # Confirma que o pai é EnemyBase
 			enemie_in_zone2 = true
-			#apply_damage(enemy)
+			apply_damage_loop(enemy)
+
 
 func _on_attack_2_box_area_exited(body: Node2D) -> void:
 		enemie_in_zone2 = false
@@ -290,7 +276,7 @@ func _on_attack_3_box_area_entered(body):
 		var enemy = body.get_parent()  # Obtém o nó pai (o inimigo)
 		if enemy is EnemyBase and is_instance_valid(body) and attack_type == "attack_3":  # Confirma que o pai é EnemyBase
 			enemie_in_zone3 = true
-			#apply_damage(enemy)
+			apply_damage_loop(enemy)
 
 func _on_attack_3_box_area_exited(body: Node2D) -> void:
 		enemie_in_zone3 = false

@@ -589,7 +589,6 @@ size = Vector2(33.3333, 5.83333)
 scale = Vector2(1.2, 1.2)
 collision_mask = 18
 script = ExtResource("1_t85cg")
-damage = 1000
 vidaMax = 120
 vidaAtual = 120
 
@@ -602,8 +601,7 @@ one_way_collision_margin = 0.0
 show_behind_parent = true
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
-animation = &"walk"
-frame_progress = 0.192426
+animation = &"attack_2"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.6, 1.6)
