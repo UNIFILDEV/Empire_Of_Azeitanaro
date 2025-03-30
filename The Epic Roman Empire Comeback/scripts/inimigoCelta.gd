@@ -38,8 +38,8 @@ func _ready():
 	#detection_zone_hitbox.body_entered.connect(_on_detection_zone_body_entered)
 	#timer.connect("timeout", self._on_timer_timeout)
 
-func _process(delta: float) -> void:
-	detect_turn_around()
+#func _process(delta: float) -> void:
+	#detect_turn_around()
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
@@ -111,10 +111,10 @@ func reset_patrol():
 	velocity.x = 0
 	sprite.scale.x = direction
 
-func detect_turn_around():
-	if not $RayCast2D.is_colliding() and is_on_floor():
-		isMovingRight = !isMovingRight
-		scale.x = -scale.x
+#func detect_turn_around():
+	#if not $RayCast2D.is_colliding() and is_on_floor():
+		#isMovingRight = !isMovingRight
+		#scale.x = -scale.x
 
 func hit():
 	$HurtPlayerZone.monitoring = true
@@ -147,7 +147,7 @@ func apply_damage_loop(body: Player) -> void:
 func _on_detection_zone_body_entered(body):
 	if body is Player:
 		player_in_detection_zone = true
-		#print("Jogador detectado na DetectionZone")
+		print("Jogador detectado na DetectionZone")
 
 func global_player():
 	if Global.player_instance:

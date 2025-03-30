@@ -1,13 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdpmvimourly"]
 
-[ext_resource type="Script" path="res://sceness/itens/mundo/espinhos/espinhos_3.gd" id="1_nhnsr"]
 [ext_resource type="Texture2D" uid="uid://dv1fjp5or0874" path="res://assets/assestLombaLomba/Assets/espinho3.png" id="2_s7xme"]
+
+[sub_resource type="GDScript" id="GDScript_omt6c"]
+script/source = "extends Area2D
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		body.hurtBySpike()
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nwc6x"]
 size = Vector2(48, 10)
 
 [node name="EspinhosTres" type="Area2D"]
-script = ExtResource("1_nhnsr")
+script = SubResource("GDScript_omt6c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_s7xme")

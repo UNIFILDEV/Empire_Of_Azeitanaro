@@ -215,14 +215,12 @@ frame = 10
 frame_progress = 1.0
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
-visible = false
 show_behind_parent = true
 position = Vector2(-2.77778, 5.55556)
 shape = SubResource("RectangleShape2D_th28i")
 one_way_collision_margin = 0.0
 
 [node name="DetectionPatrolZone" type="Area2D" parent="."]
-visible = false
 scale = Vector2(0.777777, 0.777777)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionPatrolZone"]
@@ -231,20 +229,16 @@ shape = SubResource("CircleShape2D_gitdp")
 debug_color = Color(0.885979, 0.216141, 0.628592, 0.42)
 
 [node name="HurtPlayerZone" type="Area2D" parent="."]
-visible = false
 collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtPlayerZone"]
 position = Vector2(0, 1.38889)
+scale = Vector2(3.11111, 1)
 shape = SubResource("RectangleShape2D_v1yek")
 debug_color = Color(1, 0.00817797, 0.0443347, 0.42)
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-collision_mask = 2
-
 [node name="DetectionZone" type="Area2D" parent="."]
-visible = false
 collision_layer = 4
 collision_mask = 3
 

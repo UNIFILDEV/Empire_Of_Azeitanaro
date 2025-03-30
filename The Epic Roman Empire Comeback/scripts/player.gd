@@ -40,9 +40,11 @@ var enemie_in_zone1: bool = false
 var enemie_in_zone2: bool = false
 var enemie_in_zone3: bool = false
 var enemie
-
+var checkpointManager
 
 func _ready():
+	await get_tree().process_frame
+	checkpointManager = get_parent().get_node_or_null("CheckpointManager")
 	set_deferred("monitoring", true)
 	EventController.connect("healed", onHealed)
 	_add_child_soundJump()
@@ -191,12 +193,6 @@ func _on_animated_sprite_finished():
 	attack_type = ""
 	gravity = original_gravity
 
-func hurtBySpike():
-	vidaAtual -= 100
-	if vidaAtual < 0:
-		vidaAtual = vidaMax
-	vidaMudou.emit()
-
 func onHealed(valor: int):
 	vidaAtual = min(vidaAtual + valor, vidaMax)
 
@@ -213,14 +209,13 @@ func _add_child_soundJump():
 func take_damage(amount: int):
 	sprite.play("hit")
 	vidaAtual -= amount
-	print('tomou dano do monstro')
+	print('tomou dano')
 	vidaMudou.emit()
 	print(vidaAtual)
 	if vidaAtual <= 0:
 		queue_free()
 		print('player morreu')
-		get_tree().change_scene_to_file("res://sceness/start/title_screen.tscn")
-		
+		kill()
 #func apply_damage(body: EnemyBase) -> void:
 	#print("Causando dano a: ", body.name)
 	#body.take_damage(damage) # Aplica o dano ao inimigo
@@ -294,3 +289,22 @@ func _on_attack_3_box_area_entered(body):
 
 func _on_attack_3_box_area_exited(body: Node2D) -> void:
 		enemie_in_zone3 = false
+
+func danoEspinho():
+	if checkpointManager:
+		position = checkpointManager.lastLocation
+		if has_method("take_damage"):
+			take_damage(40)
+			sprite.play("hit")
+			
+	else:
+		push_error("Não foi possível reposicionar o Player!")
+
+	
+func kill():
+	call_deferred("_change_scene_and_play_sound")
+
+func _change_scene_and_play_sound():
+	get_tree().change_scene_to_file("res://sceness/selecao_player/selection_player.tscn")
+	BgSoundMenu.play()
+	
