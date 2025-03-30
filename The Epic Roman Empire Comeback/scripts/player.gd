@@ -3,6 +3,7 @@ class_name Player extends CharacterBody2D
 signal vidaMudou
 signal energiaMudou
 
+@export var damage: int = 20
 @export var speed: float = 150.0
 @export var jump_speed: float = -370.0
 @export var sprint_speed: float = 275.0
@@ -12,8 +13,8 @@ signal energiaMudou
 @export var dash_duration: float = 0.1
 @export var dash_cooldown: float = 0.5
 
-@export var vidaMax = 100
-@export var vidaAtual = 100
+@export var vidaMax: int = 100
+@export var vidaAtual: int = 100
 
 @export var energiaMax = 100
 @export var energiaAtual = 100
@@ -21,6 +22,9 @@ signal energiaMudou
 
 @onready var sprite = $AnimatedSprite
 @onready var collision = $CollisionBody
+@onready var attack1box = $Attack1Box
+@onready var attack2box = $Attack2Box
+@onready var attack3box = $Attack3Box
 
 const soundJump = preload("res://sceness/player/sounds/jump.wav")
 
@@ -31,7 +35,11 @@ var is_dashing: bool = false
 var dash_timer: float = 0.0
 var is_sprinting: bool = false
 var jump_sound: AudioStreamPlayer2D
-var life = 0;
+var boxdir = 0
+var enemie_in_zone1: bool = false
+var enemie_in_zone2: bool = false
+var enemie_in_zone3: bool = false
+
 
 func _ready():
 	set_deferred("monitoring", true)
@@ -104,20 +112,22 @@ func _physics_process(delta):
 
 	else: #parado
 		velocity.x = 0
-
+	if direction != 0:
+		boxdir = direction
+	
 	check_attack()
 	update_animation()
 
 	move_and_slide()
 
 func update_animation():
-	if sprite.animation == "hit" and not sprite.animation_finished:
-		return  # Garantia que a animação "hit" seja priorizada
 	if attacking:
 		return
 	if is_on_floor():
 		if velocity.x == 0:
-			if sprite.animation != "idle":
+			if sprite.animation == "hit":
+				return  # Garantia que a animação "hit" seja priorizada
+			elif sprite.animation != "idle":
 				sprite.play("idle")
 		elif is_sprinting && energiaAtual > 0:
 			if sprite.animation != "run":
@@ -134,6 +144,8 @@ func update_animation():
 
 func check_attack():
 	if Input.is_action_just_pressed("attack_3") and dash_timer <= 0:
+		$Attack3Box.position.x = 6 * boxdir
+		$Attack3Box.position.y = 10
 		if velocity.x == 0:  # Se o player estiver parado
 			start_attack("attack_3")
 		else:
@@ -142,9 +154,11 @@ func check_attack():
 		print('ataque 3 apertado')
 
 	elif Input.is_action_just_pressed("attack_1"):
+		$Attack1Box.position.x = 10 * boxdir
 		start_attack("attack_1")
 		print('ataque 1 apertado')
 	elif Input.is_action_just_pressed("attack_2"):
+		$Attack2Box.scale.x = boxdir
 		start_attack("attack_2")
 		print('ataque 2 apertado')
 
@@ -178,7 +192,6 @@ func hurtBySpike():
 	vidaAtual -= 100
 	if vidaAtual < 0:
 		vidaAtual = vidaMax
-	
 	vidaMudou.emit()
 
 func onHealed(valor: int):
@@ -204,3 +217,73 @@ func take_damage(amount: int):
 		queue_free()
 		print('player morreu')
 		get_tree().change_scene_to_file("res://sceness/start/title_screen.tscn")
+		
+func apply_damage(enemy):
+	print("Causando dano a: ", enemy.name)
+	enemy.take_damage(damage) # Aplica o dano ao inimigo
+
+#func _on_sprite_frame_changed():
+	## Checa se é o ataque 1 e o frame correto
+	#if sprite.frame == 4 and attack_type == "attack_1":
+		#for body in $Attack1Box.get_overlapping_bodies():
+			#print(body.name)
+			#if body.name == "Hitbox":
+				#var enemy = body.get_parent()
+				#print("Ataque 1 no frame 4 atingiu: ", enemy.name)
+				#enemy.take_damage(damage)
+#
+	## Checa se é o ataque 2 e o frame correto
+	#elif sprite.frame == 1 and attack_type == "attack_2":
+		#for body in $Attack2Box.get_overlapping_bodies():
+			#if body.name == "Hitbox":
+				#var enemy = body.get_parent()
+				#if enemy is EnemyBase:
+					#print("Ataque 2 no frame 1 atingiu: ", enemy.name)
+					#enemy.take_damage(damage/2)
+	#elif sprite.frame == 4 and attack_type == "attack_2":
+		#for body in $Attack2Box.get_overlapping_bodies():
+			#if body.name == "Hitbox":
+				#var enemy = body.get_parent()
+				#if enemy is EnemyBase:
+					#print("Ataque 2 no frame 4 atingiu: ", enemy.name)
+					#enemy.take_damage(damage/2)
+#
+	## Checa se é o ataque 3 e o frame correto
+	#elif sprite.frame == 2 and attack_type == "attack_3":
+		#for body in $Attack3Box.get_overlapping_bodies():
+			#if body.name == "Hitbox":
+				#var enemy = body.get_parent()
+				#if enemy is EnemyBase:
+					#print("Ataque 3 no frame 2 atingiu: ", enemy.name)
+					#enemy.take_damage(damage)
+
+func _on_attack_1_box_area_entered(body):
+	#print("Algo entrou na área de ataque1: ", body.name)
+	if body.name == "Hitbox":
+		var enemy = body.get_parent()  # Obtém o nó pai (o inimigo)
+		if enemy is EnemyBase and is_instance_valid(body) and attack_type == "attack_1":  # Confirma que o pai é EnemyBase
+			enemie_in_zone1 = true
+			apply_damage(enemy)
+
+func _on_attack_1_box_area_exited(body: Node2D) -> void:
+		enemie_in_zone1 = false
+
+func _on_attack_2_box_area_entered(body):
+	#print("Algo entrou na área de ataque2: ", body.name)
+	if body.name == "Hitbox":
+		var enemy = body.get_parent()  # Obtém o nó pai (o inimigo)
+		if enemy is EnemyBase and is_instance_valid(body) and attack_type == "attack_1":  # Confirma que o pai é EnemyBase
+			enemie_in_zone2 = true
+
+func _on_attack_2_box_area_exited(body: Node2D) -> void:
+		enemie_in_zone2 = false
+
+func _on_attack_3_box_area_entered(body):
+	#print("Algo entrou na área de ataque3: ", body.name)
+	if body.name == "Hitbox":
+		var enemy = body.get_parent()  # Obtém o nó pai (o inimigo)
+		if enemy is EnemyBase and is_instance_valid(body) and attack_type == "attack_1":  # Confirma que o pai é EnemyBase
+			enemie_in_zone3 = true
+
+func _on_attack_3_box_area_exited(body: Node2D) -> void:
+		enemie_in_zone3 = false

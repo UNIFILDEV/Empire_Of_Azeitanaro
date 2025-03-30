@@ -122,6 +122,7 @@ left={
 2d_physics/layer_3="enemies"
 2d_physics/layer_4="items"
 2d_physics/layer_5="shielder"
+2d_physics/layer_6="Enemy Detection"
 
 [physics]
 

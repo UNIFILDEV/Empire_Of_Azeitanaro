@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bgvk154xskvgj"]
+[gd_scene load_steps=34 format=3 uid="uid://bgvk154xskvgj"]
 
 [ext_resource type="Script" path="res://scripts/inimigoCelta.gd" id="1_hmsau"]
 [ext_resource type="Texture2D" uid="uid://becs3hbplp2ax" path="res://assets/celtas/Attack 1.png" id="2_x1yih"]
@@ -44,6 +44,10 @@ region = Rect2(320, 0, 40, 30)
 [sub_resource type="AtlasTexture" id="AtlasTexture_eumws"]
 atlas = ExtResource("2_x1yih")
 region = Rect2(360, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiid7"]
+atlas = ExtResource("3_tp4x4")
+region = Rect2(22, 0, 22, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_itm28"]
 atlas = ExtResource("3_tp4x4")
@@ -125,8 +129,11 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eumws")
+}, {
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_tiid7")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 10.0
 }, {
@@ -189,18 +196,23 @@ size = Vector2(13.6806, 26.5278)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcja0"]
 size = Vector2(8.33333, 14.9479)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30exu"]
+size = Vector2(9.02778, 17.3611)
+
 [node name="inimigoCelta" type="CharacterBody2D"]
 scale = Vector2(1.44, 1.44)
 disable_mode = 1
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_hmsau")
+life = 50
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 show_behind_parent = true
 sprite_frames = SubResource("SpriteFrames_o8ewd")
 animation = &"attack"
-frame_progress = 0.571645
+frame = 10
+frame_progress = 1.0
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
 visible = false
@@ -210,15 +222,16 @@ shape = SubResource("RectangleShape2D_th28i")
 one_way_collision_margin = 0.0
 
 [node name="DetectionPatrolZone" type="Area2D" parent="."]
+visible = false
 scale = Vector2(0.777777, 0.777777)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionPatrolZone"]
-visible = false
 scale = Vector2(4.6, 4.6)
 shape = SubResource("CircleShape2D_gitdp")
 debug_color = Color(0.885979, 0.216141, 0.628592, 0.42)
 
 [node name="HurtPlayerZone" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 3
 
@@ -231,6 +244,7 @@ debug_color = Color(1, 0.00817797, 0.0443347, 0.42)
 collision_mask = 2
 
 [node name="DetectionZone" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 3
 
@@ -239,8 +253,20 @@ position = Vector2(4.13921e-08, 0.859366)
 shape = SubResource("RectangleShape2D_hcja0")
 debug_color = Color(0.673234, 0.306286, 1, 0.42)
 
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-2.43056, 5.90278)
+shape = SubResource("RectangleShape2D_30exu")
+debug_color = Color(0.810057, 0.344543, 0, 0.42)
+
 [connection signal="area_entered" from="HurtPlayerZone" to="." method="_on_hurt_player_zone_area_entered"]
 [connection signal="body_entered" from="HurtPlayerZone" to="." method="_on_hurt_player_zone_body_entered"]
 [connection signal="body_exited" from="HurtPlayerZone" to="." method="_on_hurt_player_zone_body_exited"]
 [connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
 [connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

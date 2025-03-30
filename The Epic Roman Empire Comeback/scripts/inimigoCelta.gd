@@ -1,6 +1,5 @@
-extends CharacterBody2D
+extends EnemyBase
 
-const SPEED = 50.0
 const INCREASED_SPEED = 70.0
 const JUMP_VELOCITY = -400.0
 const JUMP_DELAY = 1
@@ -18,14 +17,15 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var detection_zone_hitbox: Area2D = $DetectionZone
 @onready var collision: CollisionShape2D = $CollisionBody
 @onready var player: Node2D = null
+#@onready var atkTimer = $AttackTimer
 
 var player_in_detection_zone = false
 var player_in_damage_zone = false
 
-var life: int = 2
 var is_following_player: bool = false
 var jump_timer: float = 0.0
 var patrol_timer: float = 0.0
+#var can_attack: bool = true
 
 func _ready():
 	#var players_in_group = get_tree().get_nodes_in_group("player")
@@ -71,11 +71,9 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity.x != 0:
 		if player_in_detection_zone:
-			sprite.play("attack")
 			velocity.x = 0
-			await get_tree().create_timer(0.75).timeout #delay de 0,75 segundo
 		else:
-			velocity.x = SPEED * direction
+			velocity.x = speed * direction
 			sprite.play("walk")
 
 	move_and_slide()
@@ -101,19 +99,11 @@ func follow_player():
 			direction = sign(direction_to_player)
 
 func patrol():
-	velocity.x = direction * SPEED
+	velocity.x = direction * speed
 
 func jump():
 	velocity.y = JUMP_VELOCITY
 	jump_timer = JUMP_DELAY
-
-func take_damage(amount: int):
-	life -= amount
-	print('Monstro tomou dano da espada')
-
-	if life <= 0:
-		queue_free()
-		print('Monstro morreu')
 
 func reset_patrol():
 	starting_position = global_position
@@ -138,20 +128,26 @@ func startWalk():
 func _on_hurt_player_zone_body_entered(body: Node2D) -> void:
 	if body is Player:
 		player_in_damage_zone = true
+		#if can_attack:
 		apply_damage_loop(body)
 
 func apply_damage_loop(body: Player) -> void:
 	while player_in_damage_zone:
-		print("Preparando para causar dano...")
-		await get_tree().create_timer(0.1).timeout #delay de 0,1 segundo, deve estar de acordo com os fps da animação
-		if player_in_damage_zone and is_instance_valid(body) and sprite.frame == 6:
-			body.take_damage(10)
+		sprite.play("attack")
+		#print("Preparando para causar dano...")
+		await get_tree().create_timer(0.1).timeout #parâmetro do delay deve estar de acordo com os fps da animação
+		if player_in_damage_zone and is_instance_valid(body) and sprite.frame == 5:
+			body.take_damage(damage)
 			print("Player tomou dano")
+		elif not player_in_damage_zone:  # Sai do loop se o jogador sair da zona
+			break
+			#can_attack = false
+			#atkTimer.start()
 
 func _on_detection_zone_body_entered(body):
 	if body is Player:
 		player_in_detection_zone = true
-		print("Jogador detectado na DetectionZone")
+		#print("Jogador detectado na DetectionZone")
 
 func global_player():
 	if Global.player_instance:
@@ -160,9 +156,9 @@ func global_player():
 func _on_detection_zone_body_exited(body: Node2D) -> void:
 	if body is Player:
 		player_in_detection_zone = false
-		print('saiu')
+		#print('saiu')
 
 func _on_hurt_player_zone_body_exited(body: Node2D) -> void:
 	if body is Player:
 		player_in_damage_zone = false
-		print("Saiu da hurtbox")
+		#print("Saiu da hurtbox")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://b5mat2ba4k1hs"]
+[gd_scene load_steps=89 format=3 uid="uid://b5mat2ba4k1hs"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_t85cg"]
 [ext_resource type="Texture2D" uid="uid://c2l47q202yr1v" path="res://assets/player/Attack 2 Recover.png" id="1_waflx"]
@@ -324,7 +324,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"arrackRecover",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.2,
@@ -356,7 +356,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_1",
-"speed": 6.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -385,7 +385,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_2",
-"speed": 10.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -414,7 +414,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_3",
-"speed": 9.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -431,7 +431,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"fall",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -454,7 +454,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hit",
-"speed": 6.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -474,7 +474,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -491,7 +491,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 0.7,
@@ -529,7 +529,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"roll",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -552,7 +552,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 9.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -575,29 +575,36 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 10.0
+"speed": 12.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m5vrj"]
+radius = 14.1667
+height = 36.6667
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nl4jw"]
+size = Vector2(33.3333, 5.83333)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(1.2, 1.2)
 collision_mask = 18
 script = ExtResource("1_t85cg")
+vidaMax = 120
+vidaAtual = 120
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
-position = Vector2(-2.91667, 8.33333)
+position = Vector2(-3.33333, 7.5)
 shape = SubResource("RectangleShape2D_7c7x6")
 one_way_collision_margin = 0.0
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 show_behind_parent = true
-position = Vector2(0, 0.166665)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
-animation = &"hit"
-speed_scale = 1.4
+animation = &"walk"
+frame_progress = 0.192426
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-0.833333, 0)
 zoom = Vector2(1.6, 1.6)
 process_callback = 0
 limit_left = -16
@@ -613,6 +620,35 @@ drag_bottom_margin = 0.3
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="Attack1Box" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 32
 
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_animated_sprite_animation_finished"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack1Box"]
+shape = SubResource("CapsuleShape2D_m5vrj")
+debug_color = Color(0.646792, 0, 0.142899, 0.42)
+
+[node name="Attack2Box" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 32
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Attack2Box"]
+position = Vector2(3.11458, 0.21875)
+scale = Vector2(1.35938, 0.890625)
+polygon = PackedVector2Array(13.0345, -2.11696, 15.4866, 4.43275, 13.0345, 14.7251, 6.29119, 18.4678, -17.0038, 17.5322, -5.96935, -7.73099, 3.83908, -7.73099)
+
+[node name="Attack3Box" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack3Box"]
+shape = SubResource("RectangleShape2D_nl4jw")
+
+[connection signal="animation_changed" from="AnimatedSprite" to="." method="_on_animated_sprite_animation_changed"]
+[connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_sprite_frame_changed"]
+[connection signal="area_entered" from="Attack1Box" to="." method="_on_attack_1_box_area_entered"]
+[connection signal="area_exited" from="Attack1Box" to="." method="_on_attack_1_box_area_exited"]
+[connection signal="area_entered" from="Attack2Box" to="." method="_on_attack_2_box_area_entered"]
+[connection signal="area_exited" from="Attack2Box" to="." method="_on_attack_2_box_area_exited"]
+[connection signal="area_entered" from="Attack3Box" to="." method="_on_attack_3_box_area_entered"]
+[connection signal="area_exited" from="Attack3Box" to="." method="_on_attack_3_box_area_exited"]
