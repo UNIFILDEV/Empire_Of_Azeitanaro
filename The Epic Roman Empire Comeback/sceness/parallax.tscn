@@ -10,6 +10,7 @@
 position = Vector2(480, 240)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
+visible = false
 scroll_scale = Vector2(0.1, 0)
 scroll_offset = Vector2(0, 30)
 repeat_size = Vector2(480, 240)
@@ -19,6 +20,7 @@ repeat_times = 3
 texture = ExtResource("1_vlhbt")
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
+visible = false
 scroll_scale = Vector2(0.1, 0)
 scroll_offset = Vector2(0, 30)
 repeat_size = Vector2(480, 0)
@@ -28,6 +30,7 @@ repeat_times = 3
 texture = ExtResource("1_dsqbm")
 
 [node name="Parallax2D3" type="Parallax2D" parent="."]
+visible = false
 scroll_scale = Vector2(0.3, 0)
 scroll_offset = Vector2(0, 30)
 repeat_size = Vector2(480, 0)

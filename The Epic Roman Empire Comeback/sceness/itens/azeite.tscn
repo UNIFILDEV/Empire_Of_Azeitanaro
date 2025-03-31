@@ -1,7 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt0voojlsuqac"]
+[gd_scene load_steps=6 format=3 uid="uid://dt0voojlsuqac"]
 
 [ext_resource type="Script" path="res://sceness/itens/azeite.gd" id="1_qhjkm"]
+[ext_resource type="Shader" path="res://shader/encantamento_rotacional.gdshader" id="2_ml4w6"]
 [ext_resource type="Texture2D" uid="uid://dxtfcncg7eamx" path="res://assets/assestLombaLomba/frascoAzeite.png" id="2_oyof6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i2g24"]
+shader = ExtResource("2_ml4w6")
+shader_parameter/speed = 5.0
+shader_parameter/intensity = 0.5
+shader_parameter/glow_color1 = Vector4(1, 0.5, 1, 1)
+shader_parameter/glow_color2 = Vector4(0, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vajgu"]
 radius = 7.0
@@ -11,6 +19,7 @@ height = 22.0
 script = ExtResource("1_qhjkm")
 
 [node name="FrascoAzeite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_i2g24")
 texture = ExtResource("2_oyof6")
 
 [node name="Area2D" type="Area2D" parent="."]

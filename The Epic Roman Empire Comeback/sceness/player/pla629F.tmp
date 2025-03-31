@@ -590,7 +590,6 @@ scale = Vector2(1.2, 1.2)
 collision_mask = 18
 script = ExtResource("1_t85cg")
 damage = 1000
-speed = 200.0
 vidaMax = 120
 vidaAtual = 120
 
@@ -610,7 +609,7 @@ frame_progress = 0.192426
 zoom = Vector2(1.6, 1.6)
 process_callback = 0
 limit_left = -16
-limit_bottom = 0
+limit_bottom = 80
 limit_smoothed = true
 position_smoothing_speed = 24.0
 drag_horizontal_enabled = true

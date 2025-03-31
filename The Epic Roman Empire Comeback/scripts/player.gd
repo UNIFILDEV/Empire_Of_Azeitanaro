@@ -255,10 +255,18 @@ func take_damage(amount: int):
 					#print("Ataque 3 no frame 2 atingiu: ", enemy.name)
 					#enemy.take_damage(damage)
 
+func take_cura(amount: int):
+	vidaAtual += amount
+	if vidaAtual > vidaMax:
+		vidaAtual = vidaMax
+	print('pegou vida')
+	vidaMudou.emit()
+	print(vidaAtual)
+
 func _on_attack_1_box_area_entered(body):
 	print("Algo entrou na área de ataque1: ", body.name)
 	if body.name == "Hitbox":
-		var enemy = body.get_parent()  # Obtém o nó pai (o inimigo)
+		var enemy = body.get_parent()
 		if enemy is EnemyBase:  # Confirma que o pai é EnemyBase
 			enemie_in_zone1 = true
 			enemie = body
