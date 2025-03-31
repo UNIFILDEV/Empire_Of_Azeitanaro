@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://dw6ijg1vt6eim"]
+[gd_scene load_steps=49 format=4 uid="uid://dw6ijg1vt6eim"]
 
 [ext_resource type="Texture2D" uid="uid://dclxmh83k10jm" path="res://assets/assestLombaLomba/Assets/tiles.png" id="1_cby1c"]
 [ext_resource type="Texture2D" uid="uid://y5ubqb4or7ke" path="res://assets/SpritePack/Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="1_nw7ep"]
@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://q2yjm6syk50i" path="res://sceness/parallax.tscn" id="16_ee2xo"]
 [ext_resource type="Script" path="res://scripts/espinhos.gd" id="16_tofeq"]
 [ext_resource type="PackedScene" uid="uid://b57pioqtbequ0" path="res://sceness/itens/azeite_dourado.tscn" id="17_rnrf5"]
-[ext_resource type="PackedScene" path="res://sceness/itens/pacote_moedas.tscn" id="18_a7hxe"]
+[ext_resource type="PackedScene" uid="uid://ckx82hhkojtt0" path="res://sceness/itens/pacote_moedas.tscn" id="18_a7hxe"]
 [ext_resource type="PackedScene" uid="uid://c2y6pkvqay8r8" path="res://sceness/itens/moeda.tscn" id="19_i08f4"]
 [ext_resource type="PackedScene" uid="uid://dt0voojlsuqac" path="res://sceness/itens/azeite.tscn" id="20_35dyo"]
 [ext_resource type="PackedScene" uid="uid://bgvk154xskvgj" path="res://sceness/inimigos/inimigoCelta.tscn" id="21_rdtnb"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://cn68k7jtfx47j" path="res://assets/assestLombaLomba/Assets/foregound.png" id="33_yvxby"]
 [ext_resource type="Texture2D" uid="uid://blmkuwd2x000k" path="res://assets/assestLombaLomba/Assets/middleground.png" id="34_jo2uv"]
 [ext_resource type="Texture2D" uid="uid://ksooh37vvvx" path="res://assets/assestLombaLomba/Assets/light.png" id="35_qipbr"]
+[ext_resource type="PackedScene" uid="uid://cncligmko1yf1" path="res://sceness/transitions/transition_end_game.tscn" id="38_dith3"]
 
 [sub_resource type="GDScript" id="GDScript_w3ei5"]
 script/source = "extends Node2D
@@ -853,7 +854,7 @@ scale = Vector2(20, 1)
 
 [node name="player_spawn_point" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(235, -571)
+position = Vector2(6619, -891)
 
 [node name="pouse_menu" parent="." instance=ExtResource("26_gwhvo")]
 process_mode = 3
@@ -929,3 +930,6 @@ motion_mirroring = Vector2(960, 0)
 position = Vector2(479.167, 217)
 scale = Vector2(2, 2)
 texture = ExtResource("34_jo2uv")
+
+[node name="EndGame" parent="." instance=ExtResource("38_dith3")]
+visible = false

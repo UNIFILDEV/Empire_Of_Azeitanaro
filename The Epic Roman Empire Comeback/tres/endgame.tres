@@ -1,0 +1,14 @@
+[gd_resource type="LabelSettings" load_steps=3 format=3 uid="uid://cw60dmuqeulou"]
+
+[ext_resource type="FontFile" uid="uid://chgaebsti3mlk" path="res://fonts/PixelOperator8.ttf" id="1_3n3sd"]
+
+[sub_resource type="FontVariation" id="FontVariation_agism"]
+base_font = ExtResource("1_3n3sd")
+
+[resource]
+font = SubResource("FontVariation_agism")
+font_size = 36
+font_color = Color(1, 0.683333, 0, 0.870588)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.529412)

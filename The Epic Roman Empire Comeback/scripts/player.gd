@@ -2,6 +2,8 @@ class_name Player extends CharacterBody2D
 
 signal vidaMudou
 signal energiaMudou
+@onready var end_game: CanvasLayer = $transition
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
 
 @export var damage: int = 20
 @export var speed: float = 150.0
@@ -25,6 +27,8 @@ signal energiaMudou
 @onready var attack1box = $Attack1Box
 @onready var attack2box = $Attack2Box
 @onready var attack3box = $Attack3Box
+
+var hud
 
 const soundJump = preload("res://sceness/player/sounds/jump.wav")
 @onready var power_up: AudioStreamPlayer = $PowerUp
@@ -51,7 +55,8 @@ func _ready():
 	set_deferred("monitoring", true)
 	EventController.connect("healed", onHealed)
 	_add_child_soundJump()
-
+	hud = get_parent().get_node_or_null("CanvasLayer")
+	
 func _physics_process(delta):
 	if is_locked:
 		velocity.x = 0
@@ -342,6 +347,11 @@ func win_fase():
 	is_locked = true
 	velocity.x = 0
 	sprite.play("sword_channel")
+	hud.visible = false
+	end_game.visible = true
+	end_game.start()
+	BgSoundLevel.stop()
+	BgSoundEndGame.play()
 	if sprite.animation == "sword_channel":
 		await sprite.animation_finished
 		_change_scene_and_play_sound()

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccbejv5snu851"]
+
+[ext_resource type="AudioStream" uid="uid://b6s7lnewlw4pd" path="res://trilha sonora/Azeitanaro Trilha Sonora Tensa.mp3" id="1_44rx3"]
+
+[node name="BgSoundEndGame" type="AudioStreamPlayer"]
+stream = ExtResource("1_44rx3")
+volume_db = -20.0
+parameters/looping = true
