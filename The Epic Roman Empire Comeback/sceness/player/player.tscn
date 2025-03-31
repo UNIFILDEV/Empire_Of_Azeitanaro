@@ -636,10 +636,6 @@ damage = 30
 vidaMax = 200
 vidaAtual = 200
 
-[node name="PowerUp" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_7sr8d")
-volume_db = -20.0
-
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
 position = Vector2(-3.33333, 7.5)
 shape = SubResource("RectangleShape2D_7c7x6")
@@ -694,6 +690,10 @@ shape = SubResource("RectangleShape2D_nl4jw")
 [node name="Tap" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_tkndb")
 volume_db = -7.018
+
+[node name="PowerUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_7sr8d")
+volume_db = -20.0
 
 [connection signal="animation_changed" from="AnimatedSprite" to="." method="_on_animated_sprite_animation_changed"]
 [connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_sprite_frame_changed"]

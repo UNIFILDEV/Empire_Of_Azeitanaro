@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://bt1rl3rvua4nj"]
+[gd_scene load_steps=85 format=3 uid="uid://bt1rl3rvua4nj"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5fvw3"]
 [ext_resource type="Texture2D" uid="uid://dndfvdc306wik" path="res://assets/player/Gold/Attack 1 - Gold.png" id="2_fup33"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bg5otox5yakl5" path="res://assets/player/Gold/Roll - Gold.png" id="9_cev01"]
 [ext_resource type="Texture2D" uid="uid://wgiql1chxg3w" path="res://assets/player/Gold/Run - Gold.png" id="10_j7r7m"]
 [ext_resource type="Texture2D" uid="uid://cqqubs0r7gevj" path="res://assets/player/Gold/Walk - Gold.png" id="11_qhptj"]
+[ext_resource type="AudioStream" uid="uid://u64s01lsvw6j" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sounds/tap.wav" id="12_qp565"]
+[ext_resource type="AudioStream" uid="uid://bscr35ojm60b3" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sounds/power_up.wav" id="13_ewf72"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7c7x6"]
 size = Vector2(12.5, 20)
@@ -604,6 +606,14 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack3Box"]
 shape = SubResource("RectangleShape2D_nl4jw")
+
+[node name="Tap" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_qp565")
+volume_db = -7.018
+
+[node name="PowerUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_ewf72")
+volume_db = -20.0
 
 [connection signal="animation_changed" from="AnimatedSprite" to="." method="_on_animated_sprite_animation_changed"]
 [connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_sprite_frame_changed"]
