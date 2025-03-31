@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://q2yjm6syk50i" path="res://sceness/parallax.tscn" id="16_ee2xo"]
 [ext_resource type="Script" path="res://scripts/espinhos.gd" id="16_tofeq"]
 [ext_resource type="PackedScene" uid="uid://b57pioqtbequ0" path="res://sceness/itens/azeite_dourado.tscn" id="17_rnrf5"]
-[ext_resource type="PackedScene" path="res://sceness/itens/pacote_moedas.tscn" id="18_a7hxe"]
+[ext_resource type="PackedScene" uid="uid://ckx82hhkojtt0" path="res://sceness/itens/pacote_moedas.tscn" id="18_a7hxe"]
 [ext_resource type="PackedScene" uid="uid://c2y6pkvqay8r8" path="res://sceness/itens/moeda.tscn" id="19_i08f4"]
 [ext_resource type="PackedScene" uid="uid://dt0voojlsuqac" path="res://sceness/itens/azeite.tscn" id="20_35dyo"]
 [ext_resource type="PackedScene" uid="uid://bgvk154xskvgj" path="res://sceness/inimigos/inimigoCelta.tscn" id="21_rdtnb"]

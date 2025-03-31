@@ -12,10 +12,13 @@ script = ExtResource("1_4h3at")
 
 [node name="transition_load_game" parent="." instance=ExtResource("3_01b2a")]
 
+[node name="IntroSound" parent="transition_load_game" index="2"]
+volume_db = -11.0
+
 [node name="sound_menu_loop" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_fuj3c")
-volume_db = -31.2
+volume_db = -15.0
 parameters/looping = true
 
 [connection signal="pressed" from="TitleScreen/bg/MarginContainer/HBoxContainer/button_slots/start" to="." method="_on_start_pressed"]

@@ -630,10 +630,9 @@ size = Vector2(33.3333, 5.83333)
 scale = Vector2(1.2, 1.2)
 collision_mask = 18
 script = ExtResource("1_t85cg")
-damage = 1000
-speed = 200.0
-vidaMax = 120
-vidaAtual = 120
+damage = 30
+vidaMax = 200
+vidaAtual = 200
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
 position = Vector2(-3.33333, 7.5)
@@ -645,7 +644,6 @@ show_behind_parent = true
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
 animation = &"idle"
-frame_progress = 0.30936
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.6, 1.6)

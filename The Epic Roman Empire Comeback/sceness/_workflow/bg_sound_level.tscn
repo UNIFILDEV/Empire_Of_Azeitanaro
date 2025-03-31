@@ -4,5 +4,5 @@
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
 stream = ExtResource("1_d3web")
-volume_db = -30.105
+volume_db = -18.0
 parameters/looping = true

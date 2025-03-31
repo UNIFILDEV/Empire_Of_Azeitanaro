@@ -42,6 +42,7 @@ var enemie_in_zone3: bool = false
 var enemie
 var checkpointManager
 var is_locked: bool = false
+var velocidade = speed
 
 func _ready():
 	await get_tree().process_frame
@@ -68,7 +69,7 @@ func _physics_process(delta):
 		move_and_slide()
 		return
 
-	if attacking:
+	if attacking and !attack_type == "attack_2":
 		if (attack_type != "") and not is_on_floor():
 			var direction = 0
 			if Input.is_action_pressed("ui_left"):
@@ -84,6 +85,7 @@ func _physics_process(delta):
 			velocity.x = 0
 		move_and_slide()
 		return
+	speed = velocidade
 
 	if (Input.is_action_pressed("jump")) and is_on_floor():
 		jump_sound.play()
@@ -113,10 +115,11 @@ func _physics_process(delta):
 			energiaMudou.emit()
 		is_sprinting = false
 
-	if direction != 0: #andando
+	if direction != 0 : #andando
 		velocity.x = direction * current_speed
-		sprite.flip_h = direction < 0
-		# Verifique se o 'collision' é válido antes de acessar sua posição
+		if !attack_type == "attack_2":
+			sprite.flip_h = direction < 0
+			# Verifique se o 'collision' é válido antes de acessar sua posição
 		if is_instance_valid(collision):
 			collision.position.x = abs(collision.position.x) * (1 if sprite.flip_h else -1)
 
@@ -214,7 +217,7 @@ func _input(event : InputEvent):
 func _add_child_soundJump():
 	jump_sound = AudioStreamPlayer2D.new()
 	jump_sound.stream = soundJump
-	jump_sound.set_volume_db(-25.0)
+	jump_sound.set_volume_db(-21.0)
 	add_child(jump_sound)
 
 func take_damage(amount: int):
@@ -229,33 +232,44 @@ func take_damage(amount: int):
 		kill()
 
 func check_attack_1(body):
-	if attack_type == "attack_1" and sprite.frame == 4:
-		body.take_damage(damage*1.5)
-		print("Dano no ataque 1, frame ", sprite.frame)
+	if not attacking:
+		print("Ataque Cancelado")
+	else:
+		if attack_type == "attack_1" and sprite.frame == 4:
+			body.take_damage(damage*1.5)
+			print("Dano no ataque 1, frame ", sprite.frame)
 
 func check_attack_2(body):
-	if attack_type == "attack_2":
-		if sprite.frame == 1 or sprite.frame == 4:
-			body.take_damage(damage*0.5)
-			print("Dano no ataque 2, frame ", sprite.frame)
-
+	if not attacking:
+		print("Ataque Cancelado")
+	else:
+		if attack_type == "attack_2":
+			if sprite.frame == 1:
+				body.take_damage(damage*0.5)
+				print("Dano no ataque 2, frame ", sprite.frame)
+			if sprite.frame == 4:
+				body.take_damage(damage*0.5)
+				print("Dano no ataque 2, frame ", sprite.frame)
 func check_attack_3(body):
-	if is_instance_valid(body):
-		if attack_type == "attack_3" and sprite.frame == 2:
-			if is_dashing:
-				body.take_damege(damage*2)
-				print("Dano no ataque 3 com dash, frame", sprite.frame)
-			elif not is_dashing:
-				body.take_damage(damage)
-				print("Dano no ataque 3, frame", sprite.frame)
+	if not attacking:
+		print("Ataque Cancelado")
+	else:
+		if is_instance_valid(body):
+			if attack_type == "attack_3" and (sprite.frame == 2 or sprite.frame == 3):
+				if is_dashing:
+					body.take_damege(damage*2)
+					print("Dano no ataque 3 com dash, frame", sprite.frame)
+				elif not is_dashing:
+					body.take_damage(damage)
+					print("Dano no ataque 3, frame", sprite.frame)
 
-func apply_damage_loop(body: EnemyBase) -> void:	
+func apply_damage_loop(body: EnemyBase) -> void:
 	while enemie_in_zone1 or enemie_in_zone2 or enemie_in_zone3:
 			#print("Preparando para causar dano...")
 			check_attack_1(body)
 			check_attack_2(body)
 			check_attack_3(body)
-			await get_tree().create_timer(0.25).timeout #parâmetro do delay deve estar de acordo com os fps da animação
+			await get_tree().create_timer(0.34).timeout #parâmetro do delay deve estar de acordo com os fps da animação
 
 func take_cura(amount: int):
 	vidaAtual += amount

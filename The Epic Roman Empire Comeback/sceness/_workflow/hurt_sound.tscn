@@ -4,4 +4,5 @@
 
 [node name="HurtSound" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_52s6d")
+volume_db = -5.0
 pitch_scale = 1.1

@@ -4,4 +4,5 @@
 
 [node name="coin_sound" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_6gfax")
-volume_db = -20.0
+volume_db = -21.0
+attenuation = 0.0947324

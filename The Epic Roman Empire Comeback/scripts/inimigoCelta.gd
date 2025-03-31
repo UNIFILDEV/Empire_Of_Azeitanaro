@@ -70,9 +70,9 @@ func _physics_process(delta: float) -> void:
 		patrol()
 	
 	if velocity.x != 0:
-		if player_in_detection_zone:
+		if player_in_detection_zone and !sprite.animation == "hit":
 			velocity.x = 0
-		else:
+		elif !sprite.animation == "hit":
 			velocity.x = speed * direction
 			sprite.play("walk")
 
@@ -129,25 +129,24 @@ func _on_hurt_player_zone_body_entered(body: Node2D) -> void:
 	if body is Player:
 		player_in_damage_zone = true
 		#if can_attack:
-		apply_damage_loop(body)
 
 func apply_damage_loop(body: Player) -> void:
 	while player_in_damage_zone:
 		sprite.play("attack")
 		#print("Preparando para causar dano...")
-		await get_tree().create_timer(0.1).timeout #parâmetro do delay deve estar de acordo com os fps da animação
+		await get_tree().create_timer(0.01).timeout #parâmetro do delay deve estar de acordo com os fps da animação
 		if player_in_damage_zone and is_instance_valid(body) and sprite.frame == 5:
 			body.take_damage(damage)
 			print("Player tomou dano")
-		elif not player_in_damage_zone:  # Sai do loop se o jogador sair da zona
-			break
-			#can_attack = false
-			#atkTimer.start()
+			if not player_in_damage_zone:  # Sai do loop se o jogador sair da zona
+				break
 
 func _on_detection_zone_body_entered(body):
 	if body is Player:
 		player_in_detection_zone = true
 		print("Jogador detectado na DetectionZone")
+		apply_damage_loop(body)
+	
 
 func global_player():
 	if Global.player_instance:

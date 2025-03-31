@@ -125,22 +125,22 @@ region = Rect2(110, 0, 22, 30)
 [sub_resource type="SpriteFrames" id="SpriteFrames_o8ewd"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_dlk1c")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_qcjpr")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_qlvm5")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_elh8u")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cuk0s")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": SubResource("AtlasTexture_xeuip")
 }, {
 "duration": 1.0,
@@ -160,16 +160,16 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
-"duration": 1.8,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ucpqj")
 }, {
-"duration": 1.1,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gb1ar")
 }, {
-"duration": 1.1,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_okobl")
 }, {
 "duration": 1.0,
@@ -229,7 +229,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 13.0
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_th28i"]
@@ -258,9 +258,7 @@ life = 60
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 show_behind_parent = true
 sprite_frames = SubResource("SpriteFrames_o8ewd")
-animation = &"hit"
-frame = 5
-frame_progress = 1.0
+animation = &"attack"
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
 show_behind_parent = true
@@ -277,6 +275,7 @@ shape = SubResource("CircleShape2D_gitdp")
 debug_color = Color(0.885979, 0.216141, 0.628592, 0.42)
 
 [node name="HurtPlayerZone" type="Area2D" parent="."]
+scale = Vector2(0.682083, 0.991055)
 collision_layer = 4
 collision_mask = 3
 
@@ -287,6 +286,7 @@ shape = SubResource("RectangleShape2D_v1yek")
 debug_color = Color(1, 0.00817797, 0.0443347, 0.42)
 
 [node name="DetectionZone" type="Area2D" parent="."]
+scale = Vector2(0.619396, 1)
 collision_layer = 4
 collision_mask = 3
 
