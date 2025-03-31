@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var valor: int = 1
+@onready var coin: AudioStreamPlayer = $Coin
 
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	if body is Player:
@@ -9,6 +10,6 @@ func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 		
 		var tween = create_tween()
 		tween.tween_property(self, "position", position + Vector2(0, -30), 0.5)
-		CoinSound.play()
-		await CoinSound.finished
+		coin.play()
+		await coin.finished
 		queue_free()

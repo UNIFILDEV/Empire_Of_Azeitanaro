@@ -27,6 +27,7 @@ signal energiaMudou
 @onready var attack3box = $Attack3Box
 
 const soundJump = preload("res://sceness/player/sounds/jump.wav")
+@onready var power_up: AudioStreamPlayer = $PowerUp
 
 var attacking = false
 var original_gravity: float = gravity
@@ -275,6 +276,7 @@ func take_cura(amount: int):
 	vidaAtual += amount
 	if vidaAtual > vidaMax:
 		vidaAtual = vidaMax
+	power_up.play()
 	print('pegou vida')
 	vidaMudou.emit()
 	print(vidaAtual)

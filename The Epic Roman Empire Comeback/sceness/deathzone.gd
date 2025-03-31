@@ -2,6 +2,7 @@ extends Area2D
 
 var checkpointManager
 var player
+@onready var hurt: AudioStreamPlayer = $Hurt
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -17,7 +18,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		HurtSound.play()
+		hurt.play()
 		danoVoidPlayer()
 
 func danoVoidPlayer():

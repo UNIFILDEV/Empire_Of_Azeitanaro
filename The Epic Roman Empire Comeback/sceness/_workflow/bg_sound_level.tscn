@@ -4,5 +4,6 @@
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
 stream = ExtResource("1_lw48k")
-volume_db = -16.0
+volume_db = -27.485
+stream_paused = true
 parameters/looping = true
