@@ -41,6 +41,7 @@ var enemie_in_zone2: bool = false
 var enemie_in_zone3: bool = false
 var enemie
 var checkpointManager
+var is_locked: bool = false
 
 func _ready():
 	await get_tree().process_frame
@@ -50,6 +51,12 @@ func _ready():
 	_add_child_soundJump()
 
 func _physics_process(delta):
+	if is_locked:
+		velocity.x = 0
+		velocity.y += (gravity / 1.5) * delta
+		move_and_slide()
+		return
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -84,7 +91,7 @@ func _physics_process(delta):
 
 	if (Input.is_action_just_released("jump")):
 		if velocity.y < 0:
-			velocity.y = -50
+			velocity.y = -100
 
 	var direction = 0
 	if Input.is_action_pressed("ui_left"):
@@ -126,6 +133,8 @@ func _physics_process(delta):
 func update_animation():
 	if attacking:
 		return
+	if sprite.animation == "sword_channel":
+		return
 	if is_on_floor():
 		if velocity.x == 0:
 			if sprite.animation == "hit":
@@ -141,9 +150,12 @@ func update_animation():
 		if velocity.y < 0:
 			if sprite.animation != "jump":
 				sprite.play("jump")
-		else :
+		else:
 			if sprite.animation != "fall":
 				sprite.play("fall")
+	if sprite.animation == "sword_channel":
+		return
+
 
 func check_attack():
 	if Input.is_action_just_pressed("attack_3") and dash_timer <= 0:
@@ -304,5 +316,17 @@ func kill():
 
 func _change_scene_and_play_sound():
 	get_tree().change_scene_to_file("res://sceness/selecao_player/selection_player.tscn")
+	BgSoundLevel.stop()
 	BgSoundMenu.play()
 	
+
+func win_fase():
+	print("Fim de Fase")
+	# Bloquear a movimentação
+	is_locked = true
+	velocity.x = 0
+	sprite.play("sword_channel")
+	if sprite.animation == "sword_channel":
+		await sprite.animation_finished
+		_change_scene_and_play_sound()
+	is_locked = false

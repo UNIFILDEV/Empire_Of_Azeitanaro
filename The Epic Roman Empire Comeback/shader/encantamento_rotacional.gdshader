@@ -7,7 +7,7 @@ uniform vec4 glow_color2 = vec4(0.0, 1.0, 1.0, 1.0); // Cor secundária do brilh
 
 void fragment() {
     vec4 tex_color = texture(TEXTURE, UV);
-    
+
     if (tex_color.a == 0.0) {
         discard; // Mantém transparência
     }

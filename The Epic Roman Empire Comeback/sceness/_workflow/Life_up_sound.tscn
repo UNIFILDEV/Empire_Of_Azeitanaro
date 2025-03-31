@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf0hotuecarhp"]
+
+[ext_resource type="AudioStream" uid="uid://bscr35ojm60b3" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sounds/power_up.wav" id="1_m775i"]
+
+[node name="life_up_sound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_m775i")
+volume_db = -10.0

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvdao6c8y0qoo"]
+
+[ext_resource type="AudioStream" uid="uid://gp20tdm5upfb" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sounds/hurt.wav" id="1_52s6d"]
+
+[node name="HurtSound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_52s6d")
+pitch_scale = 1.1

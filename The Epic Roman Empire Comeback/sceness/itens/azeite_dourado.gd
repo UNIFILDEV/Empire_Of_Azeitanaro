@@ -15,5 +15,5 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	if body is Player:
-		print(body)
+		body.win_fase()
 		queue_free()

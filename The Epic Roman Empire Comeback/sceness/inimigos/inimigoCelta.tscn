@@ -253,7 +253,7 @@ disable_mode = 1
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_hmsau")
-life = 50
+life = 60
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 show_behind_parent = true

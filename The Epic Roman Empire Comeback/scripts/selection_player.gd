@@ -32,6 +32,7 @@ func start_game():
 	#mapa inicial
 	BgSoundMenu.stop()
 	get_tree().change_scene_to_file("res://sceness/level/Level.tscn")
+	BgSoundLevel.play()
 
 
 func _on_voltar_pressed() -> void:

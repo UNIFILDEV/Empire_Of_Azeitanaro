@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://dw6ijg1vt6eim"]
+[gd_scene load_steps=48 format=4 uid="uid://dw6ijg1vt6eim"]
 
 [ext_resource type="Texture2D" uid="uid://dclxmh83k10jm" path="res://assets/assestLombaLomba/Assets/tiles.png" id="1_cby1c"]
 [ext_resource type="Texture2D" uid="uid://y5ubqb4or7ke" path="res://assets/SpritePack/Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="1_nw7ep"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://bgvk154xskvgj" path="res://sceness/inimigos/inimigoCelta.tscn" id="21_rdtnb"]
 [ext_resource type="PackedScene" uid="uid://dklms2uqpm1h2" path="res://sceness/UI/Timer.tscn" id="22_6eajg"]
 [ext_resource type="Script" path="res://sceness/level/checkpoint_manager.gd" id="23_arou3"]
+[ext_resource type="Script" path="res://sceness/itens/moeda.gd" id="23_c4c8l"]
 [ext_resource type="PackedScene" uid="uid://xpjavjnt2rlh" path="res://sceness/checkpoint.tscn" id="24_xwp4g"]
 [ext_resource type="PackedScene" uid="uid://bga777ya4rpen" path="res://sceness/Deathzone.tscn" id="25_8od3r"]
 [ext_resource type="PackedScene" uid="uid://bi7d0qrjcx2y1" path="res://sceness/pouse_menu/pouse_menu.tscn" id="26_gwhvo"]
@@ -516,6 +517,7 @@ position = Vector2(6700, -908)
 
 [node name="PacoteMoedas" parent="." instance=ExtResource("18_a7hxe")]
 position = Vector2(139, -480)
+script = ExtResource("23_c4c8l")
 
 [node name="Moeda" parent="." instance=ExtResource("19_i08f4")]
 position = Vector2(875, -560)
@@ -558,9 +560,11 @@ position = Vector2(2920, -799)
 
 [node name="PacoteMoedas2" parent="." instance=ExtResource("18_a7hxe")]
 position = Vector2(2043, -288)
+script = ExtResource("23_c4c8l")
 
 [node name="PacoteMoedas3" parent="." instance=ExtResource("18_a7hxe")]
 position = Vector2(2043, -384)
+script = ExtResource("23_c4c8l")
 
 [node name="Azeite2" parent="." instance=ExtResource("20_35dyo")]
 position = Vector2(2187, -544)
@@ -603,6 +607,7 @@ position = Vector2(3083, -800)
 
 [node name="PacoteMoedas4" parent="." instance=ExtResource("18_a7hxe")]
 position = Vector2(3371, -336)
+script = ExtResource("23_c4c8l")
 
 [node name="Moeda22" parent="." instance=ExtResource("19_i08f4")]
 position = Vector2(3403, -336)
@@ -708,6 +713,7 @@ position = Vector2(4459, -192)
 
 [node name="PacoteMoedas5" parent="." instance=ExtResource("18_a7hxe")]
 position = Vector2(4795, -80)
+script = ExtResource("23_c4c8l")
 
 [node name="Moeda51" parent="." instance=ExtResource("19_i08f4")]
 position = Vector2(4939, -240)
@@ -842,12 +848,12 @@ position = Vector2(5099, -656)
 position = Vector2(5115, -640)
 
 [node name="Deathzone3" parent="." instance=ExtResource("25_8od3r")]
-position = Vector2(3777, 856)
+position = Vector2(3796, 104)
 scale = Vector2(20, 1)
 
 [node name="player_spawn_point" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(235, -579)
+position = Vector2(235, -577)
 
 [node name="pouse_menu" parent="." instance=ExtResource("26_gwhvo")]
 process_mode = 3

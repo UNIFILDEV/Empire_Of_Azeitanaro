@@ -21,6 +21,10 @@ EventController="*res://scripts/event_controller.gd"
 GameController="*res://scripts/game_controller.gd"
 Global="*res://scripts/global.gd"
 BgSoundMenu="*res://sceness/_workflow/bg_sound_menu.tscn"
+BgSoundLevel="*res://sceness/_workflow/bg_sound_level.tscn"
+CoinSound="*res://sceness/_workflow/coin_sound.tscn"
+LifeUpSound="*res://sceness/_workflow/Life_up_sound.tscn"
+HurtSound="*res://sceness/_workflow/hurt_sound.tscn"
 
 [display]
 

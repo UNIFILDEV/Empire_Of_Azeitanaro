@@ -16,4 +16,6 @@ func _process(delta: float) -> void:
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	if body is Player:
 		GameController.healed(valorCura * 10)
+		body.take_cura(valorCura * 10)
+		LifeUpSound.play()
 		queue_free()

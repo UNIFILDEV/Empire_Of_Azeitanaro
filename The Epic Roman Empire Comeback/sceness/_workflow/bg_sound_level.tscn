@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bas8h8hw8x8fa"]
+
+[ext_resource type="AudioStream" uid="uid://ckrlaadnl2wn0" path="res://trilha sonora/Azeitanaro Trilha Sonora Mapa.mp3" id="1_d3web"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_d3web")
+volume_db = -30.105
+parameters/looping = true

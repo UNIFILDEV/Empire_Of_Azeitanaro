@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdc0mfu4r0gc4"]
+
+[ext_resource type="AudioStream" uid="uid://d3jnjx34en007" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sounds/coin.wav" id="1_6gfax"]
+
+[node name="coin_sound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_6gfax")
+volume_db = -20.0
