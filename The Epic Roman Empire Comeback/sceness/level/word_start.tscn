@@ -171,7 +171,7 @@ process_mode = 3
 
 [node name="inimigoCelta" parent="." instance=ExtResource("11_je21t")]
 position = Vector2(1160, 394)
-life = 100
+life = 1000
 
 [node name="Killzone" parent="." instance=ExtResource("12_bk2js")]
 position = Vector2(-1210, 107)

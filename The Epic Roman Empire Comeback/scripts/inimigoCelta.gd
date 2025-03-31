@@ -12,7 +12,7 @@ var starting_position: Vector2
 var isMovingRight = true
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
-@onready var sprite = $AnimatedSprite
+#@onready var sprite = $AnimatedSprite
 @onready var detection_area: Area2D = $DetectionPatrolZone
 @onready var detection_zone_hitbox: Area2D = $DetectionZone
 @onready var collision: CollisionShape2D = $CollisionBody

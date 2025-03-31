@@ -603,8 +603,7 @@ one_way_collision_margin = 0.0
 show_behind_parent = true
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_7bv1g")
-animation = &"walk"
-frame_progress = 0.192426
+animation = &"attack_3"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.6, 1.6)
