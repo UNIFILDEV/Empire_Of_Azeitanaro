@@ -9,7 +9,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_seeru"]
 shader = ExtResource("1_k5s6d")
-shader_parameter/lod = 1.0
+shader_parameter/lod = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kybkt"]
 shader = ExtResource("2_pf0w5")
@@ -17,7 +17,7 @@ shader_parameter/progress = 0.0
 shader_parameter/loud = 1.0
 
 [sub_resource type="Animation" id="Animation_xc5kn"]
-length = 3.0
+length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -25,7 +25,7 @@ tracks/0/path = NodePath("bg_blur/bg_transition/Voltar/voltar:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 2.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -37,7 +37,7 @@ tracks/1/path = NodePath("bg_blur/bg_transition/Creditos:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.43333, 2.96667),
+"times": PackedFloat32Array(1.3, 2.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 486), Vector2(0, -889)]
@@ -49,7 +49,7 @@ tracks/2/path = NodePath("bg_blur/bg_transition/Você Venceu:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.7, 1.86667),
+"times": PackedFloat32Array(0.5, 1.43333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -61,6 +61,18 @@ tracks/3/path = NodePath("bg_blur/bg_transition:material:shader_parameter/progre
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("bg_blur:material:shader_parameter/lod")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -186,16 +198,17 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 486.0
-offset_bottom = 963.0
+offset_bottom = 1003.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Créditos" type="Label" parent="bg_blur/bg_transition/Creditos"]
 layout_mode = 2
 theme = ExtResource("5_abnle")
-text = "Empire Of Azeitanaro, agradece !!
+text = "Olive Studios ®
 
-				.
+ Agradece!
+.
 .
 .
 
@@ -216,7 +229,7 @@ Supervisores:
 Tania Camila Kochmanscky Goulart
 
 
-Olive Studios ®"
+Empire Of Azeitanaro"
 label_settings = ExtResource("5_634w1")
 horizontal_alignment = 1
 vertical_alignment = 2

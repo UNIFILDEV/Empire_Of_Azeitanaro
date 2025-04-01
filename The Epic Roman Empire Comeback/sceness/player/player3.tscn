@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://y2cnlapnfjk5"]
+[gd_scene load_steps=91 format=3 uid="uid://y2cnlapnfjk5"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1b8q4"]
 [ext_resource type="Texture2D" uid="uid://nsokijdr7o30" path="res://assets/player/Sombra/Attack 1.png" id="2_si516"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cg81um645m1pt" path="res://assets/player/Sombra/Roll.png" id="9_ecopp"]
 [ext_resource type="Texture2D" uid="uid://dsg6ded8ys6sd" path="res://assets/player/Sombra/Run.png" id="10_g8kju"]
 [ext_resource type="Texture2D" uid="uid://b0nba4kcdbc6" path="res://assets/player/Sombra/Walk.png" id="11_ie6io"]
+[ext_resource type="Texture2D" uid="uid://bqavr0tva0doo" path="res://assets/player/Sombra/Sword Channel.png" id="11_pdec5"]
 [ext_resource type="AudioStream" uid="uid://u64s01lsvw6j" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sounds/tap.wav" id="12_5vpqi"]
 [ext_resource type="AudioStream" uid="uid://bscr35ojm60b3" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sounds/power_up.wav" id="13_03bx4"]
 [ext_resource type="PackedScene" uid="uid://cncligmko1yf1" path="res://sceness/transitions/transition_end_game.tscn" id="14_ji4gf"]
@@ -257,6 +258,26 @@ region = Rect2(88, 0, 22, 30)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1qlbe"]
 atlas = ExtResource("10_g8kju")
 region = Rect2(110, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anff2"]
+atlas = ExtResource("11_pdec5")
+region = Rect2(0, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcje7"]
+atlas = ExtResource("11_pdec5")
+region = Rect2(22, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn0vb"]
+atlas = ExtResource("11_pdec5")
+region = Rect2(44, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_meblb"]
+atlas = ExtResource("11_pdec5")
+region = Rect2(66, 0, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r1yv"]
+atlas = ExtResource("11_pdec5")
+region = Rect2(88, 0, 22, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pj7he"]
 atlas = ExtResource("11_ie6io")
@@ -508,6 +529,26 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anff2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcje7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pn0vb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_meblb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r1yv")
+}],
+"loop": true,
+"name": &"sword_channel",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,

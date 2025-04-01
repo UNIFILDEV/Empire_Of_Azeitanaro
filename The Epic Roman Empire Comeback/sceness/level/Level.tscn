@@ -854,7 +854,7 @@ scale = Vector2(20, 1)
 
 [node name="player_spawn_point" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(6619, -891)
+position = Vector2(235, -574)
 
 [node name="pouse_menu" parent="." instance=ExtResource("26_gwhvo")]
 process_mode = 3
