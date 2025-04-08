@@ -5,10 +5,10 @@ uniform float loud : hint_range(0.0, 1.0) = 0.0; // Controle blur para transiç�
 
 void fragment() {
     vec2 uv = SCREEN_UV;
-    vec2 center = vec2(0.5, 0.5); 
+    vec2 center = vec2(0.5, 0.5);
     float radius = mix(1.2, 0.0, progress);
     float dist = length(uv - center);
-    float mask = smoothstep(radius - 0.02, radius, dist); 
+    float mask = smoothstep(radius - 0.02, radius, dist);
 
     // Aplicação do loud (efeito blur)
     float loud_effect = mix(0.0, 1.0, loud);
