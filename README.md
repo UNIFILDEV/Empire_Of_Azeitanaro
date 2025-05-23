@@ -15,27 +15,74 @@
 
 ---
 
-## 🚀 Como Fazer o Deploy no Oracle Cloud
+# 🚀 Como Fazer o Deploy do Jogo Godot na Oracle Cloud com NGINX
 
-### Pré-requisitos
+## Pré-requisitos
 - Conta na **Oracle Cloud**.
-- Familiaridade com o serviço **Object Storage** ou **Compute Instance** (VM).
+- Instância criada no serviço **Compute Instance (VM)** com sistema operacional Linux (ex: Ubuntu).
+- Porta **80** liberada no **Security List** da sua VCN.
+- Acesso via SSH à instância.
 
-### Passo a Passo
-1. **Exportar o Jogo:**
-   - No **Godot Engine**, configure a exportação para **HTML5**.
-   - Gere os arquivos necessários: `index.html`, `game.wasm`, `game.js`, `game.pck`.
 
-2. **Configurar o Bucket no Object Storage:**
-   - Acesse o painel da **Oracle Cloud** e crie um **Bucket público** no serviço **Object Storage**.
-   - Faça o upload dos arquivos exportados (`index.html`, `game.wasm`, etc.) para o bucket.
+### 1. Exportar o Jogo
+- No **Godot Engine**, configure a exportação para **HTML5**.
+- Gere os arquivos:  
+  - `index.html`  
+  - `game.wasm`  
+  - `game.js`  
+  - `game.pck`
 
-3. **Configurar o Ponto de Entrada:**
-   - No Bucket, configure o **index.html** como o arquivo padrão para requisições.
 
-4. **Testar o Jogo:**
-   - Acesse a URL pública gerada pelo bucket no navegador.
-   - O jogo deve carregar e funcionar corretamente.
+### 2. Conectar na Instância
+Conecte-se via SSH com o comando:
+
+```bash
+ssh -i caminho/para/sua-chave.pem ubuntu@IP_DA_INSTANCIA
+```
+
+
+### 3. Instalar o NGINX
+Execute:
+
+```bash
+sudo apt update
+sudo apt install nginx -y
+```
+
+### 4. Enviar os Arquivos do Jogo
+Do seu computador, envie os arquivos usando `scp`:
+
+```bash
+scp -i caminho/para/sua-chave.pem index.html game.* ubuntu@IP_DA_INSTANCIA:/tmp
+```
+
+Depois, mova para a pasta pública do NGINX:
+
+```bash
+sudo mv /tmp/index.html /var/www/html/
+sudo mv /tmp/game.* /var/www/html/
+```
+
+### 5. Verificar Permissões
+
+```bash
+sudo chown www-data:www-data /var/www/html/*
+sudo chmod 644 /var/www/html/*
+```
+
+### 6. Reiniciar o NGINX
+
+```bash
+sudo systemctl restart nginx
+```
+
+### 7. Testar no Navegador
+
+Abra o navegador e acesse:
+
+```
+http://IP_DA_INSTANCIA
+```
 
 ---
 
