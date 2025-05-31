@@ -309,8 +309,8 @@ theme = ExtResource("6_l2qve")
 text = "
 WASD + SPACE: ANDAR
 SHIFT: CORRER
-MOUSE LEFT: ATAQUE LENTO
-MOUSE RIGHT: ATAQUE RAPIDO
+J: ATAQUE LENTO
+K: ATAQUE RAPIDO
 SHIFT + ATTACK: ATAQUE COM DASH"
 label_settings = ExtResource("10_lxwd4")
 horizontal_alignment = 1
